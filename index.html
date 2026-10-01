@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IVONE.PHOTO</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: #ffffff;
+    color: #111;
+    line-height: 1.6;
+  }
+  
+  header {
+    padding: 60px 40px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+  }
+  
+  header h1 {
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: 8px;
+    margin-bottom: 10px;
+  }
+  
+  header p {
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: #888;
+    text-transform: uppercase;
+  }
+  
+  nav {
+    text-align: center;
+    padding: 30px 0;
+  }
+  
+  nav a {
+    color: #111;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  
+  nav a:hover { opacity: 0.5; }
+  
+  .intro {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+  }
+  
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .gallery img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.5s;
+    cursor: pointer;
+  }
+  
+  .gallery img:hover { transform: scale(1.03); }
+  
+  footer {
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #888;
+    border-top: 1px solid #eee;
+  }
+  
+  footer a { color: #111; text-decoration: none; }
+  
+  @media (max-width: 768px) {
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+    header h1 { font-size: 28px; letter-spacing: 4px; }
+  }
+  
+  @media (max-width: 480px) {
+    .gallery { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>IVONE.PHOTO</h1>
+  <p>Photography</p>
+</header>
+
+<nav>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section class="intro" id="about">
+  <p>Capturing moments, telling stories. Welcome to my photography portfolio.</p>
+</section>
+
+<section class="gallery" id="portfolio">
+  <img src="https://picsum.photos/seed/1/800/800" alt="Photo 1">
+  <img src="https://picsum.photos/seed/2/800/800" alt="Photo 2">
+  <img src="https://picsum.photos/seed/3/800/800" alt="Photo 3">
+  <img src="https://picsum.photos/seed/4/800/800" alt="Photo 4">
+  <img src="https://picsum.photos/seed/5/800/800" alt="Photo 5">
+  <img src="https://picsum.photos/seed/6/800/800" alt="Photo 6">
+  <img src="https://picsum.photos/seed/7/800/800" alt="Photo 7">
+  <img src="https://picsum.photos/seed/8/800/800" alt="Photo 8">
+  <img src="https://picsum.photos/seed/9/800/800" alt="Photo 9">
+</section>
+
+<footer id="contact">
+  <p>© 2026 IVONE.PHOTO — <a href="mailto:info@ivone.photo">info@ivone.photo</a></p>
+</footer>
+
+</body>
+</html>
