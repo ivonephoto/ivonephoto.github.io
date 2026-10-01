@@ -1,7 +1,7 @@
 <!-- ============================================
      IVONE PHOTO - Photography Portfolio
      Autor: Ivona Šarić
-     Verzija: 7.0 (finalna)
+     Verzija: 8.0 (finalna)
      ============================================ -->
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +38,7 @@ h1, h2, h3, .hero-title {
 }
 
 /* ============================================
-   SCROLL REVEAL - elegantna animacija
+   SCROLL REVEAL
    ============================================ */
 .reveal {
   opacity: 0;
@@ -52,7 +52,6 @@ h1, h2, h3, .hero-title {
   transform: translateY(0);
 }
 
-/* Stagger - postupno pojavljivanje elemenata unutar sekcije */
 .reveal-stagger > * {
   opacity: 0;
   transform: translateY(40px);
@@ -69,7 +68,7 @@ h1, h2, h3, .hero-title {
 .reveal-stagger.visible > *:nth-child(8) { transition-delay: 1.15s; opacity: 1; transform: translateY(0); }
 
 /* ============================================
-   INSTAGRAM IKONA - gore lijevo
+   INSTAGRAM IKONA
    ============================================ */
 .instagram-icon {
   position: fixed;
@@ -97,7 +96,7 @@ h1, h2, h3, .hero-title {
 }
 
 /* ============================================
-   PREBACIVANJE JEZIKA - gore desno
+   PREBACIVANJE JEZIKA
    ============================================ */
 .lang-switch {
   position: fixed;
@@ -231,13 +230,16 @@ nav.sticky {
 nav ul {
   list-style: none;
   display: inline-flex;
-  gap: 32px;
+  gap: 28px;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 20px;
 }
 nav a, nav .nav-item {
   color: #111;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 3px;
   text-transform: uppercase;
   cursor: pointer;
@@ -278,7 +280,7 @@ nav a:hover, nav .nav-item:hover { opacity: 0.5; }
 }
 
 /* ============================================
-   SEKCIJE - opći stilovi
+   SEKCIJE
    ============================================ */
 section { padding: 100px 20px; }
 .section-title {
@@ -341,7 +343,7 @@ section { padding: 100px 20px; }
 .portfolio-category:last-child { margin-bottom: 0; }
 .portfolio-category-header {
   text-align: center;
-  max-width: 750px;
+  max-width: 800px;
   margin: 0 auto 50px;
 }
 .portfolio-category h3 {
@@ -379,27 +381,27 @@ section { padding: 100px 20px; }
 .gallery img:hover { transform: scale(1.03); opacity: 0.9; }
 
 /* ============================================
-   INVESTMENT
+   COLLECTIONS
    ============================================ */
-.investment { background: #fafafa; }
-.investment-grid {
+.collections { background: #fafafa; }
+.collections-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
   max-width: 1200px;
   margin: 0 auto 60px;
 }
-.invest-card {
+.collection-card {
   background: #fff;
   padding: 40px 30px;
   border-top: 2px solid #111;
   transition: transform 0.4s, box-shadow 0.4s;
 }
-.invest-card:hover {
+.collection-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 40px rgba(0,0,0,0.06);
 }
-.invest-category {
+.collection-category {
   font-size: 13px;
   letter-spacing: 4px;
   text-transform: uppercase;
@@ -407,37 +409,37 @@ section { padding: 100px 20px; }
   margin-bottom: 8px;
   font-weight: 500;
 }
-.invest-desc {
-  font-size: 12px;
+.collection-desc {
+  font-size: 11px;
   color: #999;
   letter-spacing: 1px;
   margin-bottom: 25px;
   text-transform: uppercase;
 }
-.invest-package {
+.collection-package {
   padding: 18px 0;
   border-top: 1px solid #f0f0f0;
 }
-.invest-package:first-of-type { border-top: none; padding-top: 0; }
-.invest-package-name {
+.collection-package:first-of-type { border-top: none; padding-top: 0; }
+.collection-package-name {
   font-size: 14px;
   font-weight: 500;
   color: #111;
   margin-bottom: 5px;
 }
-.invest-package-details {
+.collection-package-details {
   font-size: 13px;
   color: #777;
   line-height: 1.7;
   margin-bottom: 10px;
 }
-.invest-price {
+.collection-price {
   font-size: 17px;
   color: #111;
   font-family: Georgia, serif;
   font-style: italic;
 }
-.invest-note {
+.collections-note {
   max-width: 700px;
   margin: 0 auto;
   text-align: center;
@@ -451,7 +453,7 @@ section { padding: 100px 20px; }
    PHOTO BOOKS
    ============================================ */
 .books-content {
-  max-width: 750px;
+  max-width: 780px;
   margin: 0 auto 50px;
   text-align: center;
   font-size: 15px;
@@ -459,16 +461,12 @@ section { padding: 100px 20px; }
   line-height: 1.95;
 }
 .books-content p + p { margin-top: 20px; }
-.books-note {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 14px 30px;
-  border: 1px solid #ddd;
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
+.books-elegant {
+  margin-top: 30px;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 15px;
   color: #666;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 /* ============================================
@@ -821,7 +819,7 @@ footer a:hover { opacity: 0.5; }
    RESPONSIVE
    ============================================ */
 @media (max-width: 900px) {
-  .investment-grid { grid-template-columns: repeat(2, 1fr); }
+  .collections-grid { grid-template-columns: repeat(2, 1fr); }
   .testimonials-grid { grid-template-columns: 1fr; max-width: 500px; }
 }
 
@@ -829,13 +827,14 @@ footer a:hover { opacity: 0.5; }
   .hero-title { font-size: 36px; }
   .hero-small { font-size: 11px; letter-spacing: 6px; }
   .gallery { grid-template-columns: repeat(2, 1fr); }
+  .gallery img { height: 260px; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
   .about-text { text-align: center; }
   .lang-switch { top: 15px; right: 15px; padding: 4px 8px; }
   .instagram-icon { top: 15px; left: 15px; }
   .instagram-icon svg { width: 20px; height: 20px; }
-  nav ul { gap: 12px; flex-wrap: wrap; justify-content: center; padding: 0 10px; }
-  nav a, nav .nav-item { font-size: 10px; letter-spacing: 2px; }
+  nav ul { gap: 12px; }
+  nav a, nav .nav-item { font-size: 9px; letter-spacing: 2px; }
   .dropdown-menu { min-width: 180px; }
   .contact-links { flex-direction: column; align-items: center; gap: 12px; }
   #back-to-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
@@ -853,7 +852,7 @@ footer a:hover { opacity: 0.5; }
   .gallery { grid-template-columns: 1fr; }
   .hero-title { font-size: 28px; }
   .hero-small { letter-spacing: 4px; }
-  .investment-grid { grid-template-columns: 1fr; }
+  .collections-grid { grid-template-columns: 1fr; }
   .about-grid { gap: 30px; }
 }
 </style>
@@ -939,12 +938,13 @@ footer a:hover { opacity: 0.5; }
         <a href="#portraits" data-en="Portraits" data-hr="Portreti">Portraits</a>
         <a href="#maternity" data-en="Maternity" data-hr="Trudnoća">Maternity</a>
         <a href="#newborn" data-en="Newborn" data-hr="Novorođenčad">Newborn</a>
-        <a href="#weddings" data-en="Court Weddings" data-hr="Sudbena vjenčanja">Court Weddings</a>
         <a href="#couples" data-en="Couples" data-hr="Parovi">Couples</a>
+        <a href="#weddings" data-en="Court Weddings" data-hr="Sudbena vjenčanja">Court Weddings</a>
+        <a href="#baptism" data-en="Baptism" data-hr="Krštenje">Baptism</a>
       </div>
     </li>
     <li><a href="#about" data-en="About" data-hr="O meni">About</a></li>
-    <li><a href="#investment" data-en="Investment" data-hr="Cjenik">Investment</a></li>
+    <li><a href="#collections" data-en="Collections" data-hr="Kolekcije">Collections</a></li>
     <li><a href="#books" data-en="Books" data-hr="Knjige">Books</a></li>
     <li><a href="#ugc" data-en="UGC & Brands" data-hr="UGC & Brendovi">UGC & Brands</a></li>
     <li><a href="#contact" data-en="Contact" data-hr="Kontakt">Contact</a></li>
@@ -1060,25 +1060,6 @@ footer a:hover { opacity: 0.5; }
 </section>
 
 <!-- ============================================
-     PORTFOLIO - COURT WEDDINGS
-     ============================================ -->
-<section class="portfolio-category reveal" id="weddings">
-  <div class="portfolio-category-header">
-    <h3 data-en="Court Weddings" data-hr="Sudbena vjenčanja">Court Weddings</h3>
-    <p class="portfolio-category-desc"
-       data-en='"Love does not need a grand celebration to be extraordinary. Civil weddings are intimate, honest, and deeply personal - just you, your person, and the promise you are making. I will be there to capture every glance, every tear, every quiet moment."'
-       data-hr='"Ljubav ne treba veliku proslavu da bi bila posebna. Sudbena vjenčanja su intimna, iskrena i duboko vaša - samo ti, tvoja osoba i obećanje koje dajete. Bit ću tu da sačuvam svaki pogled, svaku suzu, svaki tihi trenutak."'>
-      "Love does not need a grand celebration to be extraordinary."
-    </p>
-  </div>
-  <div class="gallery reveal-stagger">
-    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80" alt="Wedding 1" class="lightbox-img">
-    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80" alt="Wedding 2" class="lightbox-img">
-    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=80" alt="Wedding 3" class="lightbox-img">
-  </div>
-</section>
-
-<!-- ============================================
      PORTFOLIO - COUPLES
      ============================================ -->
 <section class="portfolio-category reveal" id="couples">
@@ -1098,92 +1079,157 @@ footer a:hover { opacity: 0.5; }
 </section>
 
 <!-- ============================================
-     INVESTMENT
+     PORTFOLIO - COURT WEDDINGS
      ============================================ -->
-<section class="investment reveal" id="investment">
-  <h2 class="section-title" data-en="Investment" data-hr="Cjenik">Investment</h2>
-  <p class="section-subtitle" data-en="Choose the session that feels right for you" data-hr="Odaberi sesiju koja ti najbolje odgovara">Choose the session that feels right for you</p>
+<section class="portfolio-category reveal" id="weddings">
+  <div class="portfolio-category-header">
+    <h3 data-en="Court Weddings" data-hr="Sudbena vjenčanja">Court Weddings</h3>
+    <p class="portfolio-category-desc"
+       data-en='"Love does not need a grand celebration to be extraordinary. Civil weddings are intimate, honest, and deeply personal - just you, your person, and the promise you are making. I will be there to capture every glance, every tear, every quiet moment."'
+       data-hr='"Ljubav ne treba veliku proslavu da bi bila posebna. Sudbena vjenčanja su intimna, iskrena i duboko vaša - samo ti, tvoja osoba i obećanje koje dajete. Bit ću tu da sačuvam svaki pogled, svaku suzu, svaki tihi trenutak."'>
+      "Love does not need a grand celebration to be extraordinary."
+    </p>
+  </div>
+  <div class="gallery reveal-stagger">
+    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80" alt="Wedding 1" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80" alt="Wedding 2" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=80" alt="Wedding 3" class="lightbox-img">
+  </div>
+</section>
 
-  <div class="investment-grid reveal-stagger">
+<!-- ============================================
+     PORTFOLIO - BAPTISM
+     ============================================ -->
+<section class="portfolio-category reveal" id="baptism">
+  <div class="portfolio-category-header">
+    <h3 data-en="Baptism" data-hr="Krštenje">Baptism</h3>
+    <p class="portfolio-category-desc"
+       data-en='"A baptism is a beginning - a day of faith, family, and quiet celebration. Tiny hands held in prayer, generations gathered in love, and a promise made for a lifetime. I will be there to capture every tender moment, from the first prayer to the last embrace."'
+       data-hr='"Krštenje je početak - dan vjere, obitelji i tihe proslave. Malene ruke sklopljene u molitvi, generacije okupljene u ljubavi i obećanje za cijeli život. Bit ću tu da sačuvam svaki nježni trenutak, od prve molitve do posljednjeg zagrljaja."'>
+      "A baptism is a beginning - a day of faith, family, and quiet celebration."
+    </p>
+  </div>
+  <div class="gallery reveal-stagger">
+    <img src="https://images.unsplash.com/photo-1544427920-c49ccfb85579?w=800&q=80" alt="Baptism 1" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?w=800&q=80" alt="Baptism 2" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1595397221490-9dd5a0c24b30?w=800&q=80" alt="Baptism 3" class="lightbox-img">
+  </div>
+</section>
 
-    <div class="invest-card">
-      <div class="invest-category" data-en="Family" data-hr="Obitelj">Family</div>
-      <div class="invest-desc" data-en="Family Sessions" data-hr="Obiteljska fotografiranja">Family Sessions</div>
-      <div class="invest-package">
-        <div class="invest-package-name" data-en="Mini Session" data-hr="Mini sesija">Mini Session</div>
-        <div class="invest-package-details" data-en="30 min - 15 edited photos - online gallery" data-hr="30 min - 15 obrađenih fotografija - online galerija">30 min - 15 edited photos - online gallery</div>
-        <div class="invest-price">150 KM</div>
+<!-- ============================================
+     COLLECTIONS
+     ============================================ -->
+<section class="collections reveal" id="collections">
+  <h2 class="section-title" data-en="Collections" data-hr="Kolekcije">Collections</h2>
+  <p class="section-subtitle" data-en="Every session is designed to feel effortless, warm, and entirely yours." data-hr="Svaka sesija je osmišljena da bude bez napora, topla i potpuno vaša.">Every session is designed to feel effortless, warm, and entirely yours.</p>
+
+  <div class="collections-grid reveal-stagger">
+
+    <!-- FAMILY -->
+    <div class="collection-card">
+      <div class="collection-category" data-en="Family" data-hr="Obitelj">Family</div>
+      <div class="collection-desc" data-en="Family Sessions" data-hr="Obiteljska fotografiranja">Family Sessions</div>
+      <div class="collection-package">
+        <div class="collection-package-name" data-en="Mini Session" data-hr="Mini sesija">Mini Session</div>
+        <div class="collection-package-details" data-en="30-45 min - 100 edited photos - online gallery" data-hr="30-45 min - 100 obrađenih fotografija - online galerija">30-45 min - 100 edited photos - online gallery</div>
+        <div class="collection-price">100 KM</div>
       </div>
-      <div class="invest-package">
-        <div class="invest-package-name" data-en="Full Session" data-hr="Full sesija">Full Session</div>
-        <div class="invest-package-details" data-en="60-90 min - 40+ edited photos - online gallery" data-hr="60-90 min - 40+ obrađenih fotografija - online galerija">60-90 min - 40+ edited photos - online gallery</div>
-        <div class="invest-price">220 KM</div>
+      <div class="collection-package">
+        <div class="collection-package-name" data-en="Full Session" data-hr="Full sesija">Full Session</div>
+        <div class="collection-package-details" data-en="60-90 min - 200 edited photos - online gallery" data-hr="60-90 min - 200 obrađenih fotografija - online galerija">60-90 min - 200 edited photos - online gallery</div>
+        <div class="collection-price">150 KM</div>
       </div>
     </div>
 
-    <div class="invest-card">
-      <div class="invest-category" data-en="Portraits" data-hr="Portreti">Portraits</div>
-      <div class="invest-desc" data-en="Individual Portraits" data-hr="Individualni portreti">Individual Portraits</div>
-      <div class="invest-package">
-        <div class="invest-package-name" data-en="Mini Session" data-hr="Mini sesija">Mini Session</div>
-        <div class="invest-package-details" data-en="30 min - 10 edited photos" data-hr="30 min - 10 obrađenih fotografija">30 min - 10 edited photos</div>
-        <div class="invest-price">100 KM</div>
+    <!-- PORTRAITS -->
+    <div class="collection-card">
+      <div class="collection-category" data-en="Portraits" data-hr="Portreti">Portraits</div>
+      <div class="collection-desc" data-en="Individual Portraits" data-hr="Individualni portreti">Individual Portraits</div>
+      <div class="collection-package">
+        <div class="collection-package-name" data-en="Mini Session" data-hr="Mini sesija">Mini Session</div>
+        <div class="collection-package-details" data-en="20-30 min - 50 edited photos - online gallery" data-hr="20-30 min - 50 obrađenih fotografija - online galerija">20-30 min - 50 edited photos - online gallery</div>
+        <div class="collection-price">50 KM</div>
       </div>
-      <div class="invest-package">
-        <div class="invest-package-name" data-en="Full Session" data-hr="Full sesija">Full Session</div>
-        <div class="invest-package-details" data-en="60 min - 25 edited photos - online gallery" data-hr="60 min - 25 obrađenih fotografija - online galerija">60 min - 25 edited photos - online gallery</div>
-        <div class="invest-price">180 KM</div>
-      </div>
-    </div>
-
-    <div class="invest-card">
-      <div class="invest-category" data-en="Maternity" data-hr="Trudnoća">Maternity</div>
-      <div class="invest-desc" data-en="Maternity Session" data-hr="Trudničko fotografiranje">Maternity Session</div>
-      <div class="invest-package">
-        <div class="invest-package-name" data-en="Maternity Session" data-hr="Trudnička sesija">Maternity Session</div>
-        <div class="invest-package-details" data-en="Location or outdoor - up to 90 min - 25 edited photos - private online gallery" data-hr="Lokacija ili priroda - do 90 min - 25 obrađenih fotografija - privatna online galerija">Location or outdoor - up to 90 min - 25 edited photos - private online gallery</div>
-        <div class="invest-price">200 KM</div>
+      <div class="collection-package">
+        <div class="collection-package-name" data-en="Full Session" data-hr="Full sesija">Full Session</div>
+        <div class="collection-package-details" data-en="50-60 min - 100 edited photos - online gallery" data-hr="50-60 min - 100 obrađenih fotografija - online galerija">50-60 min - 100 edited photos - online gallery</div>
+        <div class="collection-price">80 KM</div>
       </div>
     </div>
 
-    <div class="invest-card">
-      <div class="invest-category" data-en="Newborn" data-hr="Novorođenčad">Newborn</div>
-      <div class="invest-desc" data-en="Newborn Session" data-hr="Fotografiranje novorođenčadi">Newborn Session</div>
-      <div class="invest-package">
-        <div class="invest-package-name" data-en="Newborn Session" data-hr="Newborn sesija">Newborn Session</div>
-        <div class="invest-package-details" data-en="Relaxed in-home session - 1.5-2.5 h - 30 edited photos - family and individual shots included" data-hr="Opušteno u domu - 1.5-2.5 h - 30 obrađenih fotografija - uključeni obiteljski i individualni kadrovi">Relaxed in-home session - 1.5-2.5 h - 30 edited photos - family and individual shots included</div>
-        <div class="invest-price">250 KM</div>
+    <!-- MATERNITY -->
+    <div class="collection-card">
+      <div class="collection-category" data-en="Maternity" data-hr="Trudnoća">Maternity</div>
+      <div class="collection-desc" data-en="Maternity Session" data-hr="Trudničko fotografiranje">Maternity Session</div>
+      <div class="collection-package">
+        <div class="collection-package-name" data-en="Maternity Session" data-hr="Trudnička sesija">Maternity Session</div>
+        <div class="collection-package-details" data-en="Location or outdoor - up to 60 min - 125 edited photos - private online gallery" data-hr="Lokacija ili priroda - do 60 min - 125 obrađenih fotografija - privatna online galerija">Location or outdoor - up to 60 min - 125 edited photos - private online gallery</div>
+        <div class="collection-price">100 KM</div>
       </div>
     </div>
 
-    <div class="invest-card">
-      <div class="invest-category" data-en="Couples" data-hr="Parovi">Couples</div>
-      <div class="invest-desc" data-en="Couples Session" data-hr="Fotografiranje parova">Couples Session</div>
-      <div class="invest-package">
-        <div class="invest-package-name" data-en="Mini Session" data-hr="Mini sesija">Mini Session</div>
-        <div class="invest-package-details" data-en="45 min - 15 edited photos" data-hr="45 min - 15 obrađenih fotografija">45 min - 15 edited photos</div>
-        <div class="invest-price">130 KM</div>
-      </div>
-      <div class="invest-package">
-        <div class="invest-package-name" data-en="Full Session" data-hr="Full sesija">Full Session</div>
-        <div class="invest-package-details" data-en="90 min - 35 edited photos - online gallery" data-hr="90 min - 35 obrađenih fotografija - online galerija">90 min - 35 edited photos - online gallery</div>
-        <div class="invest-price">200 KM</div>
+    <!-- NEWBORN -->
+    <div class="collection-card">
+      <div class="collection-category" data-en="Newborn" data-hr="Novorođenčad">Newborn</div>
+      <div class="collection-desc" data-en="Newborn Session" data-hr="Fotografiranje novorođenčadi">Newborn Session</div>
+      <div class="collection-package">
+        <div class="collection-package-name" data-en="Newborn Session" data-hr="Newborn sesija">Newborn Session</div>
+        <div class="collection-package-details" data-en="Relaxed in-home session - 1.5-2.5 h - 150 edited photos - family and individual shots included" data-hr="Opušteno u domu - 1.5-2.5 h - 150 obrađenih fotografija - uključeni obiteljski i individualni kadrovi">Relaxed in-home session - 1.5-2.5 h - 150 edited photos - family and individual shots included</div>
+        <div class="collection-price">100 KM</div>
       </div>
     </div>
 
-    <div class="invest-card">
-      <div class="invest-category" data-en="Civil Weddings" data-hr="Sudbena vjenčanja">Civil Weddings</div>
-      <div class="invest-desc" data-en="Intimate Court Weddings" data-hr="Intimna sudbena vjenčanja">Intimate Court Weddings</div>
-      <div class="invest-package">
-        <div class="invest-package-name" data-en="Civil Wedding" data-hr="Sudbeno vjenčanje">Civil Wedding</div>
-        <div class="invest-package-details" data-en="Ceremony + post-ceremony - up to 1.5 h - 100+ edited photos - online gallery" data-hr="Ceremonija + nakon ceremonije - do 1.5 h - 100+ obrađenih fotografija - online galerija">Ceremony + post-ceremony - up to 1.5 h - 100+ edited photos - online gallery</div>
-        <div class="invest-price">300 KM</div>
+    <!-- COUPLES -->
+    <div class="collection-card">
+      <div class="collection-category" data-en="Couples" data-hr="Parovi">Couples</div>
+      <div class="collection-desc" data-en="Couples Session" data-hr="Fotografiranje parova">Couples Session</div>
+      <div class="collection-package">
+        <div class="collection-package-name" data-en="Mini Session" data-hr="Mini sesija">Mini Session</div>
+        <div class="collection-package-details" data-en="45 min - 100 edited photos" data-hr="45 min - 100 obrađenih fotografija">45 min - 100 edited photos</div>
+        <div class="collection-price">80 KM</div>
+      </div>
+      <div class="collection-package">
+        <div class="collection-package-name" data-en="Full Session" data-hr="Full sesija">Full Session</div>
+        <div class="collection-package-details" data-en="90 min - 150 edited photos - online gallery" data-hr="90 min - 150 obrađenih fotografija - online galerija">90 min - 150 edited photos - online gallery</div>
+        <div class="collection-price">140 KM</div>
+      </div>
+    </div>
+
+    <!-- CIVIL WEDDINGS -->
+    <div class="collection-card">
+      <div class="collection-category" data-en="Civil Weddings" data-hr="Sudbena vjenčanja">Civil Weddings</div>
+      <div class="collection-desc" data-en="Intimate Court Weddings" data-hr="Intimna sudbena vjenčanja">Intimate Court Weddings</div>
+      <div class="collection-package">
+        <div class="collection-package-name" data-en="Civil Wedding" data-hr="Sudbeno vjenčanje">Civil Wedding</div>
+        <div class="collection-package-details" data-en="Ceremony + post-ceremony - up to 1.5 h - 100+ edited photos - online gallery" data-hr="Ceremonija + nakon ceremonije - do 1.5 h - 100+ obrađenih fotografija - online galerija">Ceremony + post-ceremony - up to 1.5 h - 100+ edited photos - online gallery</div>
+        <div class="collection-price">140 KM</div>
+      </div>
+    </div>
+
+    <!-- BAPTISM -->
+    <div class="collection-card">
+      <div class="collection-category" data-en="Baptism" data-hr="Krštenje">Baptism</div>
+      <div class="collection-desc" data-en="Baptism Sessions" data-hr="Fotografiranje krštenja">Baptism Sessions</div>
+      <div class="collection-package">
+        <div class="collection-package-name" data-en="Church Only" data-hr="Samo crkva">Church Only</div>
+        <div class="collection-package-details" data-en="Ceremony in church - 150 edited photos - online gallery" data-hr="Ceremonija u crkvi - 150 obrađenih fotografija - online galerija">Ceremony in church - 150 edited photos - online gallery</div>
+        <div class="collection-price">100 KM</div>
+      </div>
+      <div class="collection-package">
+        <div class="collection-package-name" data-en="Home + Church" data-hr="Kuća + crkva">Home + Church</div>
+        <div class="collection-package-details" data-en="1h at your home before church + ceremony - 150 edited photos - online gallery" data-hr="1h kod vas kući prije crkve + ceremonija - 150 obrađenih fotografija - online galerija">1h at your home before church + ceremony - 150 edited photos - online gallery</div>
+        <div class="collection-price">150 KM</div>
+      </div>
+      <div class="collection-package">
+        <div class="collection-package-name" data-en="Full Package" data-hr="Puni paket">Full Package</div>
+        <div class="collection-package-details" data-en="Home + Church + Restaurant - 200 edited photos - online gallery" data-hr="Kuća + crkva + restoran - 200 obrađenih fotografija - online galerija">Home + Church + Restaurant - 200 edited photos - online gallery</div>
+        <div class="collection-price">200 KM</div>
       </div>
     </div>
 
   </div>
 
-  <p class="invest-note"
+  <p class="collections-note"
      data-en="All sessions include professionally edited images delivered through a private online gallery. For custom requests and wedding packages, get in touch."
      data-hr="Sva fotografiranja uključuju profesionalno obrađene fotografije, dostavljene putem privatne online galerije. Za posebne želje i pakete vjenčanja, javi mi se.">
     All sessions include professionally edited images delivered through a private online gallery. For custom requests and wedding packages, get in touch.
@@ -1207,11 +1253,11 @@ footer a:hover { opacity: 0.5; }
       Each book is custom-designed and printed on premium paper, carefully curated to tell your story.
     </p>
 
-    <div class="books-note"
-         data-en="Please allow 4-6 weeks for design and delivery"
-         data-hr="Molim te uzmi u obzir 4-6 tjedana za izradu i dostavu">
-      Please allow 4-6 weeks for design and delivery
-    </div>
+    <p class="books-elegant"
+       data-en="Your book is crafted with care. Kindly allow 4-6 weeks for creation and delivery. The price depends on the collection you choose and will be defined when we arrange your session."
+       data-hr="Vaša knjiga se izrađuje s pažnjom. Izrada i dostava traju 4-6 tjedana. Cijena ovisi o kolekciji koju odaberete i definirat će se prilikom ugovaranja termina.">
+      Your book is crafted with care. Kindly allow 4-6 weeks for creation and delivery. The price depends on the collection you choose and will be defined when we arrange your session.
+    </p>
   </div>
 
   <div class="gallery reveal-stagger">
@@ -1251,7 +1297,7 @@ footer a:hover { opacity: 0.5; }
   <div class="gallery reveal-stagger">
     <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=80" alt="UGC 1" class="lightbox-img">
     <img src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?w=800&q=80" alt="UGC 2" class="lightbox-img">
-    <img src="https://images.unsplash.com/photo-1602526432655-4b5b07b6bcf6?w=800&q=80" alt="UGC 3" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80" alt="UGC 3" class="lightbox-img">
   </div>
 </section>
 
@@ -1312,9 +1358,9 @@ footer a:hover { opacity: 0.5; }
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p data-en="Simply send me a message through the contact form, email, or Instagram. I'll get back to you within 24-48 hours with available dates. A small deposit secures your spot."
-           data-hr="Jednostavno mi pošalji poruku preko kontakt forme, emaila ili Instagrama. Odgovorit ću ti u roku od 24-48 sati s dostupnim terminima. Mali depozit osigurava tvoj termin.">
-          Simply send me a message through the contact form, email, or Instagram. I'll get back to you within 24-48 hours with available dates.
+        <p data-en="Simply send me a message through the contact form, email, or Instagram. I'll get back to you within 24 hours with available dates."
+           data-hr="Jednostavno mi pošalji poruku preko kontakt forme, emaila ili Instagrama. Javit ću ti se u roku od 24 sata s dostupnim terminima.">
+          Simply send me a message through the contact form, email, or Instagram. I'll get back to you within 24 hours with available dates.
         </p>
       </div>
     </div>
@@ -1510,7 +1556,7 @@ footer a:hover { opacity: 0.5; }
     setLang(saved);
   });
 
-  // ===== Scroll Reveal - elegantna animacija =====
+  // ===== Scroll Reveal =====
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
