@@ -1,7 +1,7 @@
 <!-- ============================================
      IVONE PHOTO - Photography Portfolio
      Autor: Ivona Šarić
-     Verzija: 11.0 (finalna)
+     Verzija: 14.0 (finalna s poboljšanom formom)
      ============================================ -->
 <!DOCTYPE html>
 <html lang="hr">
@@ -10,7 +10,7 @@
 <meta name="referrer" content="origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ivone Photo</title>
-<meta name="description" content="Ivona Šarić - obiteljska, portretna, trudnička, newborn fotografija i sudbena vjenčanja. Mostar / Tomislavgrad. Svaki trenutak, zapamćen.">
+<meta name="description" content="Ivona Šarić - obiteljska, portretna, trudnička, newborn fotografija, krštenja, krizme, pričesti i sudbena vjenčanja. Mostar / Tomislavgrad.">
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23111'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='55' font-weight='300' fill='%23fff' text-anchor='middle'%3EI%3C/text%3E%3C/svg%3E">
 
@@ -20,13 +20,13 @@
 html { scroll-behavior: smooth; }
 body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  background: #ffffff;
+  background: #faf7f2;
   color: #111;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-h1, h2, h3, .hero-title, .collection-name {
+h1, h2, h3, .hero-title {
   font-family: Georgia, 'Times New Roman', serif;
 }
 
@@ -133,12 +133,12 @@ h1, h2, h3, .hero-title, .collection-name {
   pointer-events: none;
 }
 .floating-instagram {
-  bottom: 100px;
+  bottom: 45px;
   left: 30px;
   background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
 }
 .floating-whatsapp {
-  bottom: 45px;
+  bottom: 100px;
   left: 30px;
   background: #25D366;
 }
@@ -256,7 +256,7 @@ nav a:hover, nav .nav-item:hover { opacity: 0.5; }
   background: #fff;
   border: 1px solid #eee;
   padding: 12px 0;
-  min-width: 220px;
+  min-width: 240px;
   display: none;
   box-shadow: 0 15px 40px rgba(0,0,0,0.08);
   z-index: 50;
@@ -317,25 +317,32 @@ section { padding: 100px 20px; }
 .about-text p + p { margin-top: 22px; }
 .about-text strong { color: #111; font-weight: 500; }
 
-/* PORTFOLIO */
-.portfolio-category {
+/* PORTFOLIO GRUPE */
+.portfolio-group {
   max-width: 1200px;
-  margin: 0 auto 100px;
+  margin: 0 auto 110px;
 }
-.portfolio-category:last-child { margin-bottom: 0; }
-.portfolio-category-header {
+.portfolio-group:last-child { margin-bottom: 0; }
+.portfolio-group-header {
   text-align: center;
   max-width: 800px;
   margin: 0 auto 50px;
 }
-.portfolio-category h3 {
+.portfolio-group h3 {
   font-size: 26px;
   font-weight: 400;
   letter-spacing: 6px;
   text-transform: uppercase;
   margin-bottom: 20px;
 }
-.portfolio-category-desc {
+.portfolio-group-sub {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #999;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.portfolio-group-desc {
   font-size: 15px;
   color: #666;
   line-height: 1.95;
@@ -360,131 +367,70 @@ section { padding: 100px 20px; }
 }
 .gallery img:hover { transform: scale(1.03); opacity: 0.9; }
 
-/* COLLECTIONS */
-.collections { background: #fafafa; }
-.collections-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  max-width: 1200px;
-  margin: 0 auto 60px;
+/* PONUDA */
+.ponuda {
+  background: #f2ede4;
+  text-align: center;
 }
-.collection-card {
-  background: #fff;
-  padding: 45px 35px 35px;
-  border-top: 2px solid #111;
+.ponuda-content {
+  max-width: 750px;
+  margin: 0 auto 50px;
+  font-size: 16px;
+  color: #444;
+  line-height: 1.95;
+}
+.ponuda-content p + p { margin-top: 22px; }
+
+.ponuda-steps {
   display: flex;
-  flex-direction: column;
-  transition: transform 0.4s, box-shadow 0.4s;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto 50px;
 }
-.collection-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+.ponuda-step {
+  text-align: center;
+  flex: 1;
+  min-width: 180px;
 }
-.collection-name {
-  font-size: 19px;
-  font-weight: 400;
-  letter-spacing: 1.5px;
-  color: #111;
+.ponuda-step-icon {
+  font-size: 32px;
   margin-bottom: 15px;
-  font-style: italic;
-  text-align: center;
+  display: block;
 }
-.collection-tagline {
+.ponuda-step-text {
   font-size: 13px;
-  color: #777;
-  line-height: 1.75;
-  font-style: italic;
-  text-align: center;
-  margin-bottom: 25px;
-  padding-bottom: 25px;
-  border-bottom: 1px solid #f0f0f0;
+  letter-spacing: 2px;
+  color: #444;
+  text-transform: uppercase;
 }
-.collection-package {
-  padding: 16px 0;
-  border-bottom: 1px solid #f5f5f5;
-}
-.collection-package:last-of-type { border-bottom: none; }
-.collection-package-name {
-  font-size: 13px;
-  font-weight: 600;
-  color: #111;
-  margin-bottom: 6px;
-  letter-spacing: 0.5px;
-}
-.collection-package-details {
-  font-size: 12.5px;
-  color: #888;
-  line-height: 1.7;
-}
-.collection-reserve {
-  margin-top: auto;
-  padding-top: 25px;
-}
-.collection-reserve button {
-  width: 100%;
+
+.ponuda-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   background: #111;
   color: #fff;
   border: none;
-  padding: 14px 20px;
+  padding: 16px 45px;
   font-family: inherit;
-  font-size: 10px;
-  letter-spacing: 3px;
+  font-size: 11px;
+  letter-spacing: 4px;
   text-transform: uppercase;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
   transition: background 0.3s, transform 0.3s;
 }
-.collection-reserve button:hover {
+.ponuda-btn:hover {
   background: #333;
   transform: translateY(-2px);
 }
-.collection-reserve svg {
-  width: 14px; height: 14px;
+.ponuda-btn svg {
+  width: 16px; height: 16px;
   fill: currentColor;
 }
-.collections-note {
-  max-width: 780px;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 13px;
-  color: #777;
-  line-height: 1.9;
-  font-style: italic;
-}
 
-/* EVENT PACKAGES */
-.event-packages {
-  max-width: 900px;
-  margin: 40px auto 50px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-.event-package {
-  background: #fff;
-  padding: 30px 25px;
-  border: 1px solid #eee;
-  text-align: center;
-}
-.event-package-name {
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #111;
-  margin-bottom: 12px;
-  font-weight: 500;
-}
-.event-package-details {
-  font-size: 13px;
-  color: #777;
-  line-height: 1.7;
-}
-
-/* CONTENT BLOCK (Photo Books, Gift Cards) */
+/* CONTENT BLOCK */
 .content-block {
   max-width: 780px;
   margin: 0 auto 50px;
@@ -502,8 +448,33 @@ section { padding: 100px 20px; }
   color: #666;
 }
 
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 16px 45px;
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  margin-top: 35px;
+}
+.action-btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+.action-btn svg {
+  width: 16px; height: 16px;
+  fill: currentColor;
+}
+
 /* UGC */
-.ugc { background: #fafafa; }
+.ugc { background: #f2ede4; }
 .ugc-content {
   max-width: 750px;
   margin: 0 auto 50px;
@@ -540,7 +511,7 @@ section { padding: 100px 20px; }
   margin: 0 auto;
 }
 .testimonial {
-  background: #fafafa;
+  background: #faf7f2;
   padding: 0 0 35px 0;
   text-align: center;
   transition: transform 0.4s;
@@ -577,7 +548,7 @@ section { padding: 100px 20px; }
 }
 
 /* FAQ */
-.faq { background: #fafafa; }
+.faq { background: #f2ede4; }
 .faq-list { max-width: 800px; margin: 0 auto; }
 .faq-item {
   border-bottom: 1px solid #e8e8e8;
@@ -665,30 +636,35 @@ section { padding: 100px 20px; }
 .contact-links svg { width: 16px; height: 16px; fill: currentColor; }
 
 .contact-form {
-  max-width: 500px;
+  max-width: 520px;
   margin: 0 auto;
   text-align: left;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 50px 45px;
+  border-radius: 2px;
 }
 .contact-form label {
   display: block;
   font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #888;
-  margin-bottom: 8px;
+  color: #aaa;
+  margin-bottom: 10px;
+  font-weight: 500;
 }
 .contact-form input,
 .contact-form textarea,
 .contact-form select {
   width: 100%;
-  padding: 14px 0;
+  padding: 12px 0;
   background: transparent;
   border: none;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(255,255,255,0.35);
   color: #fff;
   font-family: inherit;
   font-size: 15px;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
   outline: none;
   transition: border-color 0.3s;
   -webkit-appearance: none;
@@ -714,14 +690,15 @@ section { padding: 100px 20px; }
   background: #fff;
   color: #111;
   border: none;
-  padding: 16px 45px;
+  padding: 18px 45px;
   font-family: inherit;
   font-size: 11px;
   letter-spacing: 4px;
   text-transform: uppercase;
   cursor: pointer;
   transition: opacity 0.3s, transform 0.3s;
-  margin-top: 10px;
+  margin-top: 5px;
+  width: 100%;
 }
 .contact-form button:hover { opacity: 0.85; transform: translateY(-2px); }
 
@@ -831,9 +808,8 @@ footer a:hover { opacity: 0.5; }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
-  .collections-grid { grid-template-columns: repeat(2, 1fr); }
   .testimonials-grid { grid-template-columns: 1fr; max-width: 500px; }
-  .event-packages { grid-template-columns: 1fr; }
+  .ponuda-steps { gap: 30px; }
 }
 
 @media (max-width: 768px) {
@@ -846,18 +822,19 @@ footer a:hover { opacity: 0.5; }
   .lang-switch { top: 15px; right: 15px; padding: 4px 8px; }
   .instagram-icon { top: 15px; left: 15px; }
   .instagram-icon svg { width: 20px; height: 20px; }
-  .floating-instagram { bottom: 90px; left: 20px; }
-  .floating-whatsapp { bottom: 40px; left: 20px; }
+  .floating-instagram { bottom: 40px; left: 20px; }
+  .floating-whatsapp { bottom: 90px; left: 20px; }
   nav ul { gap: 12px; }
   nav a, nav .nav-item { font-size: 9px; letter-spacing: 2px; }
-  .dropdown-menu { min-width: 180px; }
+  .dropdown-menu { min-width: 200px; }
   .contact-links { flex-direction: column; align-items: center; gap: 12px; }
   #back-to-top { bottom: 40px; right: 20px; width: 40px; height: 40px; }
   .lightbox-prev { left: 10px; font-size: 28px; }
   .lightbox-next { right: 10px; font-size: 28px; }
   .lightbox-close { top: 15px; right: 20px; font-size: 32px; }
-  .portfolio-category { margin-bottom: 70px; }
-  .portfolio-category h3 { font-size: 20px; letter-spacing: 4px; }
+  .portfolio-group { margin-bottom: 80px; }
+  .portfolio-group h3 { font-size: 20px; letter-spacing: 4px; }
+  .contact-form { padding: 40px 30px; }
 }
 
 @media (max-width: 480px) {
@@ -867,8 +844,9 @@ footer a:hover { opacity: 0.5; }
   .gallery { grid-template-columns: 1fr; }
   .hero-title { font-size: 28px; }
   .hero-small { letter-spacing: 4px; }
-  .collections-grid { grid-template-columns: 1fr; }
   .about-grid { gap: 30px; }
+  .ponuda-step { min-width: 100%; }
+  .contact-form { padding: 35px 25px; }
 }
 </style>
 </head>
@@ -921,15 +899,15 @@ footer a:hover { opacity: 0.5; }
 </div>
 
 <!-- FLOATING IKONE -->
-<a href="https://www.instagram.com/ivone.photo/" target="_blank" class="floating-icon floating-instagram" id="float-instagram" aria-label="Instagram">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-  </svg>
-</a>
-
 <a href="https://wa.me/38763110767" target="_blank" class="floating-icon floating-whatsapp" id="float-whatsapp" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<a href="https://www.instagram.com/ivone.photo/" target="_blank" class="floating-icon floating-instagram" id="float-instagram" aria-label="Instagram">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
   </svg>
 </a>
 
@@ -955,18 +933,15 @@ footer a:hover { opacity: 0.5; }
       <span class="nav-item" data-en="Portfolio" data-hr="Portfolio">Portfolio</span>
       <div class="dropdown-menu">
         <a href="#family" data-en="Family" data-hr="Obitelj">Obitelj</a>
-        <a href="#portraits" data-en="Portraits" data-hr="Portreti">Portreti</a>
-        <a href="#maternity" data-en="Maternity" data-hr="Trudnoća">Trudnoća</a>
-        <a href="#newborn" data-en="Newborn" data-hr="Novorođenčad">Novorođenčad</a>
-        <a href="#couples" data-en="Couples" data-hr="Parovi">Parovi</a>
-        <a href="#weddings" data-en="Court Weddings" data-hr="Sudbena vjenčanja">Sudbena vjenčanja</a>
-        <a href="#baptism" data-en="Baptism" data-hr="Krštenje">Krštenje</a>
+        <a href="#religious" data-en="Religious Ceremonies" data-hr="Vjerski obredi">Vjerski obredi</a>
+        <a href="#weddings" data-en="Weddings & Couples" data-hr="Vjenčanja i parovi">Vjenčanja i parovi</a>
+        <a href="#maternity" data-en="Maternity & Newborn" data-hr="Trudnoća i novorođenčad">Trudnoća i novorođenčad</a>
+        <a href="#events" data-en="Events" data-hr="Događaji">Događaji</a>
       </div>
     </li>
     <li><a href="#about" data-en="About" data-hr="O meni">O meni</a></li>
-    <li><a href="#collections" data-en="Collections" data-hr="Kolekcije">Kolekcije</a></li>
-    <li><a href="#events" data-en="Events" data-hr="Događaji">Događaji</a></li>
-    <li><a href="#books" data-en="Books" data-hr="Knjige">Knjige</a></li>
+    <li><a href="#ponuda" data-en="Offer" data-hr="Ponuda">Ponuda</a></li>
+    <li><a href="#books" data-en="Books" data-hr="Fotoknjige">Fotoknjige</a></li>
     <li><a href="#gift" data-en="Gift Cards" data-hr="Poklon bonovi">Poklon bonovi</a></li>
     <li><a href="#contact" data-en="Contact" data-hr="Kontakt">Kontakt</a></li>
   </ul>
@@ -998,13 +973,13 @@ footer a:hover { opacity: 0.5; }
   </div>
 </section>
 
-<!-- PORTFOLIO - FAMILY -->
-<section class="portfolio-category reveal" id="family">
-  <div class="portfolio-category-header">
+<!-- PORTFOLIO - OBITELJ -->
+<section class="portfolio-group reveal" id="family">
+  <div class="portfolio-group-header">
     <h3 data-en="Family" data-hr="Obitelj">Obitelj</h3>
-    <p class="portfolio-category-desc"
-       data-en='"The way she looks at you. The sound of his laughter. The chaos, the cuddles, the quiet moments in between. Family sessions are about capturing your story as it is right now - beautifully imperfect, deeply yours."'
-       data-hr='"Pogled koji govori sve. Dječji smijeh iz susjedne sobe. Kaos, zagrljaji i oni tihi trenuci između. Obiteljska fotografiranja bilježe vašu priču upravo onakvu kakva jest - lijepo nesavršenu i samo vašu."'>
+    <p class="portfolio-group-desc"
+       data-en='"The way she looks at you. The sound of his laughter. The chaos, the cuddles, the quiet moments in between."'
+       data-hr='"Pogled koji govori sve. Dječji smijeh iz susjedne sobe. Kaos, zagrljaji i oni tihi trenuci između."'>
       "Pogled koji govori sve. Dječji smijeh iz susjedne sobe. Kaos, zagrljaji i oni tihi trenuci između."
     </p>
   </div>
@@ -1015,291 +990,79 @@ footer a:hover { opacity: 0.5; }
   </div>
 </section>
 
-<!-- PORTFOLIO - PORTRAITS -->
-<section class="portfolio-category reveal" id="portraits">
-  <div class="portfolio-category-header">
-    <h3 data-en="Portraits" data-hr="Portreti">Portreti</h3>
-    <p class="portfolio-category-desc"
-       data-en='"A portrait is more than a photograph - it is a moment of being truly seen. Whether you are celebrating a milestone or simply want to remember this version of yourself, I will guide you gently and capture the real you."'
-       data-hr='"Portret nije samo fotografija - to je trenutak kada si istinski viđen. Bilo da slaviš nešto važno ili jednostavno želiš sačuvati ovu verziju sebe, tu sam da te nježno vodim i uhvatim ono što jesi."'>
-      "Portret nije samo fotografija - to je trenutak kada si istinski viđen."
+<!-- PORTFOLIO - VJERSKI OBREDI -->
+<section class="portfolio-group reveal" id="religious">
+  <div class="portfolio-group-header">
+    <h3 data-en="Religious Ceremonies" data-hr="Vjerski obredi">Vjerski obredi</h3>
+    <p class="portfolio-group-sub">Krštenje · Krizme · Pričesti</p>
+    <p class="portfolio-group-desc"
+       data-en='"Baptism, confirmation, and first communion - moments of faith, family, and quiet celebration."'
+       data-hr='"Krštenje, krizma i prva pričest - trenuci vjere, obitelji i tihog slavlja."'>
+      "Krštenje, krizma i prva pričest - trenuci vjere, obitelji i tihog slavlja."
     </p>
   </div>
   <div class="gallery reveal-stagger">
-    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&q=80" alt="Portret 1" class="lightbox-img">
-    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="Portret 2" class="lightbox-img">
-    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&q=80" alt="Portret 3" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1544427920-c49ccfb85579?w=800&q=80" alt="Krštenje 1" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?w=800&q=80" alt="Krštenje 2" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1519750157634-b6d493a0f77c?w=800&q=80" alt="Krizma 1" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1602523961358-f9f03dd557db?w=800&q=80" alt="Krizma 2" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1595397221490-9dd5a0c24b30?w=800&q=80" alt="Pričest 1" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1544427920-c49ccfb85579?w=800&q=80" alt="Pričest 2" class="lightbox-img">
   </div>
 </section>
 
-<!-- PORTFOLIO - MATERNITY -->
-<section class="portfolio-category reveal" id="maternity">
-  <div class="portfolio-category-header">
-    <h3 data-en="Maternity" data-hr="Trudnoća">Trudnoća</h3>
-    <p class="portfolio-category-desc"
-       data-en='"That quiet glow. The anticipation in every movement. Love growing day by day. Maternity sessions celebrate your strength, your tenderness, and the life you carry."'
-       data-hr='"Onaj tihi sjaj. Iščekivanje u svakom pokretu. Ljubav koja raste iz dana u dan. Trudnička fotografiranja slave tvoju snagu, tvoju nježnost i život koji nosiš."'>
-      "Onaj tihi sjaj. Iščekivanje u svakom pokretu. Ljubav koja raste iz dana u dan."
-    </p>
-  </div>
-  <div class="gallery reveal-stagger">
-    <img src="https://images.unsplash.com/photo-1522653216850-4f1415a174fb?w=800&q=80" alt="Trudnoća 1" class="lightbox-img">
-    <img src="https://images.unsplash.com/photo-1531983412531-1f49a365ffed?w=800&q=80" alt="Trudnoća 2" class="lightbox-img">
-    <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&q=80" alt="Trudnoća 3" class="lightbox-img">
-  </div>
-</section>
-
-<!-- PORTFOLIO - NEWBORN -->
-<section class="portfolio-category reveal" id="newborn">
-  <div class="portfolio-category-header">
-    <h3 data-en="Newborn" data-hr="Novorođenčad">Novorođenčad</h3>
-    <p class="portfolio-category-desc"
-       data-en='"Those first days pass in a blur of tiny fingers, soft sighs, and sleepless wonder. Newborn sessions are slow, gentle, and unhurried - a quiet space to breathe, to hold, and to remember how small they once were."'
-       data-hr='"Prvi dani prolaze u magli malenih prstića, tihih uzdaha i beskrajne nježnosti. Newborn fotografiranja su spora, blaga i bez žurbe - tih prostor da dišeš, da grliš i da zapamtiš koliko su nekada bili mali."'>
-      "Prvi dani prolaze u magli malenih prstića, tihih uzdaha i beskrajne nježnosti."
-    </p>
-  </div>
-  <div class="gallery reveal-stagger">
-    <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&q=80" alt="Novorođenčad 1" class="lightbox-img">
-    <img src="https://images.unsplash.com/photo-1544126592-807ade215a0b?w=800&q=80" alt="Novorođenčad 2" class="lightbox-img">
-    <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800&q=80" alt="Novorođenčad 3" class="lightbox-img">
-  </div>
-</section>
-
-<!-- PORTFOLIO - COUPLES -->
-<section class="portfolio-category reveal" id="couples">
-  <div class="portfolio-category-header">
-    <h3 data-en="Couples" data-hr="Parovi">Parovi</h3>
-    <p class="portfolio-category-desc"
-       data-en='"The way you laugh together. The way you reach for each other without thinking. Couples sessions are about capturing your connection as it is - easy, honest, and entirely your own."'
-       data-hr='"Način na koji se zajedno smijete. Način na koji posežete jedno za drugim bez razmišljanja. Fotografiranja parova bilježe vašu povezanost onakvu kakva jest - laku, iskrenu i samo vašu."'>
-      "Način na koji se zajedno smijete. Način na koji posežete jedno za drugim bez razmišljanja."
-    </p>
-  </div>
-  <div class="gallery reveal-stagger">
-    <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800&q=80" alt="Parovi 1" class="lightbox-img">
-    <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=800&q=80" alt="Parovi 2" class="lightbox-img">
-    <img src="https://images.unsplash.com/photo-1522098543979-ffc7f79a56c4?w=800&q=80" alt="Parovi 3" class="lightbox-img">
-  </div>
-</section>
-
-<!-- PORTFOLIO - COURT WEDDINGS -->
-<section class="portfolio-category reveal" id="weddings">
-  <div class="portfolio-category-header">
-    <h3 data-en="Court Weddings" data-hr="Sudbena vjenčanja">Sudbena vjenčanja</h3>
-    <p class="portfolio-category-desc"
-       data-en='"Love does not need a grand celebration to be extraordinary. Civil weddings are intimate, honest, and deeply personal - just you, your person, and the promise you are making. I will be there to capture every glance, every tear, every quiet moment."'
-       data-hr='"Ljubav ne treba veliku proslavu da bi bila posebna. Sudbena vjenčanja su intimna, iskrena i duboko vaša - samo ti, tvoja osoba i obećanje koje dajete. Bit ću tu da sačuvam svaki pogled, svaku suzu, svaki tihi trenutak."'>
-      "Ljubav ne treba veliku proslavu da bi bila posebna."
+<!-- PORTFOLIO - VJENČANJA I PAROVI -->
+<section class="portfolio-group reveal" id="weddings">
+  <div class="portfolio-group-header">
+    <h3 data-en="Weddings & Couples" data-hr="Vjenčanja i parovi">Vjenčanja i parovi</h3>
+    <p class="portfolio-group-sub">Sudbena vjenčanja · Parovi</p>
+    <p class="portfolio-group-desc"
+       data-en='"For those who celebrate love their own way - quietly, tenderly, and entirely their own."'
+       data-hr='"Za one koji slave ljubav na svoj način - tiho, nježno i potpuno svoje."'>
+      "Za one koji slave ljubav na svoj način - tiho, nježno i potpuno svoje."
     </p>
   </div>
   <div class="gallery reveal-stagger">
     <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80" alt="Vjenčanje 1" class="lightbox-img">
     <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80" alt="Vjenčanje 2" class="lightbox-img">
     <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=80" alt="Vjenčanje 3" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800&q=80" alt="Parovi 1" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=800&q=80" alt="Parovi 2" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1522098543979-ffc7f79a56c4?w=800&q=80" alt="Parovi 3" class="lightbox-img">
   </div>
 </section>
 
-<!-- PORTFOLIO - BAPTISM -->
-<section class="portfolio-category reveal" id="baptism">
-  <div class="portfolio-category-header">
-    <h3 data-en="Baptism" data-hr="Krštenje">Krštenje</h3>
-    <p class="portfolio-category-desc"
-       data-en='"A baptism is a beginning - a day of faith, family, and quiet celebration. Tiny hands held in prayer, generations gathered in love, and a promise made for a lifetime. I will be there to capture every tender moment, from the first prayer to the last embrace."'
-       data-hr='"Krštenje je početak - dan vjere, obitelji i tihe proslave. Malene ruke sklopljene u molitvi, generacije okupljene u ljubavi i obećanje za cijeli život. Bit ću tu da sačuvam svaki nježni trenutak, od prve molitve do posljednjeg zagrljaja."'>
-      "Krštenje je početak - dan vjere, obitelji i tihe proslave."
+<!-- PORTFOLIO - TRUDNOĆA I NOVOROĐENČAD -->
+<section class="portfolio-group reveal" id="maternity">
+  <div class="portfolio-group-header">
+    <h3 data-en="Maternity & Newborn" data-hr="Trudnoća i novorođenčad">Trudnoća i novorođenčad</h3>
+    <p class="portfolio-group-sub">Trudnoća · Novorođenčad</p>
+    <p class="portfolio-group-desc"
+       data-en='"From the quiet glow of maternity to the first days with your newborn - tender moments you will remember forever."'
+       data-hr='"Od tihog sjaja trudnoće do prvih dana s novorođenčetom - nježni trenuci koje ćete pamtiti zauvijek."'>
+      "Od tihog sjaja trudnoće do prvih dana s novorođenčetom - nježni trenuci koje ćete pamtiti zauvijek."
     </p>
   </div>
   <div class="gallery reveal-stagger">
-    <img src="https://images.unsplash.com/photo-1544427920-c49ccfb85579?w=800&q=80" alt="Krštenje 1" class="lightbox-img">
-    <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?w=800&q=80" alt="Krštenje 2" class="lightbox-img">
-    <img src="https://images.unsplash.com/photo-1519750157634-b6d493a0f77c?w=800&q=80" alt="Krštenje 3" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1522653216850-4f1415a174fb?w=800&q=80" alt="Trudnoća 1" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1531983412531-1f49a365ffed?w=800&q=80" alt="Trudnoća 2" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&q=80" alt="Trudnoća 3" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1544126592-807ade215a0b?w=800&q=80" alt="Novorođenčad 1" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800&q=80" alt="Novorođenčad 2" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&q=80" alt="Novorođenčad 3" class="lightbox-img">
   </div>
 </section>
 
-<!-- COLLECTIONS -->
-<section class="collections reveal" id="collections">
-  <h2 class="section-title" data-en="Collections" data-hr="Kolekcije">Kolekcije</h2>
-  <p class="section-subtitle" data-en="Every session is designed to feel effortless, warm, and entirely yours." data-hr="Svaka sesija je osmišljena da bude bez napora, topla i potpuno vaša.">Svaka sesija je osmišljena da bude bez napora, topla i potpuno vaša.</p>
-
-  <div class="collections-grid reveal-stagger">
-
-    <!-- FAMILY -->
-    <div class="collection-card">
-      <div class="collection-name" data-en="The Family Collection" data-hr="The Family Collection">The Family Collection</div>
-      <div class="collection-tagline" data-en='"For families who want to preserve everyday, spontaneous moments - laughter, hugs, and everything in between."' data-hr='"Za obitelji koje žele sačuvati svakodnevne, spontane trenutke - smijeh, zagrljaje i ono između."'>"Za obitelji koje žele sačuvati svakodnevne, spontane trenutke - smijeh, zagrljaje i ono između."</div>
-      <div class="collection-package">
-        <div class="collection-package-name" data-en="Collection I" data-hr="Collection I">Collection I</div>
-        <div class="collection-package-details" data-en="30-45 min · 100 edited photos · online gallery" data-hr="30-45 min · 100 fotografija · online galerija">30-45 min · 100 fotografija · online galerija</div>
-      </div>
-      <div class="collection-package">
-        <div class="collection-package-name" data-en="Collection II" data-hr="Collection II">Collection II</div>
-        <div class="collection-package-details" data-en="60-90 min · 200 edited photos · online gallery" data-hr="60-90 min · 200 fotografija · online galerija">60-90 min · 200 fotografija · online galerija</div>
-      </div>
-      <div class="collection-reserve">
-        <button onclick="reserveCollection('The Family Collection')">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          <span data-en="Reserve a Session" data-hr="Rezerviraj termin">Rezerviraj termin</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- PORTRAITS -->
-    <div class="collection-card">
-      <div class="collection-name" data-en="The Portrait Collection" data-hr="The Portrait Collection">The Portrait Collection</div>
-      <div class="collection-tagline" data-en='"For those who want to see themselves as they truly are - honestly, gently, without a mask."' data-hr='"Za one koji žele vidjeti sebe onakvima kakvi jesu - iskreno, nježno i bez maske."'>"Za one koji žele vidjeti sebe onakvima kakvi jesu - iskreno, nježno i bez maske."</div>
-      <div class="collection-package">
-        <div class="collection-package-name" data-en="Collection I" data-hr="Collection I">Collection I</div>
-        <div class="collection-package-details" data-en="20-30 min · 50 edited photos · online gallery" data-hr="20-30 min · 50 fotografija · online galerija">20-30 min · 50 fotografija · online galerija</div>
-      </div>
-      <div class="collection-package">
-        <div class="collection-package-name" data-en="Collection II" data-hr="Collection II">Collection II</div>
-        <div class="collection-package-details" data-en="50-60 min · 100 edited photos · online gallery" data-hr="50-60 min · 100 fotografija · online galerija">50-60 min · 100 fotografija · online galerija</div>
-      </div>
-      <div class="collection-reserve">
-        <button onclick="reserveCollection('The Portrait Collection')">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          <span data-en="Reserve a Session" data-hr="Rezerviraj termin">Rezerviraj termin</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- MATERNITY -->
-    <div class="collection-card">
-      <div class="collection-name" data-en="The Maternity Collection" data-hr="The Maternity Collection">The Maternity Collection</div>
-      <div class="collection-tagline" data-en='"For mothers who want to preserve the beauty of this special time - the quiet glow, the anticipation, and the love that grows."' data-hr='"Za majke koje žele sačuvati ljepotu ovog posebnog vremena - tihi sjaj, iščekivanje i ljubav koja raste."'>"Za majke koje žele sačuvati ljepotu ovog posebnog vremena - tihi sjaj, iščekivanje i ljubav koja raste."</div>
-      <div class="collection-package">
-        <div class="collection-package-name" data-en="The Maternity Session" data-hr="Trudnička sesija">Trudnička sesija</div>
-        <div class="collection-package-details" data-en="Location or outdoor · up to 60 min · 125 edited photos · private online gallery" data-hr="Lokacija ili priroda · do 60 min · 125 fotografija · privatna online galerija">Lokacija ili priroda · do 60 min · 125 fotografija · privatna online galerija</div>
-      </div>
-      <div class="collection-reserve">
-        <button onclick="reserveCollection('The Maternity Collection')">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          <span data-en="Reserve a Session" data-hr="Rezerviraj termin">Rezerviraj termin</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- NEWBORN -->
-    <div class="collection-card">
-      <div class="collection-name" data-en="The Newborn Collection" data-hr="The Newborn Collection">The Newborn Collection</div>
-      <div class="collection-tagline" data-en='"For the first days that pass too quickly - tiny fingers, soft sighs, and embraces you will remember forever."' data-hr='"Za prve dane koji prolaze prebrzo - malene prstiće, tihe uzdaha i zagrljaje koje ćete pamtiti zauvijek."'>"Za prve dane koji prolaze prebrzo - malene prstiće, tihe uzdaha i zagrljaje koje ćete pamtiti zauvijek."</div>
-      <div class="collection-package">
-        <div class="collection-package-name" data-en="The Newborn Session" data-hr="Newborn sesija">Newborn sesija</div>
-        <div class="collection-package-details" data-en="Relaxed in-home session · 1.5-2.5 h · 150 edited photos · family and individual shots included" data-hr="Opušteno u domu · 1.5-2.5 h · 150 fotografija · uključeni obiteljski i individualni kadrovi">Opušteno u domu · 1.5-2.5 h · 150 fotografija · uključeni obiteljski i individualni kadrovi</div>
-      </div>
-      <div class="collection-reserve">
-        <button onclick="reserveCollection('The Newborn Collection')">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          <span data-en="Reserve a Session" data-hr="Rezerviraj termin">Rezerviraj termin</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- COUPLES -->
-    <div class="collection-card">
-      <div class="collection-name" data-en="The Couples Collection" data-hr="The Couples Collection">The Couples Collection</div>
-      <div class="collection-tagline" data-en='"For couples who want to preserve their story - laughter, touches, and glances that say everything."' data-hr='"Za parove koji žele sačuvati svoju priču - smijeh, dodire i poglede koji govore sve."'>"Za parove koji žele sačuvati svoju priču - smijeh, dodire i poglede koji govore sve."</div>
-      <div class="collection-package">
-        <div class="collection-package-name" data-en="Collection I" data-hr="Collection I">Collection I</div>
-        <div class="collection-package-details" data-en="45 min · 100 edited photos" data-hr="45 min · 100 fotografija">45 min · 100 fotografija</div>
-      </div>
-      <div class="collection-package">
-        <div class="collection-package-name" data-en="Collection II" data-hr="Collection II">Collection II</div>
-        <div class="collection-package-details" data-en="90 min · 150 edited photos · online gallery" data-hr="90 min · 150 fotografija · online galerija">90 min · 150 fotografija · online galerija</div>
-      </div>
-      <div class="collection-reserve">
-        <button onclick="reserveCollection('The Couples Collection')">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          <span data-en="Reserve a Session" data-hr="Rezerviraj termin">Rezerviraj termin</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- CIVIL WEDDINGS -->
-    <div class="collection-card">
-      <div class="collection-name" data-en="The Civil Wedding Collection" data-hr="The Civil Wedding Collection">The Civil Wedding Collection</div>
-      <div class="collection-tagline" data-en='"For those who celebrate love their own way - intimately, honestly, and deeply personal."' data-hr='"Za one koji slave ljubav na svoj način - intimno, iskreno i duboko osobno."'>"Za one koji slave ljubav na svoj način - intimno, iskreno i duboko osobno."</div>
-      <div class="collection-package">
-        <div class="collection-package-name" data-en="Ceremony" data-hr="Ceremony">Ceremony</div>
-        <div class="collection-package-details" data-en="Ceremony + post-ceremony · up to 1.5 h · 100+ edited photos · online gallery" data-hr="Ceremonija + nakon ceremonije · do 1.5 h · 100+ fotografija · online galerija">Ceremonija + nakon ceremonije · do 1.5 h · 100+ fotografija · online galerija</div>
-      </div>
-      <div class="collection-package">
-        <div class="collection-package-name" data-en="Ceremony + Nature" data-hr="Ceremony + Nature">Ceremony + Nature</div>
-        <div class="collection-package-details" data-en="Ceremony + post-ceremony + nature shoot · 2-2.5 h · 200+ edited photos · online gallery" data-hr="Ceremonija + nakon ceremonije + slikanje u prirodi · 2-2.5 h · 200+ fotografija · online galerija">Ceremonija + nakon ceremonije + slikanje u prirodi · 2-2.5 h · 200+ fotografija · online galerija</div>
-      </div>
-      <div class="collection-reserve">
-        <button onclick="reserveCollection('The Civil Wedding Collection')">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          <span data-en="Reserve a Session" data-hr="Rezerviraj termin">Rezerviraj termin</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- BAPTISM -->
-    <div class="collection-card">
-      <div class="collection-name" data-en="The Baptism Collection" data-hr="The Baptism Collection">The Baptism Collection</div>
-      <div class="collection-tagline" data-en='"For a day of faith, family, and quiet celebration - from the first prayer to the last embrace."' data-hr='"Za dan vjere, obitelji i tihe proslave - od prve molitve do posljednjeg zagrljaja."'>"Za dan vjere, obitelji i tihe proslave - od prve molitve do posljednjeg zagrljaja."</div>
-      <div class="collection-package">
-        <div class="collection-package-name" data-en="Church Only" data-hr="Samo crkva">Samo crkva</div>
-        <div class="collection-package-details" data-en="Ceremony in church · 150 edited photos · online gallery" data-hr="Ceremonija u crkvi · 150 fotografija · online galerija">Ceremonija u crkvi · 150 fotografija · online galerija</div>
-      </div>
-      <div class="collection-package">
-        <div class="collection-package-name" data-en="Home + Church" data-hr="Kuća + crkva">Kuća + crkva</div>
-        <div class="collection-package-details" data-en="1h at home before church + ceremony · 150 edited photos · online gallery" data-hr="1h kod vas kući prije crkve + ceremonija · 150 fotografija · online galerija">1h kod vas kući prije crkve + ceremonija · 150 fotografija · online galerija</div>
-      </div>
-      <div class="collection-package">
-        <div class="collection-package-name" data-en="Full Package" data-hr="Puni paket">Puni paket</div>
-        <div class="collection-package-details" data-en="Home + Church + Restaurant · 200 edited photos · online gallery" data-hr="Kuća + crkva + restoran · 200 fotografija · online galerija">Kuća + crkva + restoran · 200 fotografija · online galerija</div>
-      </div>
-      <div class="collection-reserve">
-        <button onclick="reserveCollection('The Baptism Collection')">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          <span data-en="Reserve a Session" data-hr="Rezerviraj termin">Rezerviraj termin</span>
-        </button>
-      </div>
-    </div>
-
-  </div>
-
-  <p class="collections-note"
-     data-en="All sessions include professionally edited images delivered through a private online gallery. For special requests and your own ideas, get in touch. If the session takes place outside the Mostar - Tomislavgrad area, a small travel fee may apply."
-     data-hr="Sva fotografiranja uključuju profesionalno obrađene fotografije, dostavljene putem privatne online galerije. Za posebne želje i tvoje ideje, javi mi se. Ukoliko je fotografiranje na lokaciji izvan regije Mostar - Tomislavgrad, moguće je da će biti potreban dodatak za putne troškove.">
-    Sva fotografiranja uključuju profesionalno obrađene fotografije, dostavljene putem privatne online galerije. Za posebne želje i tvoje ideje, javi mi se. Ukoliko je fotografiranje na lokaciji izvan regije Mostar - Tomislavgrad, moguće je da će biti potreban dodatak za putne troškove.
-  </p>
-</section>
-
-<!-- EVENT PHOTOGRAPHY -->
-<section class="reveal" id="events">
-  <h2 class="section-title" data-en="Event Photography" data-hr="Fotografiranje događaja">Fotografiranje događaja</h2>
-  <p class="section-subtitle" data-en="Celebrations, gatherings, and moments worth remembering" data-hr="Proslave, okupljanja i trenuci vrijedni pamćenja">Proslave, okupljanja i trenuci vrijedni pamćenja</p>
-
-  <div class="content-block">
-    <p data-en="Whether you're hosting a birthday celebration, a corporate gathering, or an intimate anniversary dinner - I'll be there to capture the atmosphere, the laughter, and the moments that make your event unforgettable."
-       data-hr="Bilo da organizirate rođendan, poslovno okupljanje ili intimnu proslavu godišnjice - bit ću tu da zabilježim atmosferu, smijeh i trenutke koji vaš događaj čine nezaboravnim.">
-      Bilo da organizirate rođendan, poslovno okupljanje ili intimnu proslavu godišnjice - bit ću tu da zabilježim atmosferu, smijeh i trenutke koji vaš događaj čine nezaboravnim.
-    </p>
-    <p data-en="From the quiet details to the lively energy, I document your celebration with a discreet, editorial eye - so you can be fully present and enjoy every moment."
-       data-hr="Od tihih detalja do živahne energije, pratim vašu proslavu diskretnim, uredničkim okom - kako biste vi mogli biti potpuno prisutni i uživati u svakom trenutku.">
-      Od tihih detalja do živahne energije, pratim vašu proslavu diskretnim, uredničkim okom - kako biste vi mogli biti potpuno prisutni i uživati u svakom trenutku.
+<!-- PORTFOLIO - DOGAĐAJI -->
+<section class="portfolio-group reveal" id="events">
+  <div class="portfolio-group-header">
+    <h3 data-en="Events" data-hr="Događaji">Događaji</h3>
+    <p class="portfolio-group-desc"
+       data-en='"Whether you are hosting a birthday celebration, a corporate gathering, or an intimate anniversary dinner - I will be there to capture the atmosphere, the laughter, and the moments that make your event unforgettable."'
+       data-hr='"Bilo da organizirate rođendan, poslovno okupljanje ili intimnu proslavu godišnjice - bit ću tu da zabilježim atmosferu, smijeh i trenutke koji vaš događaj čine nezaboravnim."'>
+      "Bilo da organizirate rođendan, poslovno okupljanje ili intimnu proslavu godišnjice - bit ću tu da zabilježim atmosferu."
     </p>
   </div>
-
-  <div class="event-packages reveal-stagger">
-    <div class="event-package">
-      <div class="event-package-name" data-en="Mini Event" data-hr="Mini događaj">Mini događaj</div>
-      <div class="event-package-details" data-en="Up to 2h · 100+ edited photos · online gallery" data-hr="Do 2h · 100+ fotografija · online galerija">Do 2h · 100+ fotografija · online galerija</div>
-    </div>
-    <div class="event-package">
-      <div class="event-package-name" data-en="Full Event" data-hr="Full događaj">Full događaj</div>
-      <div class="event-package-details" data-en="Up to 4h · 200+ edited photos · online gallery" data-hr="Do 4h · 200+ fotografija · online galerija">Do 4h · 200+ fotografija · online galerija</div>
-    </div>
-    <div class="event-package">
-      <div class="event-package-name" data-en="Custom Coverage" data-hr="Prilagođeno">Prilagođeno</div>
-      <div class="event-package-details" data-en="Let's talk about your event" data-hr="Razgovarajmo o vašem događaju">Razgovarajmo o vašem događaju</div>
-    </div>
-  </div>
-
   <div class="gallery reveal-stagger">
     <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80" alt="Događaj 1" class="lightbox-img">
     <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80" alt="Događaj 2" class="lightbox-img">
@@ -1307,9 +1070,50 @@ footer a:hover { opacity: 0.5; }
   </div>
 </section>
 
-<!-- PHOTO BOOKS -->
-<section class="reveal" id="books" style="background: #fafafa;">
-  <h2 class="section-title" data-en="Photo Books" data-hr="Fotografske knjige">Fotografske knjige</h2>
+<!-- PONUDA -->
+<section class="ponuda reveal" id="ponuda">
+  <h2 class="section-title" data-en="Offer" data-hr="Ponuda">Ponuda</h2>
+  <p class="section-subtitle" data-en="A personalized offer for your story" data-hr="Personalizirana ponuda za vašu priču">Personalizirana ponuda za vašu priču</p>
+
+  <div class="ponuda-content">
+    <p data-en="Every story is different - and so is every offer."
+       data-hr="Svaka priča je drugačija - kao i svaka ponuda.">
+      Svaka priča je drugačija - kao i svaka ponuda.
+    </p>
+    <p data-en="Instead of fixed packages, I prefer to create an offer tailored just for you. Tell me what you are looking for, share your ideas and wishes - and I will send you a personalized presentation with the offer, details, and prices."
+       data-hr="Umjesto fiksnih paketa, radije stvaram ponudu koja odgovara upravo vama. Recite mi što tražite, podijelite svoje ideje i želje - a ja ću vam poslati personaliziranu prezentaciju s ponudom, detaljima i cijenama.">
+      Umjesto fiksnih paketa, radije stvaram ponudu koja odgovara upravo vama. Recite mi što tražite, podijelite svoje ideje i želje - a ja ću vam poslati personaliziranu prezentaciju s ponudom, detaljima i cijenama.
+    </p>
+    <p data-en="Reach out through the contact form and I will get back to you within 24 hours."
+       data-hr="Javite mi se preko kontakt forme i odgovorit ću vam u roku od 24 sata.">
+      Javite mi se preko kontakt forme i odgovorit ću vam u roku od 24 sata.
+    </p>
+  </div>
+
+  <div class="ponuda-steps reveal-stagger">
+    <div class="ponuda-step">
+      <span class="ponuda-step-icon">📩</span>
+      <span class="ponuda-step-text" data-en="Send an inquiry" data-hr="Pošaljite upit">Pošaljite upit</span>
+    </div>
+    <div class="ponuda-step">
+      <span class="ponuda-step-icon">💌</span>
+      <span class="ponuda-step-text" data-en="Receive your offer" data-hr="Primite personaliziranu ponudu">Primite personaliziranu ponudu</span>
+    </div>
+    <div class="ponuda-step">
+      <span class="ponuda-step-icon">📸</span>
+      <span class="ponuda-step-text" data-en="Let's book your session" data-hr="Dogovorimo termin">Dogovorimo termin</span>
+    </div>
+  </div>
+
+  <button class="ponuda-btn" onclick="scrollToContact()">
+    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    <span data-en="Request an Offer" data-hr="Zatraži ponudu">Zatraži ponudu</span>
+  </button>
+</section>
+
+<!-- FOTOKNJIGE -->
+<section class="reveal" id="books" style="background: #fff;">
+  <h2 class="section-title" data-en="Photo Books" data-hr="Fotoknjige">Fotoknjige</h2>
   <p class="section-subtitle" data-en="Your memories, beautifully preserved" data-hr="Tvoje uspomene, lijepo sačuvane">Tvoje uspomene, lijepo sačuvane</p>
 
   <div class="content-block">
@@ -1329,14 +1133,14 @@ footer a:hover { opacity: 0.5; }
   </div>
 
   <div class="gallery reveal-stagger">
-    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=800&q=80" alt="Knjiga 1" class="lightbox-img">
-    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800&q=80" alt="Knjiga 2" class="lightbox-img">
-    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&q=80" alt="Knjiga 3" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=800&q=80" alt="Fotoknjiga 1" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800&q=80" alt="Fotoknjiga 2" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&q=80" alt="Fotoknjiga 3" class="lightbox-img">
   </div>
 </section>
 
-<!-- GIFT CARDS -->
-<section class="reveal" id="gift">
+<!-- POKLON BONOVI -->
+<section class="reveal" id="gift" style="background: #f2ede4;">
   <h2 class="section-title" data-en="Gift Cards" data-hr="Poklon bonovi">Poklon bonovi</h2>
   <p class="section-subtitle" data-en="Gift a memory that lasts" data-hr="Pokloni uspomenu koja traje">Pokloni uspomenu koja traje</p>
 
@@ -1345,25 +1149,30 @@ footer a:hover { opacity: 0.5; }
        data-hr="Ne znate što pokloniti? Poklonite uspomenu.">
       Ne znate što pokloniti? Poklonite uspomenu.
     </p>
-    <p data-en="A photography gift card is the perfect present for a birthday, anniversary, a new baby, or any special occasion. Whether you're choosing for a family, a couple, or someone you love - you're gifting moments they'll cherish forever."
+    <p data-en="A photography gift card is the perfect present for a birthday, anniversary, a new baby, or any special occasion. Whether you are choosing for a family, a couple, or someone you love - you are gifting moments they will cherish forever."
        data-hr="Poklon bon za fotografiranje savršen je dar za rođendan, godišnjicu, dolazak bebe ili bilo koju posebnu priliku. Bilo da birate za obitelj, par ili nekoga koga volite - poklanjate trenutke koje će pamtiti zauvijek.">
       Poklon bon za fotografiranje savršen je dar za rođendan, godišnjicu, dolazak bebe ili bilo koju posebnu priliku. Bilo da birate za obitelj, par ili nekoga koga volite - poklanjate trenutke koje će pamtiti zauvijek.
     </p>
     <p class="content-elegant"
-       data-en="The card can be used for any collection and is valid for 12 months from purchase. Get in touch and we'll arrange the details."
+       data-en="The card can be used for any collection and is valid for 12 months from purchase. Get in touch and we will arrange the details."
        data-hr="Bon je moguće iskoristiti za bilo koju kolekciju, a vrijedi 12 mjeseci od kupnje. Javi mi se i dogovorit ćemo detalje.">
       Bon je moguće iskoristiti za bilo koju kolekciju, a vrijedi 12 mjeseci od kupnje. Javi mi se i dogovorit ćemo detalje.
     </p>
+
+    <button class="action-btn" onclick="requestGiftCard()">
+      <svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/></svg>
+      <span data-en="Request a Gift Card" data-hr="Zatraži poklon bon">Zatraži poklon bon</span>
+    </button>
   </div>
 
-  <div class="gallery reveal-stagger" style="max-width: 700px;">
+  <div class="gallery reveal-stagger" style="max-width: 700px; margin-top: 50px;">
     <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=800&q=80" alt="Poklon bon 1" class="lightbox-img">
     <img src="https://images.unsplash.com/photo-1512909006721-3d6018887383?w=800&q=80" alt="Poklon bon 2" class="lightbox-img">
     <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=800&q=80" alt="Poklon bon 3" class="lightbox-img">
   </div>
 </section>
 
-<!-- UGC -->
+<!-- UGC & BRENDOVI -->
 <section class="ugc reveal" id="ugc">
   <h2 class="section-title" data-en="UGC & Brands" data-hr="UGC & Brendovi">UGC & Brendovi</h2>
   <p class="section-subtitle" data-en="Authentic content for brands" data-hr="Autentičan sadržaj za brendove">Autentičan sadržaj za brendove</p>
@@ -1371,7 +1180,7 @@ footer a:hover { opacity: 0.5; }
   <div class="ugc-content">
     <p data-en="I create authentic content for brands - photos and videos that feel natural, honest, and engaging. My approach blends professional quality with the feeling of a 'real moment,' making it perfect for social media and ads."
        data-hr="Stvaram autentičan sadržaj za brendove - fotografije i videozapise koji izgledaju prirodno, iskreno i privlačno. Moj pristup spaja profesionalnu kvalitetu s osjećajem 'stvarnog trenutka', što ga čini savršenim za društvene mreže i oglase.">
-      Stvaram autentičan sadržaj za brendove - fotografije i videozapise koji izgledaju prirodno, iskreno i privlačno. Moj pristup spaja profesionalnu kvalitetu s osjećajem 'stvarnog trenutka', što ga čini savršenim za društvene mreže i oglase.
+      Stvaram autentičan sadržaj za brendove - fotografije i videozapise koji izgledaju prirodno, iskreno i privlačno. Moj pristup spaja profesionalnu kvalitetu s osjećajem 'stvarnog trenutka'.
     </p>
     <p style="margin-top:20px;" data-en="I collaborate with brands in lifestyle, family, motherhood, beauty, and food. I offer:"
        data-hr="Surađujem s brendovima iz područja lifestylea, obitelji, majčinstva, ljepote i hrane. Nudim:">
@@ -1382,7 +1191,7 @@ footer a:hover { opacity: 0.5; }
       <li data-en="Short-form video content for Instagram Reels and TikTok" data-hr="Kratki video sadržaj za Instagram Reels i TikTok">Kratki video sadržaj za Instagram Reels i TikTok</li>
       <li data-en="Authentic 'slice of life' stories that connect your brand with your audience" data-hr="Autentične 'priče iz života' koje povezuju brend s publikom">Autentične 'priče iz života' koje povezuju brend s publikom</li>
     </ul>
-    <p style="margin-top:30px;" data-en="If you're looking for content that feels genuine and delivers results, let's talk - I'd love to collaborate."
+    <p style="margin-top:30px;" data-en="If you are looking for content that feels genuine and delivers results, let's talk - I would love to collaborate."
        data-hr="Ako tražiš sadržaj koji djeluje iskreno i donosi rezultate, javi mi se - veselim se suradnji.">
       Ako tražiš sadržaj koji djeluje iskreno i donosi rezultate, javi mi se - veselim se suradnji.
     </p>
@@ -1395,7 +1204,7 @@ footer a:hover { opacity: 0.5; }
   </div>
 </section>
 
-<!-- KIND WORDS -->
+<!-- LIJEPE RIJEČI -->
 <section class="kind-words reveal">
   <h2 class="section-title" data-en="Kind Words" data-hr="Lijepe riječi">Lijepe riječi</h2>
   <p class="section-subtitle" data-en="What my clients say" data-hr="Što kažu moji klijenti">Što kažu moji klijenti</p>
@@ -1429,7 +1238,7 @@ footer a:hover { opacity: 0.5; }
         "Ivona je savršeno uhvatila svaki pogled, svaku suzu, svaki smijeh."
       </p>
       <div class="testimonial-name">Marko i Jelena Perić</div>
-      <div class="testimonial-category" data-en="Court Wedding" data-hr="Sudbeno vjenčanje">Sudbeno vjenčanje</div>
+      <div class="testimonial-category" data-en="Civil Wedding" data-hr="Sudbeno vjenčanje">Sudbeno vjenčanje</div>
     </div>
 
   </div>
@@ -1444,11 +1253,24 @@ footer a:hover { opacity: 0.5; }
 
     <div class="faq-item">
       <button class="faq-question" onclick="toggleFaq(this)">
+        <span data-en="How much does each collection cost?" data-hr="Koliko košta pojedina kolekcija?">Koliko košta pojedina kolekcija?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p data-en="Prices vary depending on the collection and your wishes. Send me an inquiry through the contact form and I will send you the full price list with all the details."
+           data-hr="Cijene se razlikuju ovisno o kolekciji i vašim željama. Javi mi se preko kontakt forme i poslat ću ti cijeli cjenik s detaljima.">
+          Cijene se razlikuju ovisno o kolekciji i vašim željama. Javi mi se preko kontakt forme i poslat ću ti cijeli cjenik s detaljima.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
         <span data-en="How do I book a session?" data-hr="Kako mogu rezervirati termin?">Kako mogu rezervirati termin?</span>
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p data-en="Simply send me a message through the contact form, email, or Instagram, letting me know which collection you're interested in. I'll get back to you within 24 hours with available dates."
+        <p data-en="Simply send me a message through the contact form, email, or Instagram, letting me know which collection you are interested in. I will get back to you within 24 hours with available dates."
            data-hr="Jednostavno mi pošalji poruku preko kontakt forme, emaila ili Instagrama, s naznakom koji te paket zanima. Javit ću ti se u roku od 24 sata s dostupnim terminima.">
           Jednostavno mi pošalji poruku preko kontakt forme, emaila ili Instagrama, s naznakom koji te paket zanima. Javit ću ti se u roku od 24 sata s dostupnim terminima.
         </p>
@@ -1474,7 +1296,7 @@ footer a:hover { opacity: 0.5; }
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p data-en="Wear something you feel comfortable and confident in. Soft, neutral tones (beige, cream, soft blue, earthy colors) photograph beautifully. Avoid large logos and busy patterns. I'm happy to send you a styling guide once you book."
+        <p data-en="Wear something you feel comfortable and confident in. Soft, neutral tones (beige, cream, soft blue, earthy colors) photograph beautifully. Avoid large logos and busy patterns. I am happy to send you a styling guide once you book."
            data-hr="Obucite nešto u čemu se osjećate ugodno i samopouzdano. Nježne, neutralne boje (bež, krem, nježno plava, zemljane boje) izgledaju prekrasno na fotografijama. Izbjegavajte velike logotipe i šarene uzorke. Rado ću vam poslati vodič za odijevanje nakon rezervacije.">
           Obucite nešto u čemu se osjećate ugodno i samopouzdano. Nježne, neutralne boje izgledaju prekrasno na fotografijama. Rado ću vam poslati vodič za odijevanje nakon rezervacije.
         </p>
@@ -1487,7 +1309,7 @@ footer a:hover { opacity: 0.5; }
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p data-en="Sessions can take place at your home, at a location of your choice, or at one of my favorite outdoor spots around Mostar and Tomislavgrad. For newborn sessions, I always come to your home - it's the most comfortable and safest place for your little one."
+        <p data-en="Sessions can take place at your home, at a location of your choice, or at one of my favorite outdoor spots around Mostar and Tomislavgrad. For newborn sessions, I always come to your home - it is the most comfortable and safest place for your little one."
            data-hr="Fotografiranja se mogu održati u vašem domu, na lokaciji po vašem izboru ili na nekom od mojih omiljenih vanjskih mjesta oko Mostara i Tomislavgrada. Za newborn fotografiranja uvijek dolazim u vaš dom - to je najudobnije i najsigurnije mjesto za vašu bebu.">
           Fotografiranja se mogu održati u vašem domu, na lokaciji po vašem izboru ili na nekom od mojih omiljenih vanjskih mjesta oko Mostara i Tomislavgrada. Za newborn fotografiranja uvijek dolazim u vaš dom.
         </p>
@@ -1500,7 +1322,7 @@ footer a:hover { opacity: 0.5; }
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p data-en="Don't worry - this is completely normal! I never force children to pose. I follow their rhythm, play with them, and capture the real, honest moments. The best photos often happen when they're simply being themselves."
+        <p data-en="Don't worry - this is completely normal! I never force children to pose. I follow their rhythm, play with them, and capture the real, honest moments. The best photos often happen when they are simply being themselves."
            data-hr="Ne brinite - to je potpuno normalno! Nikada ne prisiljavam djecu da poziraju. Pratím njihov ritam, igram se s njima i hvatam prave, iskrene trenutke. Najbolje fotografije često nastaju kada su jednostavno svoji.">
           Ne brinite - to je potpuno normalno! Nikada ne prisiljavam djecu da poziraju. Pratím njihov ritam, igram se s njima i hvatam prave, iskrene trenutke.
         </p>
@@ -1513,7 +1335,7 @@ footer a:hover { opacity: 0.5; }
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p data-en="You'll receive a sneak peek within 48 hours. The full gallery is delivered within 5-7 days, depending on the collection you choose. Photo books take an additional 4-6 weeks for design and printing."
+        <p data-en="You will receive a sneak peek within 48 hours. The full gallery is delivered within 5-7 days, depending on the collection you choose. Photo books take an additional 4-6 weeks for design and printing."
            data-hr="Sneak peek ćeš dobiti u roku od 48 sati. Kompletna galerija se dostavlja u roku od 5-7 dana, ovisno o kolekciji koju odabereš. Fotografske knjige zahtijevaju dodatnih 4-6 tjedana za izradu i tisak.">
           Sneak peek ćeš dobiti u roku od 48 sati. Kompletna galerija se dostavlja u roku od 5-7 dana, ovisno o kolekciji koju odabereš. Fotografske knjige zahtijevaju dodatnih 4-6 tjedana.
         </p>
@@ -1526,7 +1348,7 @@ footer a:hover { opacity: 0.5; }
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p data-en="For outdoor sessions, we'll simply reschedule to the next available date - no extra charge. I always keep an eye on the weather and will reach out a day or two before if it looks uncertain."
+        <p data-en="For outdoor sessions, we will simply reschedule to the next available date - no extra charge. I always keep an eye on the weather and will reach out a day or two before if it looks uncertain."
            data-hr="Za vanjska fotografiranja, jednostavno ćemo pronaći novi termin - bez dodatnih troškova. Uvijek pratim vremensku prognozu i javit ću vam dan-dva prije ako izgleda neizvjesno.">
           Za vanjska fotografiranja, jednostavno ćemo pronaći novi termin - bez dodatnih troškova. Uvijek pratim vremensku prognozu.
         </p>
@@ -1584,19 +1406,17 @@ footer a:hover { opacity: 0.5; }
   </div>
 
   <form class="contact-form" action="https://formspree.io/f/xgavqjyy" method="POST">
-    <label for="collection" data-en="Which collection interests you?" data-hr="Koja te kolekcija zanima?">Koja te kolekcija zanima?</label>
+    <label for="collection" data-en="What are you interested in?" data-hr="Što te zanima?">Što te zanima?</label>
     <select id="collection" name="collection">
-      <option value="" data-en="Select a collection..." data-hr="Odaberi kolekciju...">Odaberi kolekciju...</option>
-      <option value="The Family Collection" data-en="The Family Collection" data-hr="The Family Collection">The Family Collection</option>
-      <option value="The Portrait Collection" data-en="The Portrait Collection" data-hr="The Portrait Collection">The Portrait Collection</option>
-      <option value="The Maternity Collection" data-en="The Maternity Collection" data-hr="The Maternity Collection">The Maternity Collection</option>
-      <option value="The Newborn Collection" data-en="The Newborn Collection" data-hr="The Newborn Collection">The Newborn Collection</option>
-      <option value="The Couples Collection" data-en="The Couples Collection" data-hr="The Couples Collection">The Couples Collection</option>
-      <option value="The Civil Wedding Collection" data-en="The Civil Wedding Collection" data-hr="The Civil Wedding Collection">The Civil Wedding Collection</option>
-      <option value="The Baptism Collection" data-en="The Baptism Collection" data-hr="The Baptism Collection">The Baptism Collection</option>
-      <option value="Event Photography" data-en="Event Photography" data-hr="Fotografiranje događaja">Fotografiranje događaja</option>
-      <option value="Gift Card" data-en="Gift Card" data-hr="Poklon bon">Poklon bon</option>
-      <option value="Not sure / Other" data-en="Not sure / Other" data-hr="Nisam sigurna / Drugo">Nisam sigurna / Drugo</option>
+      <option value="" data-en="Select an option..." data-hr="Odaberi opciju...">Odaberi opciju...</option>
+      <option value="Obitelj" data-en="Family" data-hr="Obitelj">Obitelj</option>
+      <option value="Vjerski obredi" data-en="Religious Ceremonies" data-hr="Vjerski obredi">Vjerski obredi</option>
+      <option value="Vjenčanja i parovi" data-en="Weddings & Couples" data-hr="Vjenčanja i parovi">Vjenčanja i parovi</option>
+      <option value="Trudnoća i novorođenčad" data-en="Maternity & Newborn" data-hr="Trudnoća i novorođenčad">Trudnoća i novorođenčad</option>
+      <option value="Događaji" data-en="Events" data-hr="Događaji">Događaji</option>
+      <option value="Ponuda" data-en="Offer" data-hr="Ponuda">Ponuda</option>
+      <option value="Poklon bon" data-en="Gift Card" data-hr="Poklon bon">Poklon bon</option>
+      <option value="Nisam sigurna / Drugo" data-en="Not sure / Other" data-hr="Nisam sigurna / Drugo">Nisam sigurna / Drugo</option>
     </select>
 
     <label for="name" data-en="Your name" data-hr="Tvoje ime">Tvoje ime</label>
@@ -1706,19 +1526,16 @@ footer a:hover { opacity: 0.5; }
 
   contactObserver.observe(contactSection);
 
-  // ===== Rezervacija kolekcije - auto-select u formi =====
-  function reserveCollection(collectionName) {
-    const select = document.getElementById('collection');
-    // Postavi vrijednost u select
-    for (let option of select.options) {
-      if (option.value === collectionName) {
-        select.value = collectionName;
-        break;
-      }
-    }
-    // Skrolaj do kontakt forme
+  // ===== Zatraži ponudu - skrola do forme =====
+  function scrollToContact() {
     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-    // Fokusiraj select nakon skrola
+  }
+
+  // ===== Zatraži poklon bon - skrola do forme + auto-select =====
+  function requestGiftCard() {
+    const select = document.getElementById('collection');
+    select.value = 'Poklon bon';
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
     setTimeout(() => {
       select.focus();
     }, 800);
