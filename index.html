@@ -1,173 +1,276 @@
+<!-- ============================================
+     IVONE.PHOTO — Photography Portfolio
+     Autor: Ivone
+     Verzija: 1.0 (bilingual HR/EN)
+     ============================================ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Osnovne postavke: kodiranje i responsive prikaz na mobitelu -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Naslov koji se vidi u tabu browsera i u Google rezultatima -->
 <title>IVONE.PHOTO — Photography</title>
+
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  
-  body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background: #ffffff;
-    color: #111;
-    line-height: 1.6;
-  }
-  
-  .lang-switch {
-    position: fixed;
-    top: 20px;
-    right: 30px;
-    z-index: 100;
-    font-size: 12px;
-    letter-spacing: 2px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .lang-switch button {
-    background: none;
-    border: none;
-    color: #888;
-    font-family: inherit;
-    font-size: 12px;
-    letter-spacing: 2px;
-    cursor: pointer;
-    padding: 5px 8px;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: opacity 0.3s;
-  }
-  
-  .lang-switch button:hover {
-    opacity: 0.7;
-  }
-  
-  .lang-switch button.active {
-    color: #111;
-    font-weight: 600;
-  }
-  
-  .lang-switch svg {
-    width: 20px;
-    height: 14px;
-    border-radius: 2px;
-    box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
-  }
-  
-  .lang-switch span {
-    color: #ddd;
-  }
-  
-  header {
-    padding: 100px 40px 60px;
-    text-align: center;
-    border-bottom: 1px solid #eee;
-  }
-  
-  header h1 {
-    font-size: 42px;
-    font-weight: 300;
-    letter-spacing: 8px;
-    margin-bottom: 10px;
-  }
-  
-  header p {
-    font-size: 14px;
-    letter-spacing: 4px;
-    color: #888;
-    text-transform: uppercase;
-  }
-  
-  nav {
-    text-align: center;
-    padding: 30px 0;
-  }
-  
-  nav a {
-    color: #111;
-    text-decoration: none;
-    margin: 0 20px;
-    font-size: 13px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-  }
-  
-  nav a:hover { opacity: 0.5; }
-  
-  .intro {
-    max-width: 700px;
-    margin: 40px auto;
-    padding: 0 20px;
-    text-align: center;
-    font-size: 16px;
-    color: #555;
-    line-height: 1.8;
-  }
-  
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .gallery img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    transition: transform 0.5s;
-    cursor: pointer;
-  }
-  
-  .gallery img:hover { transform: scale(1.03); }
-  
-  footer {
-    text-align: center;
-    padding: 60px 20px;
-    font-size: 12px;
-    letter-spacing: 3px;
-    color: #888;
-    border-top: 1px solid #eee;
-  }
-  
-  footer a { color: #111; text-decoration: none; }
-  
-  @media (max-width: 768px) {
-    .gallery { grid-template-columns: repeat(2, 1fr); }
-    header h1 { font-size: 28px; letter-spacing: 4px; }
-    .lang-switch { top: 15px; right: 15px; }
-  }
-  
-  @media (max-width: 480px) {
-    .gallery { grid-template-columns: 1fr; }
-  }
+/* ============================================
+   RESET — uklanja default margine i padding
+   ============================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ============================================
+   OSNOVNI STIL — font, boje, pozadina cijele stranice
+   ============================================ */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* moderan, čist font */
+  background: #ffffff;                              /* bijela pozadina */
+  color: #111;                                      /* skoro crna slova */
+  line-height: 1.6;                                 /* razmak između redova */
+}
+
+/* ============================================
+   PREBACIVANJE JEZIKA (EN | HR) — fiksirano gore desno
+   ============================================ */
+.lang-switch {
+  position: fixed;              /* ostaje na mjestu dok skrolaš */
+  top: 20px;                    /* 20px od vrha */
+  right: 30px;                  /* 30px od desne ivice */
+  z-index: 100;                 /* iznad svega ostalog */
+  display: flex;                /* elementi jedan pored drugog */
+  align-items: center;          /* vertikalno poravnanje */
+  gap: 8px;                     /* razmak između elemenata */
+}
+
+/* Stil dugmadi EN i HR */
+.lang-switch button {
+  background: none;             /* bez pozadine */
+  border: none;                 /* bez okvira */
+  color: #888;                  /* siva boja (neaktivno) */
+  font-family: inherit;         /* isti font kao tijelo */
+  font-size: 12px;
+  letter-spacing: 2px;          /* razmak između slova */
+  cursor: pointer;              /* kursor ruke na hover */
+  padding: 5px 8px;
+  text-transform: uppercase;    /* velika slova */
+  display: flex;
+  align-items: center;
+  gap: 6px;                     /* razmak između zastavice i teksta */
+  transition: opacity 0.3s;     /* glatka promjena prozirnosti */
+}
+
+/* Kad pređeš mišem preko dugmeta */
+.lang-switch button:hover {
+  opacity: 0.7;
+}
+
+/* Aktivno dugme (trenutni jezik) — tamnije i podebljano */
+.lang-switch button.active {
+  color: #111;
+  font-weight: 600;
+}
+
+/* Stil zastavica (SVG) */
+.lang-switch svg {
+  width: 20px;
+  height: 14px;
+  border-radius: 2px;           /* blago zaobljeni rubovi */
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1); /* tanki okvir oko zastave */
+}
+
+/* Vertikalna crta | između EN i HR */
+.lang-switch span {
+  color: #ddd;
+}
+
+/* ============================================
+   ZAGLAVLJE — veliki naslov IVONE.PHOTO
+   ============================================ */
+header {
+  padding: 100px 40px 60px;     /* unutrašnji razmak (gore, lijevo/desno, dolje) */
+  text-align: center;           /* centrirano */
+  border-bottom: 1px solid #eee; /* tanka siva linija ispod */
+}
+
+/* Glavni naslov IVONE.PHOTO */
+header h1 {
+  font-size: 42px;              /* velika slova */
+  font-weight: 300;             /* tanka (light) debljina */
+  letter-spacing: 8px;          /* široko razmaknuta slova (elegantno) */
+  margin-bottom: 10px;
+}
+
+/* Podnaslov PHOTOGRAPHY / FOTOGRAFIJA */
+header p {
+  font-size: 14px;
+  letter-spacing: 4px;
+  color: #888;                  /* siva boja */
+  text-transform: uppercase;    /* VELIKA SLOVA */
+}
+
+/* ============================================
+   NAVIGACIJA — Portfolio / About / Contact
+   ============================================ */
+nav {
+  text-align: center;
+  padding: 30px 0;
+}
+
+/* Linkovi u navigaciji */
+nav a {
+  color: #111;
+  text-decoration: none;        /* bez podcrtavanja */
+  margin: 0 20px;               /* razmak lijevo i desno */
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* Kad pređeš mišem preko linka */
+nav a:hover { 
+  opacity: 0.5;                 /* blago se posvijetli */
+}
+
+/* ============================================
+   UVODNI TEKST — kratki opis ispod navigacije
+   ============================================ */
+.intro {
+  max-width: 700px;             /* ne širi se preko 700px */
+  margin: 40px auto;            /* centrirano horizontalno */
+  padding: 0 20px;
+  text-align: center;
+  font-size: 16px;
+  color: #555;                  /* srednje siva */
+  line-height: 1.8;
+}
+
+/* ============================================
+   GALERIJA — mreža fotografija (grid 3x3)
+   ============================================ */
+.gallery {
+  display: grid;                              /* CSS Grid raspored */
+  grid-template-columns: repeat(3, 1fr);      /* 3 kolone jednake širine */
+  gap: 10px;                                  /* razmak između slika */
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Same slike u galeriji */
+.gallery img {
+  width: 100%;                  /* popuni cijelu širinu kolone */
+  height: 300px;                /* fiksna visina */
+  object-fit: cover;            /* isiječe sliku da popuni prostor */
+  transition: transform 0.5s;   /* glatka animacija pri hover */
+  cursor: pointer;
+}
+
+/* Kad pređeš mišem preko slike — blago zumira */
+.gallery img:hover { 
+  transform: scale(1.03); 
+}
+
+/* ============================================
+   FOOTER — copyright i email na dnu
+   ============================================ */
+footer {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #888;
+  border-top: 1px solid #eee;   /* tanka linija iznad */
+}
+
+footer a { 
+  color: #111; 
+  text-decoration: none; 
+}
+
+/* ============================================
+   RESPONSIVE — prilagodba za tablete (do 768px)
+   ============================================ */
+@media (max-width: 768px) {
+  .gallery { grid-template-columns: repeat(2, 1fr); }  /* 2 kolone */
+  header h1 { font-size: 28px; letter-spacing: 4px; }  /* manji naslov */
+  .lang-switch { top: 15px; right: 15px; }             /* bliže rubu */
+}
+
+/* ============================================
+   RESPONSIVE — prilagodba za mobitele (do 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .gallery { grid-template-columns: 1fr; }  /* 1 kolona */
+}
 </style>
 </head>
+
 <body>
 
+<!-- ============================================
+     PREBACIVANJE JEZIKA — gore desno (EN | HR)
+     ============================================ -->
 <div class="lang-switch">
-  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <!-- Engleski (Union Jack zastava) -->
+  <button id="btn-en" class="active" onclick="setLang('en')">
+    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <rect width="60" height="40" fill="#012169"/>
+      <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/>
+      <path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/>
+      <path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="13"/>
+      <path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/>
+    </svg>
+    EN
+  </button>
+  
+  <!-- Vertikalna crta između -->
   <span>|</span>
-  <button id="btn-hr" onclick="setLang('hr')">HR</button>
+  
+  <!-- Hrvatski (hrvatska zastava) -->
+  <button id="btn-hr" onclick="setLang('hr')">
+    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <rect width="60" height="13.33" fill="#FF0000"/>
+      <rect y="13.33" width="60" height="13.33" fill="#FFFFFF"/>
+      <rect y="26.66" width="60" height="13.34" fill="#171796"/>
+      <rect x="24" y="6" width="12" height="14" fill="#FF0000" stroke="#FFFFFF" stroke-width="0.5"/>
+      <g fill="#FFFFFF">
+        <rect x="25" y="7" width="2" height="2"/>
+        <rect x="29" y="7" width="2" height="2"/>
+        <rect x="33" y="7" width="2" height="2"/>
+        <rect x="27" y="10" width="2" height="2"/>
+        <rect x="31" y="10" width="2" height="2"/>
+        <rect x="25" y="13" width="2" height="2"/>
+        <rect x="29" y="13" width="2" height="2"/>
+        <rect x="33" y="13" width="2" height="2"/>
+        <rect x="27" y="16" width="2" height="2"/>
+        <rect x="31" y="16" width="2" height="2"/>
+      </g>
+    </svg>
+    HR
+  </button>
 </div>
 
+<!-- ============================================
+     ZAGLAVLJE — naslov i podnaslov
+     data-en i data-hr drže tekstove za oba jezika
+     ============================================ -->
 <header>
   <h1>IVONE.PHOTO</h1>
   <p data-en="Photography" data-hr="Fotografija">Photography</p>
 </header>
 
+<!-- ============================================
+     NAVIGACIJA — linkovi na sekcije
+     ============================================ -->
 <nav>
   <a href="#portfolio" data-en="Portfolio" data-hr="Portfolio">Portfolio</a>
   <a href="#about" data-en="About" data-hr="O meni">About</a>
   <a href="#contact" data-en="Contact" data-hr="Kontakt">Contact</a>
 </nav>
 
+<!-- ============================================
+     UVODNI TEKST — kratki opis
+     ============================================ -->
 <section class="intro" id="about">
   <p data-en="Capturing moments, telling stories. Welcome to my photography portfolio."
      data-hr="Hvatam trenutke, pričam priče. Dobrodošli u moj fotografski portfolio.">
@@ -175,6 +278,10 @@
   </p>
 </section>
 
+<!-- ============================================
+     GALERIJA — 9 fotografija u gridu
+     Slike su privremene (picsum.photos) — zamijenit ćemo ih kasnije
+     ============================================ -->
 <section class="gallery" id="portfolio">
   <img src="https://picsum.photos/seed/1/800/800" alt="Photo 1">
   <img src="https://picsum.photos/seed/2/800/800" alt="Photo 2">
@@ -187,29 +294,39 @@
   <img src="https://picsum.photos/seed/9/800/800" alt="Photo 9">
 </section>
 
+<!-- ============================================
+     FOOTER — copyright i kontakt email
+     ============================================ -->
 <footer id="contact">
   <p>© 2026 IVONE.PHOTO — <a href="mailto:info@ivone.photo">info@ivone.photo</a></p>
 </footer>
 
+<!-- ============================================
+     JAVASCRIPT — funkcija za prebacivanje jezika
+     ============================================ -->
 <script>
+  // Funkcija koja mijenja jezik na cijeloj stranici
   function setLang(lang) {
-    // Promijeni sve elemente koji imaju data-en i data-hr
+    // Pronađi SVE elemente koji imaju data-en i data-hr atribute
+    // i postavi im tekst na odgovarajući jezik
     document.querySelectorAll('[data-en]').forEach(el => {
       el.textContent = el.getAttribute('data-' + lang);
     });
     
-    // Aktiviraj odgovarajuće dugme
+    // Označi aktivno dugme (podebljano)
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
     document.getElementById('btn-hr').classList.toggle('active', lang === 'hr');
     
-    // Postavi HTML lang atribut
+    // Postavi HTML lang atribut (za SEO i accessibility)
     document.documentElement.lang = lang;
     
-    // Zapamti odabir
+    // Zapamti odabir u browseru (localStorage)
+    // Tako da kad klijent ponovno dođe, ostane na njegovom jeziku
     localStorage.setItem('preferred-lang', lang);
   }
   
-  // Učitaj spremljeni jezik kad se stranica otvori
+  // Kad se stranica učita, provjeri je li korisnik već odabrao jezik
+  // Ako nije, koristi engleski (default)
   window.addEventListener('DOMContentLoaded', () => {
     const saved = localStorage.getItem('preferred-lang') || 'en';
     setLang(saved);
