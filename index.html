@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IVONE.PHOTO</title>
+<title>IVONE.PHOTO — Photography</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   
@@ -14,8 +14,38 @@
     line-height: 1.6;
   }
   
+  .lang-switch {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    z-index: 100;
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+  
+  .lang-switch button {
+    background: none;
+    border: none;
+    color: #888;
+    font-family: inherit;
+    font-size: 12px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    padding: 5px 8px;
+    text-transform: uppercase;
+  }
+  
+  .lang-switch button.active {
+    color: #111;
+    font-weight: 600;
+  }
+  
+  .lang-switch span {
+    color: #ddd;
+  }
+  
   header {
-    padding: 60px 40px;
+    padding: 100px 40px 60px;
     text-align: center;
     border-bottom: 1px solid #eee;
   }
@@ -93,6 +123,7 @@
   @media (max-width: 768px) {
     .gallery { grid-template-columns: repeat(2, 1fr); }
     header h1 { font-size: 28px; letter-spacing: 4px; }
+    .lang-switch { top: 15px; right: 15px; }
   }
   
   @media (max-width: 480px) {
@@ -102,19 +133,28 @@
 </head>
 <body>
 
+<div class="lang-switch">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <span>|</span>
+  <button id="btn-hr" onclick="setLang('hr')">HR</button>
+</div>
+
 <header>
   <h1>IVONE.PHOTO</h1>
-  <p>Photography</p>
+  <p data-en="Photography" data-hr="Fotografija">Photography</p>
 </header>
 
 <nav>
-  <a href="#portfolio">Portfolio</a>
-  <a href="#about">About</a>
-  <a href="#contact">Contact</a>
+  <a href="#portfolio" data-en="Portfolio" data-hr="Portfolio">Portfolio</a>
+  <a href="#about" data-en="About" data-hr="O meni">About</a>
+  <a href="#contact" data-en="Contact" data-hr="Kontakt">Contact</a>
 </nav>
 
 <section class="intro" id="about">
-  <p>Capturing moments, telling stories. Welcome to my photography portfolio.</p>
+  <p data-en="Capturing moments, telling stories. Welcome to my photography portfolio."
+     data-hr="Hvatam trenutke, pričam priče. Dobrodošli u moj fotografski portfolio.">
+    Capturing moments, telling stories. Welcome to my photography portfolio.
+  </p>
 </section>
 
 <section class="gallery" id="portfolio">
@@ -132,6 +172,31 @@
 <footer id="contact">
   <p>© 2026 IVONE.PHOTO — <a href="mailto:info@ivone.photo">info@ivone.photo</a></p>
 </footer>
+
+<script>
+  function setLang(lang) {
+    // Promijeni sve elemente koji imaju data-en i data-hr
+    document.querySelectorAll('[data-en]').forEach(el => {
+      el.textContent = el.getAttribute('data-' + lang);
+    });
+    
+    // Aktiviraj odgovarajuće dugme
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-hr').classList.toggle('active', lang === 'hr');
+    
+    // Postavi HTML lang atribut
+    document.documentElement.lang = lang;
+    
+    // Zapamti odabir
+    localStorage.setItem('preferred-lang', lang);
+  }
+  
+  // Učitaj spremljeni jezik kad se stranica otvori
+  window.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('preferred-lang') || 'en';
+    setLang(saved);
+  });
+</script>
 
 </body>
 </html>
