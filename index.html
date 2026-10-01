@@ -1,7 +1,7 @@
 <!-- ============================================
      IVONE PHOTO - Photography Portfolio
      Autor: Ivona Šarić
-     Verzija: 14.0 (finalna s poboljšanom formom)
+     Verzija: 15.0 (finalna)
      ============================================ -->
 <!DOCTYPE html>
 <html lang="hr">
@@ -52,7 +52,6 @@ h1, h2, h3, .hero-title {
 .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.55s; opacity: 1; transform: translateY(0); }
 .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.7s; opacity: 1; transform: translateY(0); }
 .reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.85s; opacity: 1; transform: translateY(0); }
-.reveal-stagger.visible > *:nth-child(7) { transition-delay: 1s; opacity: 1; transform: translateY(0); }
 
 /* INSTAGRAM IKONA - HEADER */
 .instagram-icon {
@@ -248,21 +247,34 @@ nav a, nav .nav-item {
 }
 nav a:hover, nav .nav-item:hover { opacity: 0.5; }
 
-.dropdown { position: relative; }
+/* DROPDOWN - elegantno sporo */
+.dropdown { position: relative; padding-bottom: 15px; margin-bottom: -15px; }
 .dropdown-menu {
   position: absolute;
-  top: 100%; left: 50%;
-  transform: translateX(-50%);
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
   background: #fff;
   border: 1px solid #eee;
   padding: 12px 0;
   min-width: 240px;
-  display: none;
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   box-shadow: 0 15px 40px rgba(0,0,0,0.08);
   z-index: 50;
-  margin-top: 8px;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.5s;
 }
-.dropdown:hover .dropdown-menu { display: block; }
+.dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
 .dropdown-menu a {
   display: block;
   padding: 11px 28px;
@@ -270,6 +282,7 @@ nav a:hover, nav .nav-item:hover { opacity: 0.5; }
   font-size: 10px;
   letter-spacing: 2px;
   color: #666;
+  transition: background 0.3s, color 0.3s;
 }
 .dropdown-menu a:hover { background: #fafafa; color: #111; opacity: 1; }
 
@@ -473,8 +486,8 @@ section { padding: 100px 20px; }
   fill: currentColor;
 }
 
-/* UGC */
-.ugc { background: #f2ede4; }
+/* UGC - BIJELA pozadina (razlikuje se od Poklon bonova) */
+.ugc { background: #fff; }
 .ugc-content {
   max-width: 750px;
   margin: 0 auto 50px;
@@ -502,7 +515,7 @@ section { padding: 100px 20px; }
 }
 
 /* KIND WORDS */
-.kind-words { background: #fff; }
+.kind-words { background: #f2ede4; }
 .testimonials-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -511,7 +524,7 @@ section { padding: 100px 20px; }
   margin: 0 auto;
 }
 .testimonial {
-  background: #faf7f2;
+  background: #fff;
   padding: 0 0 35px 0;
   text-align: center;
   transition: transform 0.4s;
@@ -548,7 +561,7 @@ section { padding: 100px 20px; }
 }
 
 /* FAQ */
-.faq { background: #f2ede4; }
+.faq { background: #faf7f2; }
 .faq-list { max-width: 800px; margin: 0 auto; }
 .faq-item {
   border-bottom: 1px solid #e8e8e8;
@@ -943,6 +956,7 @@ footer a:hover { opacity: 0.5; }
     <li><a href="#ponuda" data-en="Offer" data-hr="Ponuda">Ponuda</a></li>
     <li><a href="#books" data-en="Books" data-hr="Fotoknjige">Fotoknjige</a></li>
     <li><a href="#gift" data-en="Gift Cards" data-hr="Poklon bonovi">Poklon bonovi</a></li>
+    <li><a href="#ugc" data-en="UGC & Brands" data-hr="UGC & Brendovi">UGC & Brendovi</a></li>
     <li><a href="#contact" data-en="Contact" data-hr="Kontakt">Kontakt</a></li>
   </ul>
 </nav>
@@ -959,7 +973,7 @@ footer a:hover { opacity: 0.5; }
 
     <div class="about-text">
       <div data-lang-block="hr">
-        <p><strong>Ja sam Ivona - mama, supruga i fotografkinja iz Mostara/Tomislavgrada.</strong></p>
+        <p><strong>Ja sam Ivona - mama, supruga i fotograf iz Mostara/Tomislavgrada.</strong></p>
         <p>Fotografija je oduvijek moj način da sačuvam ono što nam izmiče - pogled koji govori sve, ruku koja traži drugu ruku, tihi trenutak za koji poželimo da traje zauvijek.</p>
         <p>Volim raditi s ljudima, stvarati opuštenu atmosferu i bilježiti iskrene emocije - bez ukočenih poza i prisilnih osmijeha. Jer najljepše fotografije nastaju kada jednostavno budete svoji.</p>
       </div>
@@ -978,9 +992,9 @@ footer a:hover { opacity: 0.5; }
   <div class="portfolio-group-header">
     <h3 data-en="Family" data-hr="Obitelj">Obitelj</h3>
     <p class="portfolio-group-desc"
-       data-en='"The way she looks at you. The sound of his laughter. The chaos, the cuddles, the quiet moments in between."'
-       data-hr='"Pogled koji govori sve. Dječji smijeh iz susjedne sobe. Kaos, zagrljaji i oni tihi trenuci između."'>
-      "Pogled koji govori sve. Dječji smijeh iz susjedne sobe. Kaos, zagrljaji i oni tihi trenuci između."
+       data-en='"The way she looks at you. The sound of his laughter. The chaos, the cuddles, the quiet moments in between. Family sessions are about capturing your story as it is right now - beautifully imperfect, deeply yours."'
+       data-hr='"Pogled koji govori sve. Dječji smijeh iz susjedne sobe. Kaos, zagrljaji i oni tihi trenuci između. Obiteljska fotografiranja bilježe vašu priču upravo onakvu kakva jest - lijepo nesavršenu i samo vašu."'>
+      "Pogled koji govori sve. Dječji smijeh iz susjedne sobe. Kaos, zagrljaji i oni tihi trenuci između. Obiteljska fotografiranja bilježe vašu priču upravo onakvu kakva jest - lijepo nesavršenu i samo vašu."
     </p>
   </div>
   <div class="gallery reveal-stagger">
@@ -996,9 +1010,9 @@ footer a:hover { opacity: 0.5; }
     <h3 data-en="Religious Ceremonies" data-hr="Vjerski obredi">Vjerski obredi</h3>
     <p class="portfolio-group-sub">Krštenje · Krizme · Pričesti</p>
     <p class="portfolio-group-desc"
-       data-en='"Baptism, confirmation, and first communion - moments of faith, family, and quiet celebration."'
-       data-hr='"Krštenje, krizma i prva pričest - trenuci vjere, obitelji i tihog slavlja."'>
-      "Krštenje, krizma i prva pričest - trenuci vjere, obitelji i tihog slavlja."
+       data-en='"Baptism, confirmation, and first communion - moments of faith, family, and quiet celebration. From the first prayer to the shared table, I will be there to preserve every tender moment of these sacred days."'
+       data-hr='"Krštenje, krizma i prva pričest - trenuci vjere, obitelji i tihog slavlja. Od prve molitve do zajedničkog stola, bit ću tu da sačuvam svaki nježni trenutak ovih svetih dana."'>
+      "Krštenje, krizma i prva pričest - trenuci vjere, obitelji i tihog slavlja. Od prve molitve do zajedničkog stola, bit ću tu da sačuvam svaki nježni trenutak ovih svetih dana."
     </p>
   </div>
   <div class="gallery reveal-stagger">
@@ -1006,7 +1020,7 @@ footer a:hover { opacity: 0.5; }
     <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?w=800&q=80" alt="Krštenje 2" class="lightbox-img">
     <img src="https://images.unsplash.com/photo-1519750157634-b6d493a0f77c?w=800&q=80" alt="Krizma 1" class="lightbox-img">
     <img src="https://images.unsplash.com/photo-1602523961358-f9f03dd557db?w=800&q=80" alt="Krizma 2" class="lightbox-img">
-    <img src="https://images.unsplash.com/photo-1595397221490-9dd5a0c24b30?w=800&q=80" alt="Pričest 1" class="lightbox-img">
+    <img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?w=800&q=80" alt="Pričest 1" class="lightbox-img">
     <img src="https://images.unsplash.com/photo-1544427920-c49ccfb85579?w=800&q=80" alt="Pričest 2" class="lightbox-img">
   </div>
 </section>
@@ -1017,8 +1031,8 @@ footer a:hover { opacity: 0.5; }
     <h3 data-en="Weddings & Couples" data-hr="Vjenčanja i parovi">Vjenčanja i parovi</h3>
     <p class="portfolio-group-sub">Sudbena vjenčanja · Parovi</p>
     <p class="portfolio-group-desc"
-       data-en='"For those who celebrate love their own way - quietly, tenderly, and entirely their own."'
-       data-hr='"Za one koji slave ljubav na svoj način - tiho, nježno i potpuno svoje."'>
+       data-en='"For those who celebrate love their own way - quietly, tenderly, and entirely their own. Whether it is an intimate civil wedding or a couple wanting to preserve their story."'
+       data-hr='"Za one koji slave ljubav na svoj način - tiho, nježno i potpuno svoje. Bilo da je riječ o intimnom sudbenom vjenčanju ili o paru koji želi sačuvati svoju priču."'>
       "Za one koji slave ljubav na svoj način - tiho, nježno i potpuno svoje."
     </p>
   </div>
