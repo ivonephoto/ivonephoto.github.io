@@ -1,6 +1,6 @@
 <!-- ============================================
      IVONE PHOTO - Photography Portfolio
-     Verzija: 18.0 (s tvojim fotografijama)
+     Verzija: 19.0 (finalna)
      ============================================ -->
 <!DOCTYPE html>
 <html lang="hr">
@@ -11,7 +11,7 @@
 <title>Ivone Photo</title>
 <meta name="description" content="Ivona Šarić - obiteljska, portretna, trudnička, newborn fotografija, krštenja, krizme, pričesti i sudbena vjenčanja.">
 
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23111'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='55' font-weight='300' fill='%23fff' text-anchor='middle'%3EI%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/jpeg" href="images/favicon.jpg">
 
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -86,13 +86,12 @@ h1, h2, h3, .hero-title { font-family: Georgia, 'Times New Roman', serif; }
 .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.65; z-index: 1; }
 .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 100%); z-index: 2; }
 .hero-content { position: relative; z-index: 3; color: #fff; padding: 0 30px; max-width: 900px; }
-.hero-brand { font-size: 13px; letter-spacing: 10px; text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 30px; font-family: 'Helvetica Neue', Arial, sans-serif; }
+.hero-brand { font-size: 13px; letter-spacing: 10px; text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 30px; }
 .hero-title { font-size: 52px; font-weight: 400; letter-spacing: 2px; line-height: 1.25; font-style: italic; margin-bottom: 45px; }
 .hero-btn {
   display: inline-block; padding: 18px 55px;
   background: transparent; color: #fff;
   border: 1px solid rgba(255,255,255,0.7);
-  font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
   text-decoration: none; cursor: pointer;
   transition: background 0.4s, color 0.4s, border-color 0.4s;
@@ -194,36 +193,50 @@ section { padding: 100px 20px; }
 .tab-panel-sub { font-size: 12px; letter-spacing: 3px; color: #999; text-transform: uppercase; margin-bottom: 20px; }
 .tab-panel-desc { font-size: 15px; color: #666; line-height: 1.95; font-style: italic; }
 
-.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.gallery img {
-  width: 100%; height: 340px; object-fit: cover;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
-  cursor: pointer; display: block;
+/* MASONRY GALERIJA - različite visine */
+.gallery {
+  column-count: 3;
+  column-gap: 12px;
 }
-.gallery img:hover { transform: scale(1.03); opacity: 0.9; }
+.gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 12px;
+  break-inside: avoid;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+  cursor: pointer;
+}
+.gallery img:hover { transform: scale(1.02); opacity: 0.92; }
 
 .collections { background: #faf7f2; }
 .collections-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto 60px; }
 .collection-card {
-  background: #fff; padding: 45px 35px; border: 1px solid #eee;
+  background: #fff; padding: 50px 35px; border: 1px solid #eee;
   text-align: center; transition: transform 0.4s, box-shadow 0.4s;
-  display: flex; flex-direction: column;
+  display: flex; flex-direction: column; justify-content: space-between;
+  min-height: 280px;
 }
 .collection-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
 .collection-name { font-family: Georgia, serif; font-size: 20px; font-style: italic; letter-spacing: 1px; color: #111; margin-bottom: 18px; }
 .collection-tagline {
   font-size: 13px; color: #777; line-height: 1.75; font-style: italic;
-  margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid #e8e8e8; min-height: 80px;
+  margin-bottom: 30px; flex-grow: 1;
 }
-.collection-placeholder { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #aaa; padding: 20px 0; flex-grow: 1; }
 .collection-btn {
-  display: inline-block; margin-top: 20px; padding: 12px 30px;
-  background: #111; color: #fff; font-size: 10px;
-  letter-spacing: 3px; text-transform: uppercase;
+  display: inline-block; align-self: center;
+  padding: 12px 32px;
+  background: #111; color: #fff;
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
   text-decoration: none; transition: background 0.3s;
 }
 .collection-btn:hover { background: #333; }
-.collections-note { max-width: 720px; margin: 0 auto; text-align: center; font-size: 13px; color: #777; line-height: 1.9; font-style: italic; }
+.collections-note {
+  max-width: 720px; margin: 0 auto;
+  text-align: center; font-size: 14px;
+  color: #666; line-height: 1.9;
+  font-style: italic;
+}
 
 .what-receive { background: #fff; }
 .receive-list { max-width: 700px; margin: 0 auto; list-style: none; }
@@ -260,19 +273,6 @@ section { padding: 100px 20px; }
 }
 .ponuda-btn:hover { background: #333; transform: translateY(-2px); }
 .ponuda-btn svg { width: 16px; height: 16px; fill: currentColor; }
-
-.content-block { max-width: 780px; margin: 0 auto 50px; text-align: center; font-size: 15px; color: #444; line-height: 1.95; }
-.content-block p + p { margin-top: 20px; }
-.content-elegant { margin-top: 30px; font-family: Georgia, serif; font-style: italic; font-size: 15px; color: #666; }
-.action-btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: #111; color: #fff; border: none;
-  padding: 16px 45px; font-family: inherit; font-size: 11px;
-  letter-spacing: 4px; text-transform: uppercase; cursor: pointer;
-  transition: background 0.3s, transform 0.3s; margin-top: 35px;
-}
-.action-btn:hover { background: #333; transform: translateY(-2px); }
-.action-btn svg { width: 16px; height: 16px; fill: currentColor; }
 
 .kind-words { background: #fff; }
 .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
@@ -396,7 +396,7 @@ footer p a:hover { opacity: 0.5; }
 }
 .lightbox.open { display: flex; opacity: 1; }
 .lightbox-img {
-  max-width: 88%; max-height: 85%; object-fit: contain;
+  max-width: 92%; max-height: 90%; object-fit: contain;
   box-shadow: 0 20px 80px rgba(0,0,0,0.5);
   animation: lightboxIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -432,13 +432,12 @@ footer p a:hover { opacity: 0.5; }
   .ponuda-steps { gap: 30px; }
   .steps-grid { grid-template-columns: repeat(2, 1fr); }
   .step-card:not(:last-child)::after { display: none; }
+  .gallery { column-count: 2; }
 }
 @media (max-width: 768px) {
   .hero-title { font-size: 34px; }
   .hero-brand { font-size: 11px; letter-spacing: 6px; }
   .hero-btn { padding: 15px 40px; font-size: 11px; }
-  .gallery { grid-template-columns: repeat(2, 1fr); }
-  .gallery img { height: 260px; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
   .about-text { text-align: center; }
   .lang-switch { top: 15px; right: 15px; padding: 4px 8px; }
@@ -461,7 +460,8 @@ footer p a:hover { opacity: 0.5; }
   section { padding: 60px 15px; }
   .section-title { font-size: 20px; letter-spacing: 4px; }
   .section-subtitle { font-size: 10px; }
-  .gallery { grid-template-columns: 1fr; }
+  .gallery { column-count: 2; column-gap: 8px; }
+  .gallery img { margin-bottom: 8px; }
   .hero-title { font-size: 26px; }
   .hero-brand { letter-spacing: 4px; }
   .about-grid { gap: 30px; }
@@ -487,16 +487,10 @@ footer p a:hover { opacity: 0.5; }
       <rect y="26.66" width="60" height="13.34" fill="#171796"/>
       <rect x="24" y="13" width="12" height="14" fill="#FF0000" stroke="#FFFFFF" stroke-width="0.5"/>
       <g fill="#FFFFFF">
-        <rect x="25" y="14" width="2" height="2"/>
-        <rect x="29" y="14" width="2" height="2"/>
-        <rect x="33" y="14" width="2" height="2"/>
-        <rect x="27" y="17" width="2" height="2"/>
-        <rect x="31" y="17" width="2" height="2"/>
-        <rect x="25" y="20" width="2" height="2"/>
-        <rect x="29" y="20" width="2" height="2"/>
-        <rect x="33" y="20" width="2" height="2"/>
-        <rect x="27" y="23" width="2" height="2"/>
-        <rect x="31" y="23" width="2" height="2"/>
+        <rect x="25" y="14" width="2" height="2"/><rect x="29" y="14" width="2" height="2"/><rect x="33" y="14" width="2" height="2"/>
+        <rect x="27" y="17" width="2" height="2"/><rect x="31" y="17" width="2" height="2"/>
+        <rect x="25" y="20" width="2" height="2"/><rect x="29" y="20" width="2" height="2"/><rect x="33" y="20" width="2" height="2"/>
+        <rect x="27" y="23" width="2" height="2"/><rect x="31" y="23" width="2" height="2"/>
       </g>
     </svg>
     HR
@@ -556,7 +550,6 @@ footer p a:hover { opacity: 0.5; }
         <a href="#gift" data-en="Gift Vouchers" data-hr="Poklon bonovi">Poklon bonovi</a>
       </div>
     </li>
-    <li><a href="#testimonials" data-en="Testimonials" data-hr="Lijepe riječi">Lijepe riječi</a></li>
     <li><a href="#contact" data-en="Contact" data-hr="Kontakt">Kontakt</a></li>
     <li><a href="#how-it-works" data-en="How It Works" data-hr="Kako funkcionira">Kako funkcionira</a></li>
   </ul>
@@ -588,7 +581,7 @@ footer p a:hover { opacity: 0.5; }
   </div>
 </section>
 
-<!-- PORTFOLIO SA TABOVIMA -->
+<!-- PORTFOLIO -->
 <section class="portfolio-section reveal" id="portfolio">
   <div class="portfolio-header">
     <h2 class="section-title" data-en="Portfolio" data-hr="Portfolio">Portfolio</h2>
@@ -614,7 +607,7 @@ footer p a:hover { opacity: 0.5; }
           "Pogled koji govori sve. Dječji smijeh iz susjedne sobe."
         </p>
       </div>
-      <div class="gallery reveal-stagger">
+      <div class="gallery">
         <img src="images/family-1.jpg" alt="Obitelj 1" class="lightbox-img">
         <img src="images/family-2.jpg" alt="Obitelj 2" class="lightbox-img">
         <img src="images/family-3.jpg" alt="Obitelj 3" class="lightbox-img">
@@ -631,7 +624,7 @@ footer p a:hover { opacity: 0.5; }
           "Krštenje, krizma i prva pričest - trenuci vjere, obitelji i tihog slavlja."
         </p>
       </div>
-      <div class="gallery reveal-stagger">
+      <div class="gallery">
         <img src="images/religious-1.jpg" alt="Krštenje 1" class="lightbox-img">
         <img src="images/religious-2.jpg" alt="Krštenje 2" class="lightbox-img">
         <img src="images/religious-3.jpg" alt="Krizma 1" class="lightbox-img">
@@ -651,7 +644,7 @@ footer p a:hover { opacity: 0.5; }
           "Za one koji slave ljubav na svoj način."
         </p>
       </div>
-      <div class="gallery reveal-stagger">
+      <div class="gallery">
         <img src="images/wedding-1.jpg" alt="Vjenčanje 1" class="lightbox-img">
         <img src="images/wedding-2.jpg" alt="Vjenčanje 2" class="lightbox-img">
         <img src="images/wedding-3.jpg" alt="Vjenčanje 3" class="lightbox-img">
@@ -671,7 +664,7 @@ footer p a:hover { opacity: 0.5; }
           "Od tihog sjaja trudnoće do prvih dana s novorođenčetom."
         </p>
       </div>
-      <div class="gallery reveal-stagger">
+      <div class="gallery">
         <img src="images/maternity-1.jpg" alt="Trudnoća 1" class="lightbox-img">
         <img src="images/maternity-2.jpg" alt="Trudnoća 2" class="lightbox-img">
         <img src="images/maternity-3.jpg" alt="Trudnoća 3" class="lightbox-img">
@@ -690,7 +683,7 @@ footer p a:hover { opacity: 0.5; }
           "Bilo da organizirate rođendan, poslovno okupljanje ili intimnu proslavu godišnjice."
         </p>
       </div>
-      <div class="gallery reveal-stagger">
+      <div class="gallery">
         <img src="images/events-1.jpg" alt="Događaj 1" class="lightbox-img">
         <img src="images/events-2.jpg" alt="Događaj 2" class="lightbox-img">
         <img src="images/events-3.jpg" alt="Događaj 3" class="lightbox-img">
@@ -707,52 +700,58 @@ footer p a:hover { opacity: 0.5; }
 
   <div class="collections-grid reveal-stagger">
     <div class="collection-card">
-      <div class="collection-name" data-en="The Family Collection" data-hr="The Family Collection">The Family Collection</div>
-      <div class="collection-tagline" data-en='"For families who want to preserve everyday, spontaneous moments."' data-hr='"Za obitelji koje žele sačuvati svakodnevne, spontane trenutke."'>"Za obitelji koje žele sačuvati svakodnevne, spontane trenutke."</div>
-      <div class="collection-placeholder" data-en="Details coming soon" data-hr="Detalji uskoro">Detalji uskoro</div>
+      <div>
+        <div class="collection-name" data-en="The Family Collection" data-hr="The Family Collection">The Family Collection</div>
+        <div class="collection-tagline" data-en='"For families who want to preserve everyday, spontaneous moments."' data-hr='"Za obitelji koje žele sačuvati svakodnevne, spontane trenutke."'>"Za obitelji koje žele sačuvati svakodnevne, spontane trenutke."</div>
+      </div>
       <a href="#contact" class="collection-btn" data-en="Request Details" data-hr="Zatraži detalje">Zatraži detalje</a>
     </div>
 
     <div class="collection-card">
-      <div class="collection-name" data-en="The Couples Collection" data-hr="The Couples Collection">The Couples Collection</div>
-      <div class="collection-tagline" data-en='"For couples who want to preserve their story."' data-hr='"Za parove koji žele sačuvati svoju priču."'>"Za parove koji žele sačuvati svoju priču."</div>
-      <div class="collection-placeholder" data-en="Details coming soon" data-hr="Detalji uskoro">Detalji uskoro</div>
+      <div>
+        <div class="collection-name" data-en="The Couples Collection" data-hr="The Couples Collection">The Couples Collection</div>
+        <div class="collection-tagline" data-en='"For couples who want to preserve their story."' data-hr='"Za parove koji žele sačuvati svoju priču."'>"Za parove koji žele sačuvati svoju priču."</div>
+      </div>
       <a href="#contact" class="collection-btn" data-en="Request Details" data-hr="Zatraži detalje">Zatraži detalje</a>
     </div>
 
     <div class="collection-card">
-      <div class="collection-name" data-en="The Maternity Collection" data-hr="The Maternity Collection">The Maternity Collection</div>
-      <div class="collection-tagline" data-en='"For mothers who want to preserve the beauty of this special time."' data-hr='"Za majke koje žele sačuvati ljepotu ovog posebnog vremena."'>"Za majke koje žele sačuvati ljepotu ovog posebnog vremena."</div>
-      <div class="collection-placeholder" data-en="Details coming soon" data-hr="Detalji uskoro">Detalji uskoro</div>
+      <div>
+        <div class="collection-name" data-en="The Maternity Collection" data-hr="The Maternity Collection">The Maternity Collection</div>
+        <div class="collection-tagline" data-en='"For mothers who want to preserve the beauty of this special time."' data-hr='"Za majke koje žele sačuvati ljepotu ovog posebnog vremena."'>"Za majke koje žele sačuvati ljepotu ovog posebnog vremena."</div>
+      </div>
       <a href="#contact" class="collection-btn" data-en="Request Details" data-hr="Zatraži detalje">Zatraži detalje</a>
     </div>
 
     <div class="collection-card">
-      <div class="collection-name" data-en="The Newborn Collection" data-hr="The Newborn Collection">The Newborn Collection</div>
-      <div class="collection-tagline" data-en='"For the first days that pass too quickly."' data-hr='"Za prve dane koji prolaze prebrzo."'>"Za prve dane koji prolaze prebrzo."</div>
-      <div class="collection-placeholder" data-en="Details coming soon" data-hr="Detalji uskoro">Detalji uskoro</div>
+      <div>
+        <div class="collection-name" data-en="The Newborn Collection" data-hr="The Newborn Collection">The Newborn Collection</div>
+        <div class="collection-tagline" data-en='"For the first days that pass too quickly."' data-hr='"Za prve dane koji prolaze prebrzo."'>"Za prve dane koji prolaze prebrzo."</div>
+      </div>
       <a href="#contact" class="collection-btn" data-en="Request Details" data-hr="Zatraži detalje">Zatraži detalje</a>
     </div>
 
     <div class="collection-card">
-      <div class="collection-name" data-en="The Portrait Collection" data-hr="The Portrait Collection">The Portrait Collection</div>
-      <div class="collection-tagline" data-en='"For those who want to see themselves as they truly are."' data-hr='"Za one koji žele vidjeti sebe onakvima kakvi jesu."'>"Za one koji žele vidjeti sebe onakvima kakvi jesu."</div>
-      <div class="collection-placeholder" data-en="Details coming soon" data-hr="Detalji uskoro">Detalji uskoro</div>
+      <div>
+        <div class="collection-name" data-en="The Portrait Collection" data-hr="The Portrait Collection">The Portrait Collection</div>
+        <div class="collection-tagline" data-en='"For those who want to see themselves as they truly are."' data-hr='"Za one koji žele vidjeti sebe onakvima kakvi jesu."'>"Za one koji žele vidjeti sebe onakvima kakvi jesu."</div>
+      </div>
       <a href="#contact" class="collection-btn" data-en="Request Details" data-hr="Zatraži detalje">Zatraži detalje</a>
     </div>
 
     <div class="collection-card">
-      <div class="collection-name" data-en="The Civil Wedding Collection" data-hr="The Civil Wedding Collection">The Civil Wedding Collection</div>
-      <div class="collection-tagline" data-en='"For those who celebrate love their own way."' data-hr='"Za one koji slave ljubav na svoj način."'>"Za one koji slave ljubav na svoj način."</div>
-      <div class="collection-placeholder" data-en="Details coming soon" data-hr="Detalji uskoro">Detalji uskoro</div>
+      <div>
+        <div class="collection-name" data-en="The Civil Wedding Collection" data-hr="The Civil Wedding Collection">The Civil Wedding Collection</div>
+        <div class="collection-tagline" data-en='"For those who celebrate love their own way."' data-hr='"Za one koji slave ljubav na svoj način."'>"Za one koji slave ljubav na svoj način."</div>
+      </div>
       <a href="#contact" class="collection-btn" data-en="Request Details" data-hr="Zatraži detalje">Zatraži detalje</a>
     </div>
   </div>
 
   <p class="collections-note"
-     data-en="Full collection details and pricing will be available soon. In the meantime, send an inquiry and I will personally send you all the information you need."
-     data-hr="Kompletni detalji kolekcija i cijene bit će uskoro dostupni. U međuvremenu, pošalji upit i poslat ću ti osobno sve potrebne informacije.">
-    Kompletni detalji kolekcija i cijene bit će uskoro dostupni. U međuvremenu, pošalji upit i poslat ću ti osobno sve potrebne informacije.
+     data-en="Complete collection details and pricing, along with a personalized offer, will be provided once you request details."
+     data-hr="Kompletne detalje kolekcija i cijena, kao i personaliziranu ponudu, dobit ćete kada zatražite detalje.">
+    Kompletne detalje kolekcija i cijena, kao i personaliziranu ponudu, dobit ćete kada zatražite detalje.
   </p>
 </section>
 
@@ -828,8 +827,8 @@ footer p a:hover { opacity: 0.5; }
   </div>
 </section>
 
-<!-- FOTOKNJIGE -->
-<section class="reveal" id="books" style="background: #fff;">
+<!-- FOTOKNJIGE - samo dostupno kroz Extras dropdown -->
+<section class="reveal" id="books" style="background: #fff; padding: 100px 20px;">
   <h2 class="section-title" data-en="Photo Books" data-hr="Fotoknjige">Fotoknjige</h2>
   <p class="section-subtitle" data-en="Your memories, beautifully preserved" data-hr="Tvoje uspomene, lijepo sačuvane">Tvoje uspomene, lijepo sačuvane</p>
 
@@ -849,15 +848,15 @@ footer p a:hover { opacity: 0.5; }
     </p>
   </div>
 
-  <div class="gallery reveal-stagger">
+  <div class="gallery" style="max-width: 1200px; margin: 0 auto;">
     <img src="images/photobook-1.jpg" alt="Fotoknjiga 1" class="lightbox-img">
     <img src="images/photobook-2.jpg" alt="Fotoknjiga 2" class="lightbox-img">
     <img src="images/photobook-3.jpg" alt="Fotoknjiga 3" class="lightbox-img">
   </div>
 </section>
 
-<!-- POKLON BONOVI -->
-<section class="reveal" id="gift" style="background: #f2ede4;">
+<!-- POKLON BONOVI - samo dostupno kroz Extras dropdown -->
+<section class="reveal" id="gift" style="background: #f2ede4; padding: 100px 20px;">
   <h2 class="section-title" data-en="Gift Vouchers" data-hr="Poklon bonovi">Poklon bonovi</h2>
   <p class="section-subtitle" data-en="Gift a memory that lasts" data-hr="Pokloni uspomenu koja traje">Pokloni uspomenu koja traje</p>
 
@@ -882,7 +881,7 @@ footer p a:hover { opacity: 0.5; }
     </button>
   </div>
 
-  <div class="gallery reveal-stagger" style="max-width: 700px; margin-top: 50px;">
+  <div class="gallery" style="max-width: 900px; margin: 50px auto 0;">
     <img src="images/gift-1.jpg" alt="Poklon bon 1" class="lightbox-img">
     <img src="images/gift-2.jpg" alt="Poklon bon 2" class="lightbox-img">
     <img src="images/gift-3.jpg" alt="Poklon bon 3" class="lightbox-img">
@@ -968,9 +967,9 @@ footer p a:hover { opacity: 0.5; }
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p data-en="For family, portraits, and couples sessions, 2-3 weeks in advance is usually enough. For maternity and newborn sessions, I recommend reaching out as early as possible."
-           data-hr="Za obiteljska, portretna i fotografiranja parova, 2-3 tjedna unaprijed je obično dovoljno. Za trudnička i newborn fotografiranja preporučam da mi se javiš što ranije.">
-          Za obiteljska, portretna i fotografiranja parova, 2-3 tjedna unaprijed je obično dovoljno. Za trudnička i newborn fotografiranja preporučam da mi se javiš što ranije.
+        <p data-en="I recommend booking 2-3 weeks in advance, but everything depends on the date. The earlier you book, the better your chances of securing your preferred date."
+           data-hr="Preporučam rezervaciju 2-3 tjedna unaprijed, ali sve ovisi o terminu. Što prije rezervirate, veće su šanse da dobijete željeni termin.">
+          Preporučam rezervaciju 2-3 tjedna unaprijed, ali sve ovisi o terminu. Što prije rezervirate, veće su šanse da dobijete željeni termin.
         </p>
       </div>
     </div>
@@ -1143,7 +1142,7 @@ footer p a:hover { opacity: 0.5; }
       <span data-en="Preferred date" data-hr="Željeni datum">Željeni datum</span>
       <span class="optional-label" data-en="(optional)" data-hr="(opcionalno)">(opcionalno)</span>
     </label>
-    <input type="date" id="date" name="date">
+    <input type="date" id="date" name="date" class="date-input">
 
     <label for="location">
       <span data-en="Location" data-hr="Lokacija">Lokacija</span>
@@ -1216,6 +1215,13 @@ footer p a:hover { opacity: 0.5; }
   window.addEventListener('DOMContentLoaded', () => {
     const saved = localStorage.getItem('preferred-lang') || 'hr';
     setLang(saved);
+
+    // Postavi minimalni datum na danas
+    const dateInput = document.getElementById('date');
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.setAttribute('min', today);
+    }
   });
 
   function switchTab(event, tabId) {
