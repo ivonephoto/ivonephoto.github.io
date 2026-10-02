@@ -1055,6 +1055,25 @@ footer p a:hover { opacity: 0.5; }
       const today = new Date().toISOString().split('T')[0];
       dateInput.setAttribute('min', today);
     }
+
+    // Automatski odabir opcije iz URL-a (?select=...)
+    const params = new URLSearchParams(window.location.search);
+    const selectValue = params.get('select');
+    if (selectValue) {
+      const select = document.getElementById('collection');
+      if (select) {
+        select.value = selectValue;
+        // Ako nema točne opcije, probaj po dijelu imena
+        if (select.value !== selectValue) {
+          for (let opt of select.options) {
+            if (opt.value.toLowerCase().includes(selectValue.toLowerCase())) {
+              select.value = opt.value;
+              break;
+            }
+          }
+        }
+      }
+    }
   });
 
   function switchTab(event, tabId) {
