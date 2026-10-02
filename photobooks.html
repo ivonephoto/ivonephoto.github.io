@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="referrer" content="origin">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotoknjige - Ivone Photo</title>
+<meta name="description" content="Fotoknjige - Ivona Šarić. Pretvori svoje omiljene fotografije u lijepo izrađenu fotografsku knjigu.">
+
+<link rel="icon" type="image/jpeg" href="images/favicon.jpg">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: #faf7f2;
+  color: #111;
+  line-height: 1.6;
+}
+h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; }
+
+.reveal {
+  opacity: 0; transform: translateY(50px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.back-home {
+  position: fixed; top: 25px; left: 30px; z-index: 200;
+  color: #111; text-decoration: none;
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  display: flex; align-items: center; gap: 8px;
+  transition: opacity 0.3s;
+}
+.back-home:hover { opacity: 0.5; }
+.back-home svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+.page-header {
+  text-align: center;
+  padding: 140px 20px 80px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+.page-title {
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.page-subtitle {
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: #999;
+  text-transform: uppercase;
+}
+
+section { padding: 100px 20px; }
+
+.content-block {
+  max-width: 780px;
+  margin: 0 auto 60px;
+  text-align: center;
+  font-size: 16px;
+  color: #444;
+  line-height: 2;
+}
+.content-block p + p { margin-top: 22px; }
+.content-elegant {
+  margin-top: 35px;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 15px;
+  color: #666;
+}
+
+.gallery {
+  column-count: 3;
+  column-gap: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.gallery img {
+  width: 100%; height: auto; display: block; margin-bottom: 12px;
+  break-inside: avoid;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+  cursor: pointer;
+}
+.gallery img:hover { transform: scale(1.02); opacity: 0.92; }
+
+.cta-section {
+  text-align: center;
+  padding: 100px 20px;
+  background: #f2ede4;
+}
+.cta-text {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  font-size: 16px;
+  color: #444;
+  line-height: 1.9;
+}
+.cta-btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 18px 50px;
+  background: #111; color: #fff;
+  font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s;
+}
+.cta-btn:hover { background: #333; transform: translateY(-2px); }
+.cta-btn svg {
+  width: 18px; height: 18px;
+  fill: none; stroke: currentColor;
+  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.95); z-index: 999;
+  display: none; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.4s;
+}
+.lightbox.open { display: flex; opacity: 1; }
+.lightbox-img {
+  max-width: 92%; max-height: 90%; object-fit: contain;
+  animation: lightboxIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes lightboxIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+.lightbox-close {
+  position: absolute; top: 25px; right: 30px;
+  background: none; border: none; color: #fff;
+  font-size: 40px; font-weight: 200; cursor: pointer;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.lightbox-close:hover { opacity: 0.6; transform: rotate(90deg); }
+.lightbox-prev, .lightbox-next {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: none; border: none; color: #fff;
+  font-size: 36px; font-weight: 200; cursor: pointer;
+  padding: 20px; transition: opacity 0.3s;
+}
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+.lightbox-prev:hover, .lightbox-next:hover { opacity: 0.6; }
+.lightbox-counter {
+  position: absolute; bottom: 30px; left: 50%;
+  transform: translateX(-50%); color: #fff;
+  font-size: 12px; letter-spacing: 3px; opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .gallery { column-count: 2; }
+}
+@media (max-width: 768px) {
+  .page-title { font-size: 28px; letter-spacing: 5px; }
+  .back-home { top: 15px; left: 15px; font-size: 10px; }
+}
+@media (max-width: 480px) {
+  section { padding: 60px 15px; }
+  .page-header { padding: 100px 20px 50px; }
+  .page-title { font-size: 22px; letter-spacing: 4px; }
+  .gallery { column-count: 2; column-gap: 8px; }
+  .gallery img { margin-bottom: 8px; }
+}
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="back-home">
+  <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+  <span>Nazad</span>
+</a>
+
+<div class="page-header">
+  <h1 class="page-title">Fotoknjige</h1>
+  <p class="page-subtitle">Tvoje uspomene, lijepo sačuvane</p>
+</div>
+
+<section class="reveal">
+  <div class="content-block">
+    <p>Pretvori svoje omiljene fotografije u lijepo izrađenu fotografsku knjigu - bezvremensku uspomenu koju možeš držati u rukama, listati u tihim večerima i predati budućim generacijama.</p>
+    <p>Svaka knjiga je posebno dizajnirana i tiskana na vrhunskom papiru, pažljivo osmišljena da ispriča tvoju priču.</p>
+    <p class="content-elegant">Vaša knjiga se izrađuje s pažnjom. Izrada i dostava traju 4-6 tjedana.</p>
+  </div>
+
+  <div class="gallery">
+    <img src="images/photobook-1.jpg" alt="Fotoknjiga 1" class="lightbox-img">
+    <img src="images/photobook-2.jpg" alt="Fotoknjiga 2" class="lightbox-img">
+    <img src="images/photobook-3.jpg" alt="Fotoknjiga 3" class="lightbox-img">
+  </div>
+</section>
+
+<section class="cta-section">
+  <p class="cta-text">Zanima te izrada fotoknjige? Javi mi se i dogovorit ćemo sve detalje.</p>
+  <a href="index.html#contact" class="cta-btn">
+    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    <span>Pošalji upit</span>
+  </a>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <button class="lightbox-prev" onclick="changeImage(-1)">&#8249;</button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="">
+  <button class="lightbox-next" onclick="changeImage(1)">&#8250;</button>
+  <div class="lightbox-counter" id="lightbox-counter"></div>
+</div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  let lightboxImages = [];
+  let currentIndex = 0;
+
+  document.querySelectorAll('.lightbox-img').forEach(img => {
+    lightboxImages.push(img.src);
+    img.addEventListener('click', () => openLightbox(img.src));
+  });
+
+  function openLightbox(src) {
+    currentIndex = lightboxImages.indexOf(src);
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    updateCounter();
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function changeImage(direction) {
+    currentIndex += direction;
+    if (currentIndex < 0) currentIndex = lightboxImages.length - 1;
+    if (currentIndex >= lightboxImages.length) currentIndex = 0;
+    document.getElementById('lightbox-img').src = lightboxImages[currentIndex];
+    updateCounter();
+  }
+
+  function updateCounter() {
+    document.getElementById('lightbox-counter').textContent =
+      (currentIndex + 1) + ' / ' + lightboxImages.length;
+  }
+
+  document.getElementById('lightbox').addEventListener('click', (e) => {
+    if (e.target.id === 'lightbox') closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') changeImage(-1);
+    if (e.key === 'ArrowRight') changeImage(1);
+  });
+</script>
+
+</body>
+</html>
