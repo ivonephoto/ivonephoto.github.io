@@ -1,6 +1,6 @@
 <!-- ============================================
      IVONE PHOTO - Photography Portfolio
-     Verzija: 20.0 (finalna)
+     Verzija: 21.0 (finalna)
      ============================================ -->
 <!DOCTYPE html>
 <html lang="hr">
@@ -9,7 +9,7 @@
 <meta name="referrer" content="origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ivone Photo</title>
-<meta name="description" content="Ivona Šarić - obiteljska, portretna, trudnička, newborn fotografija, krštenja, krizme, pričesti i sudbena vjenčanja.">
+<meta name="description" content="Ivona Šarić - vjerski obredi, vjenčanja, sudbena vjenčanja, parovi, trudnoća i novorođenčad.">
 
 <link rel="icon" type="image/jpeg" href="images/favicon.jpg">
 
@@ -236,18 +236,9 @@ section { padding: 100px 20px; }
 .ponuda-btn:hover { background: #333; transform: translateY(-2px); }
 .ponuda-btn svg { width: 16px; height: 16px; fill: currentColor; }
 
-.kind-words { background: #fff; }
-.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
-.testimonial { background: #faf7f2; padding: 0 0 35px 0; text-align: center; transition: transform 0.4s; }
-.testimonial:hover { transform: translateY(-5px); }
-.testimonial img { width: 100%; height: 280px; object-fit: cover; margin-bottom: 28px; }
-.testimonial-quote { font-family: Georgia, serif; font-style: italic; font-size: 15px; color: #444; line-height: 1.85; padding: 0 30px; margin-bottom: 25px; }
-.testimonial-name { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #111; margin-bottom: 6px; font-weight: 500; }
-.testimonial-category { font-size: 10px; letter-spacing: 2px; color: #999; text-transform: uppercase; }
-
-.faq { background: #faf7f2; }
+.faq { background: #fff; }
 .faq-list { max-width: 800px; margin: 0 auto; }
-.faq-item { border-bottom: 1px solid #e8e8e8; background: #fff; }
+.faq-item { border-bottom: 1px solid #e8e8e8; background: #faf7f2; }
 .faq-item:first-child { border-top: 1px solid #e8e8e8; }
 .faq-question {
   width: 100%; background: none; border: none; text-align: left;
@@ -255,14 +246,14 @@ section { padding: 100px 20px; }
   cursor: pointer; display: flex; justify-content: space-between;
   align-items: center; gap: 20px; transition: background 0.3s;
 }
-.faq-question:hover { background: #fafafa; }
+.faq-question:hover { background: #f2ede4; }
 .faq-icon { font-size: 22px; font-weight: 200; color: #999; transition: transform 0.4s; flex-shrink: 0; line-height: 1; }
 .faq-item.active .faq-icon { transform: rotate(45deg); color: #111; }
 .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1); padding: 0 30px; }
 .faq-item.active .faq-answer { max-height: 500px; padding: 0 30px 25px; }
 .faq-answer p { font-size: 14px; color: #666; line-height: 1.9; }
 
-.how-it-works { background: #fff; }
+.how-it-works { background: #faf7f2; }
 .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; }
 .step-card { text-align: center; padding: 30px 15px; position: relative; }
 .step-card:not(:last-child)::after {
@@ -387,7 +378,6 @@ footer p a:hover { opacity: 0.5; }
 }
 
 @media (max-width: 900px) {
-  .testimonials-grid { grid-template-columns: 1fr; max-width: 500px; }
   .ponuda-steps { gap: 30px; }
   .steps-grid { grid-template-columns: repeat(2, 1fr); }
   .step-card:not(:last-child)::after { display: none; }
@@ -507,7 +497,7 @@ footer p a:hover { opacity: 0.5; }
         <a href="gift-vouchers.html" data-en="Gift Vouchers" data-hr="Poklon bonovi">Poklon bonovi</a>
       </div>
     </li>
-       <li><a href="#how-it-works" data-en="How It Works" data-hr="Kako funkcionira">Kako funkcionira</a></li>
+    <li><a href="#how-it-works" data-en="How It Works" data-hr="Kako funkcionira">Kako funkcionira</a></li>
     <li><a href="#contact" data-en="Contact" data-hr="Kontakt">Kontakt</a></li>
   </ul>
 </nav>
@@ -546,39 +536,24 @@ footer p a:hover { opacity: 0.5; }
   </div>
 
   <div class="portfolio-tabs" id="portfolio-tabs">
-    <button class="tab-button active" onclick="switchTab(event, 'family')" data-en="Family" data-hr="Obitelj">Obitelj</button>
-    <button class="tab-button" onclick="switchTab(event, 'religious')" data-en="Religious" data-hr="Vjerski obredi">Vjerski obredi</button>
-    <button class="tab-button" onclick="switchTab(event, 'weddings')" data-en="Weddings & Couples" data-hr="Vjenčanja i parovi">Vjenčanja i parovi</button>
+    <button class="tab-button active" onclick="switchTab(event, 'religious')" data-en="Religious Ceremonies" data-hr="Vjerski obredi">Vjerski obredi</button>
+    <button class="tab-button" onclick="switchTab(event, 'weddings')" data-en="Weddings" data-hr="Vjenčanja">Vjenčanja</button>
+    <button class="tab-button" onclick="switchTab(event, 'civil')" data-en="Civil Weddings" data-hr="Sudbena vjenčanja">Sudbena vjenčanja</button>
+    <button class="tab-button" onclick="switchTab(event, 'couples')" data-en="Couples" data-hr="Parovi">Parovi</button>
     <button class="tab-button" onclick="switchTab(event, 'maternity')" data-en="Maternity & Newborn" data-hr="Trudnoća i novorođenčad">Trudnoća i novorođenčad</button>
-    <button class="tab-button" onclick="switchTab(event, 'events')" data-en="Events" data-hr="Događaji">Događaji</button>
   </div>
 
   <div class="tab-panels">
 
-    <div class="tab-panel active" id="family">
-      <div class="tab-panel-header">
-        <h3 data-en="Family" data-hr="Obitelj">Obitelj</h3>
-        <p class="tab-panel-desc"
-           data-en='"The way she looks at you. The sound of his laughter. The chaos, the cuddles, the quiet moments in between."'
-           data-hr='"Pogled koji govori sve. Dječji smijeh iz susjedne sobe. Kaos, zagrljaji i oni tihi trenuci između."'>
-          "Pogled koji govori sve. Dječji smijeh iz susjedne sobe."
-        </p>
-      </div>
-      <div class="gallery">
-        <img src="images/family-1.jpg" alt="Obitelj 1" class="lightbox-img">
-        <img src="images/family-2.jpg" alt="Obitelj 2" class="lightbox-img">
-        <img src="images/family-3.jpg" alt="Obitelj 3" class="lightbox-img">
-      </div>
-    </div>
-
-    <div class="tab-panel" id="religious">
+    <!-- VJERSKI OBREDI -->
+    <div class="tab-panel active" id="religious">
       <div class="tab-panel-header">
         <h3 data-en="Religious Ceremonies" data-hr="Vjerski obredi">Vjerski obredi</h3>
-        <p class="tab-panel-sub">Krštenje · Krizme · Pričesti</p>
+        <p class="tab-panel-sub">Krštenje · Pričesti · Krizme</p>
         <p class="tab-panel-desc"
-           data-en='"Baptism, confirmation, and first communion - moments of faith, family, and quiet celebration."'
-           data-hr='"Krštenje, krizma i prva pričest - trenuci vjere, obitelji i tihog slavlja."'>
-          "Krštenje, krizma i prva pričest - trenuci vjere, obitelji i tihog slavlja."
+           data-en='"Baptism, first communion, and confirmation - moments of faith, family, and quiet celebration."'
+           data-hr='"Krštenje, prva pričest i krizma - trenuci vjere, obitelji i tihog slavlja."'>
+          "Krštenje, prva pričest i krizma - trenuci vjere, obitelji i tihog slavlja."
         </p>
       </div>
       <div class="gallery">
@@ -588,29 +563,66 @@ footer p a:hover { opacity: 0.5; }
         <img src="images/religious-4.jpg" alt="Krizma 2" class="lightbox-img">
         <img src="images/religious-5.jpg" alt="Pričest 1" class="lightbox-img">
         <img src="images/religious-6.jpg" alt="Pričest 2" class="lightbox-img">
+        <img src="images/religious-7.jpg" alt="Vjerski obred 7" class="lightbox-img">
+        <img src="images/religious-8.jpg" alt="Vjerski obred 8" class="lightbox-img">
       </div>
     </div>
 
+    <!-- VJENČANJA -->
     <div class="tab-panel" id="weddings">
       <div class="tab-panel-header">
-        <h3 data-en="Weddings & Couples" data-hr="Vjenčanja i parovi">Vjenčanja i parovi</h3>
-        <p class="tab-panel-sub">Sudbena vjenčanja · Parovi</p>
+        <h3 data-en="Weddings" data-hr="Vjenčanja">Vjenčanja</h3>
         <p class="tab-panel-desc"
-           data-en='"For those who celebrate love their own way - quietly, tenderly, and entirely their own."'
-           data-hr='"Za one koji slave ljubav na svoj način - tiho, nježno i potpuno svoje."'>
-          "Za one koji slave ljubav na svoj način."
+           data-en='"The day when two people say yes to each other. I capture weddings quietly and with care - emotions, glances, and all those little moments that make your story unique."'
+           data-hr='"Dan kada dvoje ljudi kažu da jedno drugome. Vjenčanja bilježim tiho i s pažnjom - emocije, poglede i sve one male trenutke koji čine vašu priču jedinstvenom."'>
+          "Dan kada dvoje ljudi kažu da jedno drugome. Vjenčanja bilježim tiho i s pažnjom - emocije, poglede i sve one male trenutke koji čine vašu priču jedinstvenom."
         </p>
       </div>
       <div class="gallery">
         <img src="images/wedding-1.jpg" alt="Vjenčanje 1" class="lightbox-img">
         <img src="images/wedding-2.jpg" alt="Vjenčanje 2" class="lightbox-img">
         <img src="images/wedding-3.jpg" alt="Vjenčanje 3" class="lightbox-img">
-        <img src="images/couples-1.jpg" alt="Parovi 1" class="lightbox-img">
-        <img src="images/couples-2.jpg" alt="Parovi 2" class="lightbox-img">
-        <img src="images/couples-3.jpg" alt="Parovi 3" class="lightbox-img">
+        <img src="images/wedding-4.jpg" alt="Vjenčanje 4" class="lightbox-img">
       </div>
     </div>
 
+    <!-- SUDBENA VJENČANJA -->
+    <div class="tab-panel" id="civil">
+      <div class="tab-panel-header">
+        <h3 data-en="Civil Weddings" data-hr="Sudbena vjenčanja">Sudbena vjenčanja</h3>
+        <p class="tab-panel-desc"
+           data-en='"Intimate, simple, and entirely yours. Civil weddings celebrate love without a big celebration - just you, your closest ones, and a promise that lasts a lifetime."'
+           data-hr='"Intimno, jednostavno i potpuno vaše. Sudbena vjenčanja slave ljubav bez velike proslave - samo vi, vaši najbliži i obećanje koje traje cijeli život."'>
+          "Intimno, jednostavno i potpuno vaše. Sudbena vjenčanja slave ljubav bez velike proslave - samo vi, vaši najbliži i obećanje koje traje cijeli život."
+        </p>
+      </div>
+      <div class="gallery">
+        <img src="images/civil-1.jpg" alt="Sudbeno vjenčanje 1" class="lightbox-img">
+        <img src="images/civil-2.jpg" alt="Sudbeno vjenčanje 2" class="lightbox-img">
+        <img src="images/civil-3.jpg" alt="Sudbeno vjenčanje 3" class="lightbox-img">
+        <img src="images/civil-4.jpg" alt="Sudbeno vjenčanje 4" class="lightbox-img">
+      </div>
+    </div>
+
+    <!-- PAROVI -->
+    <div class="tab-panel" id="couples">
+      <div class="tab-panel-header">
+        <h3 data-en="Couples" data-hr="Parovi">Parovi</h3>
+        <p class="tab-panel-desc"
+           data-en='"Your story, your rhythm. Whether you are just starting out or have been together for years - I capture your connection as it is, without acting or forced poses."'
+           data-hr='"Vaša priča, vaš ritam. Bilo da ste tek na početku ili zajedno godinama - bilježim vašu povezanost onakvu kakva jest, bez glume i forsiranih poza."'>
+          "Vaša priča, vaš ritam. Bilo da ste tek na početku ili zajedno godinama - bilježim vašu povezanost onakvu kakva jest, bez glume i forsiranih poza."
+        </p>
+      </div>
+      <div class="gallery">
+        <img src="images/couples-1.jpg" alt="Parovi 1" class="lightbox-img">
+        <img src="images/couples-2.jpg" alt="Parovi 2" class="lightbox-img">
+        <img src="images/couples-3.jpg" alt="Parovi 3" class="lightbox-img">
+        <img src="images/couples-4.jpg" alt="Parovi 4" class="lightbox-img">
+      </div>
+    </div>
+
+    <!-- TRUDNOĆA I NOVOROĐENČAD -->
     <div class="tab-panel" id="maternity">
       <div class="tab-panel-header">
         <h3 data-en="Maternity & Newborn" data-hr="Trudnoća i novorođenčad">Trudnoća i novorođenčad</h3>
@@ -618,32 +630,19 @@ footer p a:hover { opacity: 0.5; }
         <p class="tab-panel-desc"
            data-en='"From the quiet glow of maternity to the first days with your newborn - tender moments you will remember forever."'
            data-hr='"Od tihog sjaja trudnoće do prvih dana s novorođenčetom - nježni trenuci koje ćete pamtiti zauvijek."'>
-          "Od tihog sjaja trudnoće do prvih dana s novorođenčetom."
+          "Od tihog sjaja trudnoće do prvih dana s novorođenčetom - nježni trenuci koje ćete pamtiti zauvijek."
         </p>
       </div>
       <div class="gallery">
         <img src="images/maternity-1.jpg" alt="Trudnoća 1" class="lightbox-img">
         <img src="images/maternity-2.jpg" alt="Trudnoća 2" class="lightbox-img">
         <img src="images/maternity-3.jpg" alt="Trudnoća 3" class="lightbox-img">
+        <img src="images/maternity-4.jpg" alt="Trudnoća 4" class="lightbox-img">
+        <img src="images/maternity-5.jpg" alt="Trudnoća 5" class="lightbox-img">
         <img src="images/newborn-1.jpg" alt="Novorođenčad 1" class="lightbox-img">
         <img src="images/newborn-2.jpg" alt="Novorođenčad 2" class="lightbox-img">
         <img src="images/newborn-3.jpg" alt="Novorođenčad 3" class="lightbox-img">
-      </div>
-    </div>
-
-    <div class="tab-panel" id="events">
-      <div class="tab-panel-header">
-        <h3 data-en="Events" data-hr="Događaji">Događaji</h3>
-        <p class="tab-panel-desc"
-           data-en='"Whether you are hosting a birthday celebration, a corporate gathering, or an intimate anniversary dinner."'
-           data-hr='"Bilo da organizirate rođendan, poslovno okupljanje ili intimnu proslavu godišnjice."'>
-          "Bilo da organizirate rođendan, poslovno okupljanje ili intimnu proslavu godišnjice."
-        </p>
-      </div>
-      <div class="gallery">
-        <img src="images/events-1.jpg" alt="Događaj 1" class="lightbox-img">
-        <img src="images/events-2.jpg" alt="Događaj 2" class="lightbox-img">
-        <img src="images/events-3.jpg" alt="Događaj 3" class="lightbox-img">
+        <img src="images/newborn-4.jpg" alt="Novorođenčad 4" class="lightbox-img">
       </div>
     </div>
 
@@ -707,63 +706,20 @@ footer p a:hover { opacity: 0.5; }
   <div class="ponuda-categories">
     <p class="ponuda-categories-title" data-en="What are you interested in?" data-hr="Što te zanima?">Što te zanima?</p>
     <div class="category-links">
-      <a href="#family" onclick="switchTab(event, 'family')" data-en="Family" data-hr="Obitelj">Obitelj</a>
       <a href="#religious" onclick="switchTab(event, 'religious')" data-en="Baptism" data-hr="Krštenje">Krštenje</a>
       <a href="#religious" onclick="switchTab(event, 'religious')" data-en="First Communion" data-hr="Pričest">Pričest</a>
       <a href="#religious" onclick="switchTab(event, 'religious')" data-en="Confirmation" data-hr="Krizma">Krizma</a>
       <a href="#weddings" onclick="switchTab(event, 'weddings')" data-en="Weddings" data-hr="Vjenčanja">Vjenčanja</a>
-      <a href="#weddings" onclick="switchTab(event, 'weddings')" data-en="Civil Weddings" data-hr="Sudbena vjenčanja">Sudbena vjenčanja</a>
-      <a href="#weddings" onclick="switchTab(event, 'weddings')" data-en="Couples" data-hr="Parovi">Parovi</a>
+      <a href="#civil" onclick="switchTab(event, 'civil')" data-en="Civil Weddings" data-hr="Sudbena vjenčanja">Sudbena vjenčanja</a>
+      <a href="#couples" onclick="switchTab(event, 'couples')" data-en="Couples" data-hr="Parovi">Parovi</a>
       <a href="#maternity" onclick="switchTab(event, 'maternity')" data-en="Maternity" data-hr="Trudnoća">Trudnoća</a>
       <a href="#maternity" onclick="switchTab(event, 'maternity')" data-en="Newborn" data-hr="Novorođenčad">Novorođenčad</a>
-      <a href="#events" onclick="switchTab(event, 'events')" data-en="Events" data-hr="Događaji">Događaji</a>
-      <a href="#family" onclick="switchTab(event, 'family')" data-en="Portraits" data-hr="Portreti">Portreti</a>
     </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="kind-words reveal" id="testimonials">
-  <h2 class="section-title" data-en="Kind Words" data-hr="Lijepe riječi">Lijepe riječi</h2>
-  <p class="section-subtitle" data-en="What my clients say" data-hr="Što kažu moji klijenti">Što kažu moji klijenti</p>
-
-  <div class="testimonials-grid reveal-stagger">
-
-    <div class="testimonial">
-      <img src="images/testimonial-1.jpg" alt="Obiteljska sesija">
-      <p class="testimonial-quote" data-en='"Ivona made us feel so comfortable that we forgot the camera was even there. She captured our daughter&#39;s laughter in a way I&#39;ve never seen before. These photos are pure magic."'
-         data-hr='"Ivona nas je učinila toliko opuštenima da smo zaboravili da je kamera tu. Uhvatila je smijeh naše kćeri na način koji nikad prije nisam vidjela. Ove fotografije su čista magija."'>
-        "Ivona nas je učinila toliko opuštenima da smo zaboravili da je kamera tu."
-      </p>
-      <div class="testimonial-name">Ana Kovačević</div>
-      <div class="testimonial-category" data-en="Family Session" data-hr="Obiteljska sesija">Obiteljska sesija</div>
-    </div>
-
-    <div class="testimonial">
-      <img src="images/testimonial-2.jpg" alt="Trudnička sesija">
-      <p class="testimonial-quote" data-en='"I was nervous about my maternity shoot, but Ivona&#39;s gentle energy made the whole experience feel like a walk with a friend."'
-         data-hr='"Bila sam nervozna zbog trudničkog fotografiranja, ali Ivonina nježna energija učinila je cijelo iskustvo kao šetnju s prijateljicom."'>
-        "Ivonina nježna energija učinila je cijelo iskustvo kao šetnju s prijateljicom."
-      </p>
-      <div class="testimonial-name">Petra Marić</div>
-      <div class="testimonial-category" data-en="Maternity Session" data-hr="Trudnička sesija">Trudnička sesija</div>
-    </div>
-
-    <div class="testimonial">
-      <img src="images/testimonial-3.jpg" alt="Sudbeno vjenčanje">
-      <p class="testimonial-quote" data-en='"Our civil wedding was small and intimate, and Ivona captured it perfectly - every glance, every tear, every laugh."'
-         data-hr='"Naše sudbeno vjenčanje bilo je malo i intimno, a Ivona ga je savršeno uhvatila - svaki pogled, svaku suzu, svaki smijeh."'>
-        "Ivona je savršeno uhvatila svaki pogled, svaku suzu, svaki smijeh."
-      </p>
-      <div class="testimonial-name">Marko i Jelena Perić</div>
-      <div class="testimonial-category" data-en="Civil Wedding" data-hr="Sudbeno vjenčanje">Sudbeno vjenčanje</div>
-    </div>
-
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="faq reveal">
+<section class="faq reveal" id="faq">
   <h2 class="section-title" data-en="Frequently Asked Questions" data-hr="Česta pitanja">Česta pitanja</h2>
   <p class="section-subtitle" data-en="Everything you might want to know" data-hr="Sve što te možda zanima">Sve što te možda zanima</p>
 
@@ -788,9 +744,9 @@ footer p a:hover { opacity: 0.5; }
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p data-en="Simply send me a message through the contact form, email, or Instagram, letting me know which collection you are interested in. I will get back to you within 24 hours with available dates."
-           data-hr="Jednostavno mi pošalji poruku preko kontakt forme, emaila ili Instagrama, s naznakom koji te paket zanima. Javit ću ti se u roku od 24 sata s dostupnim terminima.">
-          Jednostavno mi pošalji poruku preko kontakt forme, emaila ili Instagrama, s naznakom koji te paket zanima. Javit ću ti se u roku od 24 sata.
+        <p data-en="Simply reach out through the contact form, email, Instagram, Facebook, or WhatsApp, letting me know which package you are interested in. I will get back to you within 24 hours with available dates."
+           data-hr="Jednostavno mi se javi preko kontakt forme, emaila, Instagrama, Facebooka ili WhatsAppa, s naznakom koji te paket zanima. Odgovorit ću ti u roku od 24 sata s dostupnim terminima.">
+          Jednostavno mi se javi preko kontakt forme, emaila, Instagrama, Facebooka ili WhatsAppa, s naznakom koji te paket zanima. Odgovorit ću ti u roku od 24 sata s dostupnim terminima.
         </p>
       </div>
     </div>
@@ -952,18 +908,16 @@ footer p a:hover { opacity: 0.5; }
     <label for="collection" data-en="What are you interested in?" data-hr="Što te zanima?">Što te zanima?</label>
     <select id="collection" name="collection">
       <option value="" data-en="Select an option..." data-hr="Odaberi opciju...">Odaberi opciju...</option>
-      <option value="Obitelj" data-en="Family" data-hr="Obitelj">Obitelj</option>
       <option value="Krštenje" data-en="Baptism" data-hr="Krštenje">Krštenje</option>
       <option value="Pričest" data-en="First Communion" data-hr="Pričest">Pričest</option>
       <option value="Krizma" data-en="Confirmation" data-hr="Krizma">Krizma</option>
+      <option value="Vjenčanja" data-en="Weddings" data-hr="Vjenčanja">Vjenčanja</option>
       <option value="Sudbena vjenčanja" data-en="Civil Weddings" data-hr="Sudbena vjenčanja">Sudbena vjenčanja</option>
       <option value="Parovi" data-en="Couples" data-hr="Parovi">Parovi</option>
       <option value="Trudnoća" data-en="Maternity" data-hr="Trudnoća">Trudnoća</option>
       <option value="Novorođenčad" data-en="Newborn" data-hr="Novorođenčad">Novorođenčad</option>
-      <option value="Portreti" data-en="Portraits" data-hr="Portreti">Portreti</option>
-      <option value="Događaji" data-en="Events" data-hr="Događaji">Događaji</option>
       <option value="Poklon bon" data-en="Gift Voucher" data-hr="Poklon bon">Poklon bon</option>
-     <option value="Fotoknjiga" data-en="Photobook" data-hr="Fotoknjiga">Fotoknjiga</option>
+      <option value="Fotoknjiga" data-en="Photobook" data-hr="Fotoknjiga">Fotoknjiga</option>
       <option value="Nisam sigurna / Drugo" data-en="Not sure / Other" data-hr="Nisam sigurna / Drugo">Nisam sigurna / Drugo</option>
     </select>
 
@@ -987,9 +941,7 @@ footer p a:hover { opacity: 0.5; }
       <option value="" data-en="Select a location..." data-hr="Odaberi lokaciju...">Odaberi lokaciju...</option>
       <option value="Tomislavgrad">Tomislavgrad</option>
       <option value="Mostar">Mostar</option>
-      <option value="Livno">Livno</option>
       <option value="Posušje">Posušje</option>
-      <option value="Kupres">Kupres</option>
       <option value="Široki Brijeg">Široki Brijeg</option>
       <option value="Grude">Grude</option>
       <option value="Ljubuški">Ljubuški</option>
@@ -998,6 +950,8 @@ footer p a:hover { opacity: 0.5; }
       <option value="Stolac">Stolac</option>
       <option value="Prozor-Rama">Prozor-Rama</option>
       <option value="Jablanica">Jablanica</option>
+      <option value="Kupres">Kupres</option>
+      <option value="Livno">Livno</option>
       <option value="Ostalo" data-en="Other" data-hr="Ostalo">Ostalo</option>
     </select>
 
@@ -1056,14 +1010,13 @@ footer p a:hover { opacity: 0.5; }
       dateInput.setAttribute('min', today);
     }
 
-    // Automatski odabir opcije iz URL-a (?select=...)
+    // Auto-select iz URL-a
     const params = new URLSearchParams(window.location.search);
     const selectValue = params.get('select');
     if (selectValue) {
       const select = document.getElementById('collection');
       if (select) {
         select.value = selectValue;
-        // Ako nema točne opcije, probaj po dijelu imena
         if (select.value !== selectValue) {
           for (let opt of select.options) {
             if (opt.value.toLowerCase().includes(selectValue.toLowerCase())) {
