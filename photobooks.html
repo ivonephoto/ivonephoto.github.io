@@ -76,15 +76,19 @@ section { padding: 100px 20px; }
   color: #666;
 }
 
+/* GALERIJA - 2x2 grid za 4 slike */
 .gallery {
-  column-count: 3;
-  column-gap: 12px;
-  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 900px;
   margin: 0 auto;
 }
 .gallery img {
-  width: 100%; height: auto; display: block; margin-bottom: 12px;
-  break-inside: avoid;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
   cursor: pointer;
 }
@@ -152,19 +156,17 @@ section { padding: 100px 20px; }
   font-size: 12px; letter-spacing: 3px; opacity: 0.7;
 }
 
-@media (max-width: 900px) {
-  .gallery { column-count: 2; }
-}
 @media (max-width: 768px) {
   .page-title { font-size: 28px; letter-spacing: 5px; }
   .back-home { top: 15px; left: 15px; font-size: 10px; }
+  .gallery img { height: 320px; }
 }
 @media (max-width: 480px) {
   section { padding: 60px 15px; }
   .page-header { padding: 100px 20px 50px; }
   .page-title { font-size: 22px; letter-spacing: 4px; }
-  .gallery { column-count: 2; column-gap: 8px; }
-  .gallery img { margin-bottom: 8px; }
+  .gallery { grid-template-columns: 1fr; gap: 8px; }
+  .gallery img { height: 300px; }
 }
 </style>
 </head>
@@ -192,12 +194,13 @@ section { padding: 100px 20px; }
     <img src="images/photobook-1.jpg" alt="Fotoknjiga 1" class="lightbox-img">
     <img src="images/photobook-2.jpg" alt="Fotoknjiga 2" class="lightbox-img">
     <img src="images/photobook-3.jpg" alt="Fotoknjiga 3" class="lightbox-img">
+    <img src="images/photobook-4.jpg" alt="Fotoknjiga 4" class="lightbox-img">
   </div>
 </section>
 
 <section class="cta-section">
   <p class="cta-text">Zanima te izrada fotoknjige? Javi mi se i dogovorit ćemo sve detalje.</p>
- <a href="index.html?select=Fotoknjiga#contact" class="cta-btn">
+  <a href="index.html?select=Fotoknjiga#contact" class="cta-btn">
     <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
     <span>Pošalji upit</span>
   </a>
