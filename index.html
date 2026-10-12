@@ -1,6 +1,6 @@
 <!-- ============================================
      IVONE PHOTO - Photography Portfolio
-     Verzija: 22.0 (finalna - 2x2 grid za 4 slike)
+     Verzija: 23.0 (mobile optimizacija)
      ============================================ -->
 <!DOCTYPE html>
 <html lang="hr">
@@ -45,11 +45,19 @@ h1, h2, h3, .hero-title { font-family: Georgia, 'Times New Roman', serif; }
 .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.55s; }
 .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.7s; }
 
+/* LANG SWITCH - sakrije se kad skrolaš */
 .lang-switch {
   position: fixed; top: 25px; right: 30px; z-index: 200;
   display: flex; align-items: center; gap: 8px;
   background: rgba(255,255,255,0.9); padding: 6px 12px;
   border-radius: 20px; backdrop-filter: blur(10px);
+  transition: opacity 0.4s, transform 0.4s, visibility 0.4s;
+}
+.lang-switch.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-15px);
+  pointer-events: none;
 }
 .lang-switch button {
   background: none; border: none; color: #888;
@@ -191,7 +199,6 @@ section { padding: 100px 20px; }
 .tab-panel-sub { font-size: 12px; letter-spacing: 3px; color: #999; text-transform: uppercase; margin-bottom: 20px; }
 .tab-panel-desc { font-size: 15px; color: #666; line-height: 1.95; font-style: italic; }
 
-/* GALERIJA - masonry za 8-9 slika */
 .gallery { column-count: 3; column-gap: 12px; }
 .gallery img {
   width: 100%; height: auto; display: block; margin-bottom: 12px;
@@ -201,7 +208,6 @@ section { padding: 100px 20px; }
 }
 .gallery img:hover { transform: scale(1.02); opacity: 0.92; }
 
-/* GALERIJA - 2x2 grid za 4 slike */
 .gallery-4 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -403,6 +409,7 @@ footer p a:hover { opacity: 0.5; }
   .gallery { column-count: 2; }
   .gallery-4 img { height: 320px; }
 }
+
 @media (max-width: 768px) {
   .hero-title { font-size: 34px; }
   .hero-brand { font-size: 11px; letter-spacing: 6px; }
@@ -412,36 +419,75 @@ footer p a:hover { opacity: 0.5; }
   .lang-switch { top: 15px; right: 15px; padding: 4px 8px; }
   .floating-instagram { bottom: 40px; left: 20px; }
   .floating-whatsapp { bottom: 90px; left: 20px; }
-  nav ul { gap: 12px; }
-  nav a, nav .nav-item { font-size: 9px; letter-spacing: 2px; }
-  .dropdown-menu { min-width: 180px; }
-  .contact-links { flex-direction: column; align-items: center; gap: 12px; }
+  
+  /* Navigacija - kompaktnija */
+  nav { padding: 14px 0; }
+  nav.sticky { padding: 12px 0; }
+  nav ul { gap: 8px; padding: 0 10px; }
+  nav a, nav .nav-item { font-size: 8px; letter-spacing: 1.5px; padding: 6px 0; }
+  .dropdown-menu { min-width: 160px; }
+  
+  /* Portfolio tabs - kompaktniji */
+  .portfolio-tabs { 
+    top: 50px; 
+    padding: 12px 8px; 
+    gap: 4px; 
+  }
+  .tab-button { 
+    font-size: 9px; 
+    padding: 8px 10px; 
+    letter-spacing: 1.5px; 
+  }
+  .tab-panel h3 { font-size: 20px; letter-spacing: 4px; }
+  .tab-panel-header { margin-bottom: 35px; }
+  .tab-panels { padding: 40px 15px 0; }
+  
+  /* Galerija - uniform 2 kolone */
+  .gallery {
+    column-count: unset;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 0;
+  }
+  .gallery-4 img { height: 200px; }
+  
+  /* Kontakt sekcija - kompaktnija */
+  .contact { padding: 60px 15px; }
+  .contact-text { font-size: 14px; margin-bottom: 35px; }
+  .contact-links { gap: 15px; margin-bottom: 35px; }
+  .contact-links a { font-size: 11px; padding: 8px 0; }
+  .contact-form { padding: 35px 25px; }
+  
   #back-to-top { bottom: 40px; right: 20px; width: 40px; height: 40px; }
   .lightbox-prev { left: 10px; font-size: 28px; }
   .lightbox-next { right: 10px; font-size: 28px; }
   .lightbox-close { top: 15px; right: 20px; font-size: 32px; }
-  .contact-form { padding: 40px 30px; }
-  .tab-panel h3 { font-size: 20px; letter-spacing: 4px; }
-  .tab-button { font-size: 10px; padding: 10px 14px; letter-spacing: 2px; }
-  .portfolio-tabs { padding: 15px 10px; gap: 5px; }
 }
+
 @media (max-width: 480px) {
   section { padding: 60px 15px; }
   .section-title { font-size: 20px; letter-spacing: 4px; }
   .section-subtitle { font-size: 10px; }
-  .gallery { column-count: 2; column-gap: 8px; }
-  .gallery img { margin-bottom: 8px; }
-  .gallery-4 { grid-template-columns: 1fr; gap: 8px; }
-  .gallery-4 img { height: 300px; }
+  .gallery img { height: 170px; }
+  .gallery-4 img { height: 180px; }
   .hero-title { font-size: 26px; }
   .hero-brand { letter-spacing: 4px; }
   .about-grid { gap: 30px; }
   .ponuda-step { min-width: 100%; }
-  .contact-form { padding: 35px 25px; }
   .category-links a { font-size: 12px; padding: 8px 16px; }
   .steps-grid { grid-template-columns: 1fr; gap: 10px; }
   .step-number { font-size: 36px; }
-  .portfolio-tabs { top: 55px; }
+  .portfolio-tabs { top: 45px; }
+  
+  /* Kontakt još kompaktniji */
+  .contact { padding: 50px 12px; }
+  .contact-form { padding: 30px 20px; }
 }
 </style>
 </head>
@@ -449,7 +495,7 @@ footer p a:hover { opacity: 0.5; }
 <body>
 
 <!-- LANG SWITCH -->
-<div class="lang-switch">
+<div class="lang-switch" id="lang-switch">
   <button id="btn-hr" class="active" onclick="setLang('hr')">
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
       <rect width="60" height="13.33" fill="#FF0000"/>
@@ -536,13 +582,13 @@ footer p a:hover { opacity: 0.5; }
 
     <div class="about-text">
       <div data-lang-block="hr">
-        <p><strong>Ja sam Ivona - mama, supruga i fotograf iz Mostara/Tomislavgrada.</strong></p>
+        <p><strong>Ja sam Ivona - mama, supruga i fotograf.</strong></p>
         <p>Fotografija je oduvijek moj način da sačuvam ono što nam izmiče - pogled koji govori sve, ruku koja traži drugu ruku, tihi trenutak za koji poželimo da traje zauvijek.</p>
         <p>Volim raditi s ljudima, stvarati opuštenu atmosferu i bilježiti iskrene emocije - bez ukočenih poza i prisilnih osmijeha. Jer najljepše fotografije nastaju kada jednostavno budete svoji.</p>
       </div>
 
       <div data-lang-block="en" style="display:none;">
-        <p><strong>I'm Ivona - a mother, a wife, and a photographer from Mostar/Tomislavgrad.</strong></p>
+        <p><strong>I'm Ivona - a mother, a wife, and a photographer.</strong></p>
         <p>Photography has always been my way of preserving what slips away - a look that says everything, a hand reaching for another, a quiet moment you wish could last forever.</p>
         <p>I love working with people, creating a relaxed atmosphere, and capturing honest emotions - no stiff poses, no forced smiles. Because the most beautiful photographs happen when you simply be yourself.</p>
       </div>
@@ -567,7 +613,6 @@ footer p a:hover { opacity: 0.5; }
 
   <div class="tab-panels">
 
-    <!-- VJERSKI OBREDI -->
     <div class="tab-panel active" id="religious">
       <div class="tab-panel-header">
         <h3 data-en="Religious Ceremonies" data-hr="Vjerski obredi">Vjerski obredi</h3>
@@ -590,7 +635,6 @@ footer p a:hover { opacity: 0.5; }
       </div>
     </div>
 
-    <!-- VJENČANJA -->
     <div class="tab-panel" id="weddings">
       <div class="tab-panel-header">
         <h3 data-en="Weddings" data-hr="Vjenčanja">Vjenčanja</h3>
@@ -608,7 +652,6 @@ footer p a:hover { opacity: 0.5; }
       </div>
     </div>
 
-    <!-- SUDBENA VJENČANJA -->
     <div class="tab-panel" id="civil">
       <div class="tab-panel-header">
         <h3 data-en="Civil Weddings" data-hr="Sudbena vjenčanja">Sudbena vjenčanja</h3>
@@ -626,7 +669,6 @@ footer p a:hover { opacity: 0.5; }
       </div>
     </div>
 
-    <!-- PAROVI -->
     <div class="tab-panel" id="couples">
       <div class="tab-panel-header">
         <h3 data-en="Couples" data-hr="Parovi">Parovi</h3>
@@ -644,7 +686,6 @@ footer p a:hover { opacity: 0.5; }
       </div>
     </div>
 
-    <!-- TRUDNOĆA I NOVOROĐENČAD -->
     <div class="tab-panel" id="maternity">
       <div class="tab-panel-header">
         <h3 data-en="Maternity & Newborn" data-hr="Trudnoća i novorođenčad">Trudnoća i novorođenčad</h3>
@@ -1071,13 +1112,25 @@ footer p a:hover { opacity: 0.5; }
 
   const nav = document.getElementById('main-nav');
   const tabs = document.getElementById('portfolio-tabs');
+  const langSwitch = document.getElementById('lang-switch');
+  
   window.addEventListener('scroll', () => {
+    // Nav sticky
     if (window.scrollY > 50) nav.classList.add('sticky');
     else nav.classList.remove('sticky');
+    
+    // Tabs stuck shadow
     if (tabs) {
       const rect = tabs.getBoundingClientRect();
       if (rect.top <= 65) tabs.classList.add('stuck');
       else tabs.classList.remove('stuck');
+    }
+    
+    // Lang switch - hide when scrolled
+    if (window.scrollY > 100) {
+      langSwitch.classList.add('hidden');
+    } else {
+      langSwitch.classList.remove('hidden');
     }
   });
 
