@@ -1,6 +1,6 @@
 <!-- ============================================
      IVONE PHOTO - Photography Portfolio
-     Verzija: 21.0 (finalna)
+     Verzija: 22.0 (finalna - 2x2 grid za 4 slike)
      ============================================ -->
 <!DOCTYPE html>
 <html lang="hr">
@@ -191,6 +191,7 @@ section { padding: 100px 20px; }
 .tab-panel-sub { font-size: 12px; letter-spacing: 3px; color: #999; text-transform: uppercase; margin-bottom: 20px; }
 .tab-panel-desc { font-size: 15px; color: #666; line-height: 1.95; font-style: italic; }
 
+/* GALERIJA - masonry za 8-9 slika */
 .gallery { column-count: 3; column-gap: 12px; }
 .gallery img {
   width: 100%; height: auto; display: block; margin-bottom: 12px;
@@ -199,6 +200,24 @@ section { padding: 100px 20px; }
   cursor: pointer;
 }
 .gallery img:hover { transform: scale(1.02); opacity: 0.92; }
+
+/* GALERIJA - 2x2 grid za 4 slike */
+.gallery-4 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.gallery-4 img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+  cursor: pointer;
+}
+.gallery-4 img:hover { transform: scale(1.02); opacity: 0.92; }
 
 .what-receive { background: #faf7f2; }
 .receive-list { max-width: 700px; margin: 0 auto; list-style: none; }
@@ -382,6 +401,7 @@ footer p a:hover { opacity: 0.5; }
   .steps-grid { grid-template-columns: repeat(2, 1fr); }
   .step-card:not(:last-child)::after { display: none; }
   .gallery { column-count: 2; }
+  .gallery-4 img { height: 320px; }
 }
 @media (max-width: 768px) {
   .hero-title { font-size: 34px; }
@@ -411,6 +431,8 @@ footer p a:hover { opacity: 0.5; }
   .section-subtitle { font-size: 10px; }
   .gallery { column-count: 2; column-gap: 8px; }
   .gallery img { margin-bottom: 8px; }
+  .gallery-4 { grid-template-columns: 1fr; gap: 8px; }
+  .gallery-4 img { height: 300px; }
   .hero-title { font-size: 26px; }
   .hero-brand { letter-spacing: 4px; }
   .about-grid { gap: 30px; }
@@ -578,7 +600,7 @@ footer p a:hover { opacity: 0.5; }
           "Dan kada dvoje ljudi kažu da jedno drugome. Vjenčanja bilježim tiho i s pažnjom - emocije, poglede i sve one male trenutke koji čine vašu priču jedinstvenom."
         </p>
       </div>
-      <div class="gallery">
+      <div class="gallery-4">
         <img src="images/wedding-1.jpg" alt="Vjenčanje 1" class="lightbox-img">
         <img src="images/wedding-2.jpg" alt="Vjenčanje 2" class="lightbox-img">
         <img src="images/wedding-3.jpg" alt="Vjenčanje 3" class="lightbox-img">
@@ -596,7 +618,7 @@ footer p a:hover { opacity: 0.5; }
           "Intimno, jednostavno i potpuno vaše. Sudbena vjenčanja slave ljubav bez velike proslave - samo vi, vaši najbliži i obećanje koje traje cijeli život."
         </p>
       </div>
-      <div class="gallery">
+      <div class="gallery-4">
         <img src="images/civil-1.jpg" alt="Sudbeno vjenčanje 1" class="lightbox-img">
         <img src="images/civil-2.jpg" alt="Sudbeno vjenčanje 2" class="lightbox-img">
         <img src="images/civil-3.jpg" alt="Sudbeno vjenčanje 3" class="lightbox-img">
@@ -614,7 +636,7 @@ footer p a:hover { opacity: 0.5; }
           "Vaša priča, vaš ritam. Bilo da ste tek na početku ili zajedno godinama - bilježim vašu povezanost onakvu kakva jest, bez glume i forsiranih poza."
         </p>
       </div>
-      <div class="gallery">
+      <div class="gallery-4">
         <img src="images/couples-1.jpg" alt="Parovi 1" class="lightbox-img">
         <img src="images/couples-2.jpg" alt="Parovi 2" class="lightbox-img">
         <img src="images/couples-3.jpg" alt="Parovi 3" class="lightbox-img">
@@ -1009,8 +1031,6 @@ footer p a:hover { opacity: 0.5; }
       const today = new Date().toISOString().split('T')[0];
       dateInput.setAttribute('min', today);
     }
-
-    // Auto-select iz URL-a
     const params = new URLSearchParams(window.location.search);
     const selectValue = params.get('select');
     if (selectValue) {
