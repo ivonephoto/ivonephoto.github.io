@@ -1,6 +1,6 @@
 <!-- ============================================
      IVONE PHOTO - Photography Portfolio
-     Verzija: 24.0 (finalna reorganizacija)
+     Verzija: 25.0 (ispravljene putanje, cijele slike)
      ============================================ -->
 <!DOCTYPE html>
 <html lang="hr">
@@ -11,7 +11,7 @@
 <title>Ivone Photo</title>
 <meta name="description" content="Ivona Šarić - vjerski obredi, vjenčanja, sudbena vjenčanja, parovi, trudnoća i novorođenčad, produkt i poslovna fotografija.">
 
-<link rel="icon" type="image/jpeg" href="images/favicon.jpg">
+<link rel="icon" type="image/jpeg" href="favicon.jpg">
 
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -87,15 +87,26 @@ h1, h2, h3, .hero-title { font-family: Georgia, 'Times New Roman', serif; }
   display: flex; align-items: center; justify-content: center;
   text-align: center; overflow: hidden; background: #111;
 }
-.hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.65; z-index: 1; }
-.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 100%); z-index: 2; }
+.hero-bg { 
+  position: absolute; top: 0; left: 0; 
+  width: 100%; height: 100%; 
+  object-fit: cover;
+  object-position: center 30%;
+  z-index: 1; 
+}
+.hero-overlay { 
+  position: absolute; top: 0; left: 0; 
+  width: 100%; height: 100%; 
+  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.6) 100%);
+  z-index: 2; 
+}
 .hero-content { position: relative; z-index: 3; color: #fff; padding: 0 30px; max-width: 900px; }
-.hero-brand { font-size: 13px; letter-spacing: 10px; text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 30px; }
-.hero-title { font-size: 52px; font-weight: 400; letter-spacing: 2px; line-height: 1.25; font-style: italic; margin-bottom: 45px; }
+.hero-brand { font-size: 13px; letter-spacing: 10px; text-transform: uppercase; color: rgba(255,255,255,0.95); margin-bottom: 30px; }
+.hero-title { font-size: 52px; font-weight: 400; letter-spacing: 2px; line-height: 1.25; font-style: italic; margin-bottom: 45px; text-shadow: 0 2px 20px rgba(0,0,0,0.4); }
 .hero-btn {
   display: inline-block; padding: 18px 55px;
   background: transparent; color: #fff;
-  border: 1px solid rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.85);
   font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
   text-decoration: none; cursor: pointer;
   transition: background 0.4s, color 0.4s, border-color 0.4s;
@@ -169,16 +180,24 @@ section { padding: 100px 20px; }
 .about-text p + p { margin-top: 22px; }
 .about-text strong { color: #111; font-weight: 500; }
 
+/* PORTFOLIO - sticky tabs */
 .portfolio-section { padding: 80px 0 100px; background: #fff; }
 .portfolio-header { padding: 0 20px 40px; text-align: center; }
 .portfolio-tabs {
-  position: sticky; top: 62px; background: #fff; z-index: 80;
-  padding: 20px 20px; border-top: 1px solid #f0f0f0;
+  position: sticky; 
+  top: 62px; 
+  background: #fff; 
+  z-index: 80;
+  padding: 18px 20px; 
+  border-top: 1px solid #f0f0f0;
   border-bottom: 1px solid #f0f0f0;
-  display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;
+  display: flex; 
+  justify-content: center; 
+  gap: 8px; 
+  flex-wrap: wrap;
   transition: box-shadow 0.3s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
 }
-.portfolio-tabs.stuck { box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
 .tab-button {
   background: none; border: none; font-family: inherit;
   font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
@@ -195,7 +214,7 @@ section { padding: 100px 20px; }
 .tab-panel-header { text-align: center; max-width: 800px; margin: 0 auto 40px; }
 .tab-panel h3 { font-size: 26px; font-weight: 400; letter-spacing: 6px; text-transform: uppercase; }
 
-/* UNIFORMNA GALERIJA - sve slike iste veličine */
+/* GALERIJA - cijele slike, simetrična */
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -205,11 +224,13 @@ section { padding: 100px 20px; }
 }
 .gallery img {
   width: 100%;
-  aspect-ratio: 4/3;
-  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: #f5f0e8;
   display: block;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+  transition: transform 0.5s, opacity 0.3s;
   cursor: pointer;
+  padding: 4px;
 }
 .gallery img:hover { transform: scale(1.02); opacity: 0.92; }
 
@@ -234,19 +255,23 @@ section { padding: 100px 20px; }
 .step-title { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #111; margin-bottom: 12px; font-weight: 600; }
 .step-desc { font-size: 13px; color: #777; line-height: 1.6; }
 
+/* PONUDA - pojednostavljena */
 .ponuda { background: #f2ede4; text-align: center; }
-.ponuda-content { max-width: 750px; margin: 0 auto 40px; font-size: 16px; color: #444; line-height: 1.95; }
-.ponuda-content p + p { margin-top: 22px; }
-.ponuda-steps { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; max-width: 900px; margin: 0 auto 40px; }
-.ponuda-step { text-align: center; flex: 1; min-width: 180px; }
-.ponuda-step-icon { font-size: 32px; margin-bottom: 15px; display: block; }
-.ponuda-step-text { font-size: 13px; letter-spacing: 2px; color: #444; text-transform: uppercase; }
+.ponuda-simple {
+  max-width: 650px;
+  margin: 0 auto 45px;
+  font-size: 17px;
+  color: #444;
+  line-height: 2;
+  font-style: italic;
+  font-family: Georgia, serif;
+}
 .ponuda-btn {
   display: inline-flex; align-items: center; gap: 10px;
   background: #111; color: #fff; border: none;
-  padding: 16px 45px; font-family: inherit; font-size: 11px;
+  padding: 18px 50px; font-family: inherit; font-size: 11px;
   letter-spacing: 4px; text-transform: uppercase; cursor: pointer;
-  transition: background 0.3s, transform 0.3s; margin-top: 30px;
+  transition: background 0.3s, transform 0.3s;
 }
 .ponuda-btn:hover { background: #333; transform: translateY(-2px); }
 .ponuda-btn svg { width: 16px; height: 16px; fill: currentColor; }
@@ -365,45 +390,50 @@ footer p a:hover { opacity: 0.5; }
 }
 
 @media (max-width: 900px) {
-  .ponuda-steps { gap: 30px; }
   .steps-grid { grid-template-columns: repeat(2, 1fr); }
   .step-card:not(:last-child)::after { display: none; }
   .gallery { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 768px) {
-  .hero-title { font-size: 32px; }
+  .hero-title { font-size: 30px; }
   .hero-brand { font-size: 11px; letter-spacing: 6px; }
-  .hero-btn { padding: 15px 40px; font-size: 11px; }
+  .hero-btn { padding: 14px 35px; font-size: 10px; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
   .about-text { text-align: center; }
   .lang-switch { top: 15px; right: 15px; padding: 4px 8px; }
   .floating-instagram { bottom: 40px; left: 20px; }
   .floating-whatsapp { bottom: 90px; left: 20px; }
   
-  nav { padding: 12px 0; }
-  nav.sticky { padding: 10px 0; }
-  nav ul { gap: 6px; padding: 0 8px; }
-  nav a, nav .nav-item { font-size: 8px; letter-spacing: 1.2px; padding: 5px 0; }
-  .dropdown-menu { min-width: 150px; }
+  nav { padding: 10px 0; }
+  nav.sticky { padding: 8px 0; }
+  nav ul { gap: 5px; padding: 0 6px; }
+  nav a, nav .nav-item { font-size: 7px; letter-spacing: 1px; padding: 4px 0; }
+  .dropdown-menu { min-width: 140px; }
   
+  /* Portfolio tabs - fiksirano na mobilnom, ostaju vidljive */
   .portfolio-tabs { 
-    top: 46px; 
+    top: 38px; 
     padding: 10px 6px; 
-    gap: 3px; 
+    gap: 2px;
+    position: sticky;
   }
   .tab-button { 
     font-size: 8px; 
-    padding: 7px 8px; 
-    letter-spacing: 1px; 
+    padding: 6px 7px; 
+    letter-spacing: 0.8px; 
   }
-  .tab-panel h3 { font-size: 18px; letter-spacing: 3px; }
-  .tab-panel-header { margin-bottom: 30px; }
-  .tab-panels { padding: 35px 12px 0; }
+  .tab-panel h3 { font-size: 16px; letter-spacing: 3px; }
+  .tab-panel-header { margin-bottom: 25px; }
+  .tab-panels { padding: 30px 10px 0; }
   
+  /* Galerija - 2 kolone na mobilnom */
   .gallery {
     grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
+    gap: 5px;
+  }
+  .gallery img {
+    padding: 2px;
   }
   
   .contact { padding: 60px 15px; }
@@ -412,7 +442,7 @@ footer p a:hover { opacity: 0.5; }
   .contact-links a { font-size: 11px; padding: 8px 0; }
   .contact-form { padding: 35px 25px; }
   
-  .ponuda-content { font-size: 15px; }
+  .ponuda-simple { font-size: 15px; padding: 0 15px; }
   
   #back-to-top { bottom: 40px; right: 20px; width: 40px; height: 40px; }
   .lightbox-prev { left: 10px; font-size: 28px; }
@@ -427,11 +457,9 @@ footer p a:hover { opacity: 0.5; }
   .hero-title { font-size: 24px; }
   .hero-brand { letter-spacing: 4px; }
   .about-grid { gap: 30px; }
-  .ponuda-step { min-width: 100%; }
-  .category-links a { font-size: 12px; padding: 8px 16px; }
   .steps-grid { grid-template-columns: 1fr; gap: 8px; }
   .step-number { font-size: 32px; }
-  .portfolio-tabs { top: 42px; }
+  .portfolio-tabs { top: 36px; }
   
   .contact { padding: 50px 12px; }
   .contact-form { padding: 30px 20px; }
@@ -486,7 +514,7 @@ footer p a:hover { opacity: 0.5; }
 
 <!-- HERO -->
 <section class="hero-section">
-  <img src="images/hero.jpg" alt="Ivone Photo" class="hero-bg">
+  <img src="hero.jpg" alt="Ivone Photo" class="hero-bg">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-brand">Ivone Photo</div>
@@ -503,7 +531,7 @@ footer p a:hover { opacity: 0.5; }
 <!-- NAVIGACIJA -->
 <nav id="main-nav">
   <ul>
-    <li><a href="#about" data-en="About" data-hr="Upoznaj me">Upoznaj me</a></li>
+    <li><a href="#about" data-en="Meet Me" data-hr="Upoznaj me">Upoznaj me</a></li>
     <li><a href="#portfolio" data-en="Portfolio" data-hr="Portfolio">Portfolio</a></li>
     <li><a href="#what-receive" data-en="What You Receive" data-hr="Što dobivaš">Što dobivaš</a></li>
     <li><a href="#how-it-works" data-en="How It Works" data-hr="Kako funkcionira">Kako funkcionira</a></li>
@@ -525,7 +553,7 @@ footer p a:hover { opacity: 0.5; }
 
   <div class="about-grid">
     <div class="about-photo">
-      <img src="images/about.jpg" alt="Ivona Šarić">
+      <img src="about.jpg" alt="Ivona Šarić">
     </div>
 
     <div class="about-text">
@@ -569,18 +597,18 @@ footer p a:hover { opacity: 0.5; }
         <h3 data-en="Religious Ceremonies" data-hr="Vjerski obredi">Vjerski obredi</h3>
       </div>
       <div class="gallery">
-        <img src="images/religious-1.jpg" alt="Vjerski obred 1" class="lightbox-img">
-        <img src="images/religious-2.jpg" alt="Vjerski obred 2" class="lightbox-img">
-        <img src="images/religious-3.jpg" alt="Vjerski obred 3" class="lightbox-img">
-        <img src="images/religious-4.jpg" alt="Vjerski obred 4" class="lightbox-img">
-        <img src="images/religious-5.jpg" alt="Vjerski obred 5" class="lightbox-img">
-        <img src="images/religious-6.jpg" alt="Vjerski obred 6" class="lightbox-img">
-        <img src="images/religious-7.jpg" alt="Vjerski obred 7" class="lightbox-img">
-        <img src="images/religious-8.jpg" alt="Vjerski obred 8" class="lightbox-img">
-        <img src="images/religious-9.jpg" alt="Vjerski obred 9" class="lightbox-img">
-        <img src="images/religious-10.jpg" alt="Vjerski obred 10" class="lightbox-img">
-        <img src="images/religious-11.jpg" alt="Vjerski obred 11" class="lightbox-img">
-        <img src="images/religious-12.jpg" alt="Vjerski obred 12" class="lightbox-img">
+        <img src="religious-1.jpg" alt="Vjerski obred 1" class="lightbox-img">
+        <img src="religious-2.jpg" alt="Vjerski obred 2" class="lightbox-img">
+        <img src="religious-3.jpg" alt="Vjerski obred 3" class="lightbox-img">
+        <img src="religious-4.jpg" alt="Vjerski obred 4" class="lightbox-img">
+        <img src="religious-5.jpg" alt="Vjerski obred 5" class="lightbox-img">
+        <img src="religious-6.jpg" alt="Vjerski obred 6" class="lightbox-img">
+        <img src="religious-7.jpg" alt="Vjerski obred 7" class="lightbox-img">
+        <img src="religious-8.jpg" alt="Vjerski obred 8" class="lightbox-img">
+        <img src="religious-9.jpg" alt="Vjerski obred 9" class="lightbox-img">
+        <img src="religious-10.jpg" alt="Vjerski obred 10" class="lightbox-img">
+        <img src="religious-11.jpg" alt="Vjerski obred 11" class="lightbox-img">
+        <img src="religious-12.jpg" alt="Vjerski obred 12" class="lightbox-img">
       </div>
     </div>
 
@@ -590,14 +618,14 @@ footer p a:hover { opacity: 0.5; }
         <h3 data-en="Civil Weddings" data-hr="Sudbena vjenčanja">Sudbena vjenčanja</h3>
       </div>
       <div class="gallery">
-        <img src="images/civil-1.jpg" alt="Sudbeno vjenčanje 1" class="lightbox-img">
-        <img src="images/civil-2.jpg" alt="Sudbeno vjenčanje 2" class="lightbox-img">
-        <img src="images/civil-3.jpg" alt="Sudbeno vjenčanje 3" class="lightbox-img">
-        <img src="images/civil-4.jpg" alt="Sudbeno vjenčanje 4" class="lightbox-img">
-        <img src="images/civil-5.jpg" alt="Sudbeno vjenčanje 5" class="lightbox-img">
-        <img src="images/civil-6.jpg" alt="Sudbeno vjenčanje 6" class="lightbox-img">
-        <img src="images/civil-7.jpg" alt="Sudbeno vjenčanje 7" class="lightbox-img">
-        <img src="images/civil-8.jpg" alt="Sudbeno vjenčanje 8" class="lightbox-img">
+        <img src="civil-1.jpg" alt="Sudbeno vjenčanje 1" class="lightbox-img">
+        <img src="civil-2.jpg" alt="Sudbeno vjenčanje 2" class="lightbox-img">
+        <img src="civil-3.jpg" alt="Sudbeno vjenčanje 3" class="lightbox-img">
+        <img src="civil-4.jpg" alt="Sudbeno vjenčanje 4" class="lightbox-img">
+        <img src="civil-5.jpg" alt="Sudbeno vjenčanje 5" class="lightbox-img">
+        <img src="civil-6.jpg" alt="Sudbeno vjenčanje 6" class="lightbox-img">
+        <img src="civil-7.jpg" alt="Sudbeno vjenčanje 7" class="lightbox-img">
+        <img src="civil-8.jpg" alt="Sudbeno vjenčanje 8" class="lightbox-img">
       </div>
     </div>
 
@@ -607,10 +635,10 @@ footer p a:hover { opacity: 0.5; }
         <h3 data-en="Weddings" data-hr="Vjenčanja">Vjenčanja</h3>
       </div>
       <div class="gallery">
-        <img src="images/wedding-1.jpg" alt="Vjenčanje 1" class="lightbox-img">
-        <img src="images/wedding-2.jpg" alt="Vjenčanje 2" class="lightbox-img">
-        <img src="images/wedding-3.jpg" alt="Vjenčanje 3" class="lightbox-img">
-        <img src="images/wedding-4.jpg" alt="Vjenčanje 4" class="lightbox-img">
+        <img src="wedding-1.jpg" alt="Vjenčanje 1" class="lightbox-img">
+        <img src="wedding-2.jpg" alt="Vjenčanje 2" class="lightbox-img">
+        <img src="wedding-3.jpg" alt="Vjenčanje 3" class="lightbox-img">
+        <img src="wedding-4.jpg" alt="Vjenčanje 4" class="lightbox-img">
       </div>
     </div>
 
@@ -620,14 +648,15 @@ footer p a:hover { opacity: 0.5; }
         <h3 data-en="Maternity & Newborn" data-hr="Trudnoća i novorođenčad">Trudnoća i novorođenčad</h3>
       </div>
       <div class="gallery">
-        <img src="images/maternity-1.jpg" alt="Trudnoća 1" class="lightbox-img">
-        <img src="images/maternity-2.jpg" alt="Trudnoća 2" class="lightbox-img">
-        <img src="images/maternity-3.jpg" alt="Trudnoća 3" class="lightbox-img">
-        <img src="images/maternity-4.jpg" alt="Trudnoća 4" class="lightbox-img">
-        <img src="images/newborn-1.jpg" alt="Novorođenčad 1" class="lightbox-img">
-        <img src="images/newborn-2.jpg" alt="Novorođenčad 2" class="lightbox-img">
-        <img src="images/newborn-3.jpg" alt="Novorođenčad 3" class="lightbox-img">
-        <img src="images/newborn-4.jpg" alt="Novorođenčad 4" class="lightbox-img">
+        <img src="maternity-1.jpg" alt="Trudnoća 1" class="lightbox-img">
+        <img src="maternity-2.jpg" alt="Trudnoća 2" class="lightbox-img">
+        <img src="maternity-3.jpg" alt="Trudnoća 3" class="lightbox-img">
+        <img src="maternity-4.jpg" alt="Trudnoća 4" class="lightbox-img">
+        <img src="maternity-5.jpg" alt="Trudnoća 5" class="lightbox-img">
+        <img src="newborn-1.jpg" alt="Novorođenčad 1" class="lightbox-img">
+        <img src="newborn-2.jpg" alt="Novorođenčad 2" class="lightbox-img">
+        <img src="newborn-3.jpg" alt="Novorođenčad 3" class="lightbox-img">
+        <img src="newborn-4.jpg" alt="Novorođenčad 4" class="lightbox-img">
       </div>
     </div>
 
@@ -637,27 +666,27 @@ footer p a:hover { opacity: 0.5; }
         <h3 data-en="Couples" data-hr="Parovi">Parovi</h3>
       </div>
       <div class="gallery">
-        <img src="images/couples-1.jpg" alt="Parovi 1" class="lightbox-img">
-        <img src="images/couples-2.jpg" alt="Parovi 2" class="lightbox-img">
-        <img src="images/couples-3.jpg" alt="Parovi 3" class="lightbox-img">
-        <img src="images/couples-4.jpg" alt="Parovi 4" class="lightbox-img">
+        <img src="couples-1.jpg" alt="Parovi 1" class="lightbox-img">
+        <img src="couples-2.jpg" alt="Parovi 2" class="lightbox-img">
+        <img src="couples-3.jpg" alt="Parovi 3" class="lightbox-img">
+        <img src="couples-4.jpg" alt="Parovi 4" class="lightbox-img">
       </div>
     </div>
 
     <!-- PRODUKT I POSLOVNA FOTOGRAFIJA -->
     <div class="tab-panel" id="product">
       <div class="tab-panel-header">
-        <h3 data-en="Product & Business Photography" data-hr="Produkt i poslovna fotografija">Produkt i poslovna fotografija</h3>
+        <h3 data-en="Product & Business" data-hr="Produkt i poslovna fotografija">Produkt i poslovna fotografija</h3>
       </div>
       <div class="gallery">
-        <img src="images/product-1.jpg" alt="Produkt 1" class="lightbox-img">
-        <img src="images/product-2.jpg" alt="Produkt 2" class="lightbox-img">
-        <img src="images/product-3.jpg" alt="Produkt 3" class="lightbox-img">
-        <img src="images/product-4.jpg" alt="Produkt 4" class="lightbox-img">
-        <img src="images/product-5.jpg" alt="Produkt 5" class="lightbox-img">
-        <img src="images/product-6.jpg" alt="Produkt 6" class="lightbox-img">
-        <img src="images/product-7.jpg" alt="Produkt 7" class="lightbox-img">
-        <img src="images/product-8.jpg" alt="Produkt 8" class="lightbox-img">
+        <img src="product-1.jpg" alt="Produkt 1" class="lightbox-img">
+        <img src="product-2.jpg" alt="Produkt 2" class="lightbox-img">
+        <img src="product-3.jpg" alt="Produkt 3" class="lightbox-img">
+        <img src="product-4.jpg" alt="Produkt 4" class="lightbox-img">
+        <img src="product-5.jpg" alt="Produkt 5" class="lightbox-img">
+        <img src="product-6.jpg" alt="Produkt 6" class="lightbox-img">
+        <img src="product-7.jpg" alt="Produkt 7" class="lightbox-img">
+        <img src="product-8.jpg" alt="Produkt 8" class="lightbox-img">
       </div>
     </div>
 
@@ -667,10 +696,10 @@ footer p a:hover { opacity: 0.5; }
         <h3 data-en="Photobooks" data-hr="Fotoknjige">Fotoknjige</h3>
       </div>
       <div class="gallery">
-        <img src="images/photobook-1.jpg" alt="Fotoknjiga 1" class="lightbox-img">
-        <img src="images/photobook-2.jpg" alt="Fotoknjiga 2" class="lightbox-img">
-        <img src="images/photobook-3.jpg" alt="Fotoknjiga 3" class="lightbox-img">
-        <img src="images/photobook-4.jpg" alt="Fotoknjiga 4" class="lightbox-img">
+        <img src="photobook-1.jpg" alt="Fotoknjiga 1" class="lightbox-img">
+        <img src="photobook-2.jpg" alt="Fotoknjiga 2" class="lightbox-img">
+        <img src="photobook-3.jpg" alt="Fotoknjiga 3" class="lightbox-img">
+        <img src="photobook-4.jpg" alt="Fotoknjiga 4" class="lightbox-img">
       </div>
     </div>
 
@@ -720,44 +749,20 @@ footer p a:hover { opacity: 0.5; }
   </div>
 </section>
 
-<!-- PONUDA -->
+<!-- PONUDA - pojednostavljena -->
 <section class="ponuda reveal" id="ponuda">
   <h2 class="section-title" data-en="Offer" data-hr="Ponuda">Ponuda</h2>
   <p class="section-subtitle" data-en="A personalized offer for your story" data-hr="Personalizirana ponuda za vašu priču">Personalizirana ponuda za vašu priču</p>
 
-  <div class="ponuda-content">
-    <p data-en="Every story is different - and so is every offer."
-       data-hr="Svaka priča je drugačija - kao i svaka ponuda.">
-      Svaka priča je drugačija - kao i svaka ponuda.
-    </p>
-    <p data-en="Instead of fixed packages, I prefer to create an offer tailored just for you. Tell me what you are looking for, share your ideas and wishes - and I will send you a personalized presentation with the offer, details, and prices."
-       data-hr="Umjesto fiksnih paketa, radije stvaram ponudu koja odgovara upravo vama. Recite mi što tražite, podijelite svoje ideje i želje - a ja ću vam poslati personaliziranu prezentaciju s ponudom, detaljima i cijenama.">
-      Umjesto fiksnih paketa, radije stvaram ponudu koja odgovara upravo vama. Recite mi što tražite, podijelite svoje ideje i želje - a ja ću vam poslati personaliziranu prezentaciju s ponudom, detaljima i cijenama.
-    </p>
-    <p data-en="Reach out through the contact form and I will get back to you within 24 hours."
-       data-hr="Javite mi se preko kontakt forme i odgovorit ću vam u roku od 24 sata.">
-      Javite mi se preko kontakt forme i odgovorit ću vam u roku od 24 sata.
-    </p>
-  </div>
-
-  <div class="ponuda-steps reveal-stagger">
-    <div class="ponuda-step">
-      <span class="ponuda-step-icon">📩</span>
-      <span class="ponuda-step-text" data-en="Send an inquiry" data-hr="Pošaljite upit">Pošaljite upit</span>
-    </div>
-    <div class="ponuda-step">
-      <span class="ponuda-step-icon">💌</span>
-      <span class="ponuda-step-text" data-en="Receive your offer" data-hr="Primite personaliziranu ponudu">Primite personaliziranu ponudu</span>
-    </div>
-    <div class="ponuda-step">
-      <span class="ponuda-step-icon">📸</span>
-      <span class="ponuda-step-text" data-en="Let's book your session" data-hr="Dogovorimo termin">Dogovorimo termin</span>
-    </div>
-  </div>
+  <p class="ponuda-simple"
+     data-en="Every story is unique - so let's create a personal offer just for you. Send me a message with your ideas and wishes, and I will prepare a personalized offer with all the details."
+     data-hr="Svaka priča je jedinstvena - zato stvaram ponudu baš za vas. Javite mi se s vašim idejama i željama, a ja ću vam pripremiti personaliziranu ponudu sa svim detaljima.">
+    Svaka priča je jedinstvena - zato stvaram ponudu baš za vas. Javite mi se s vašim idejama i željama, a ja ću vam pripremiti personaliziranu ponudu sa svim detaljima.
+  </p>
 
   <button class="ponuda-btn" onclick="scrollToContact()">
     <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-    <span data-en="Request an Offer" data-hr="Zatraži ponudu">Zatraži ponudu</span>
+    <span data-en="Contact Me" data-hr="Javi mi se">Javi mi se</span>
   </button>
 </section>
 
@@ -929,18 +934,11 @@ footer p a:hover { opacity: 0.5; }
   document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
 
   const nav = document.getElementById('main-nav');
-  const tabs = document.getElementById('portfolio-tabs');
   const langSwitch = document.getElementById('lang-switch');
   
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) nav.classList.add('sticky');
     else nav.classList.remove('sticky');
-    
-    if (tabs) {
-      const rect = tabs.getBoundingClientRect();
-      if (rect.top <= 65) tabs.classList.add('stuck');
-      else tabs.classList.remove('stuck');
-    }
     
     if (window.scrollY > 100) {
       langSwitch.classList.add('hidden');
