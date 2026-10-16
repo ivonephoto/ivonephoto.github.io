@@ -1,6 +1,6 @@
 <!-- ============================================
      IVONE PHOTO - Photography Portfolio
-     Verzija: 26.0 (ispravljene putanje u images/)
+     Verzija: 27.0 (hamburger menu, side dropdown)
      ============================================ -->
 <!DOCTYPE html>
 <html lang="hr">
@@ -23,6 +23,7 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
 }
+body.menu-open { overflow: hidden; }
 h1, h2, h3, .hero-title { font-family: Georgia, 'Times New Roman', serif; }
 
 .reveal {
@@ -45,28 +46,211 @@ h1, h2, h3, .hero-title { font-family: Georgia, 'Times New Roman', serif; }
 .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.55s; }
 .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.7s; }
 
+/* ============================================
+   HR/EN GORE LIJEVO - samo na hero
+   ============================================ */
 .lang-switch {
-  position: fixed; top: 25px; right: 30px; z-index: 200;
-  display: flex; align-items: center; gap: 8px;
-  background: rgba(255,255,255,0.9); padding: 6px 12px;
-  border-radius: 20px; backdrop-filter: blur(10px);
-  transition: opacity 0.4s, transform 0.4s, visibility 0.4s;
+  position: fixed; 
+  top: 25px; 
+  left: 30px; 
+  z-index: 200;
+  display: flex; 
+  align-items: center; 
+  gap: 8px;
+  background: rgba(255,255,255,0.15); 
+  padding: 6px 12px;
+  border-radius: 20px; 
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: opacity 0.5s, transform 0.5s, visibility 0.5s;
 }
 .lang-switch.hidden {
-  opacity: 0; visibility: hidden;
+  opacity: 0; 
+  visibility: hidden;
   transform: translateY(-15px);
   pointer-events: none;
 }
 .lang-switch button {
-  background: none; border: none; color: #888;
-  font-family: inherit; font-size: 11px; letter-spacing: 1.5px;
-  cursor: pointer; padding: 4px 6px; text-transform: uppercase;
-  display: flex; align-items: center; gap: 5px; transition: opacity 0.3s;
+  background: none; 
+  border: none; 
+  color: rgba(255,255,255,0.7);
+  font-family: inherit; 
+  font-size: 11px; 
+  letter-spacing: 1.5px;
+  cursor: pointer; 
+  padding: 4px 6px; 
+  text-transform: uppercase;
+  display: flex; 
+  align-items: center; 
+  gap: 5px; 
+  transition: color 0.3s;
 }
-.lang-switch button:hover { opacity: 0.6; }
-.lang-switch button.active { color: #111; font-weight: 600; }
-.lang-switch svg { width: 18px; height: 12px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,0.08); }
-.lang-switch span { color: #ddd; font-size: 11px; }
+.lang-switch button:hover { color: #fff; }
+.lang-switch button.active { color: #fff; font-weight: 600; }
+.lang-switch svg { width: 18px; height: 12px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(255,255,255,0.2); }
+.lang-switch span { color: rgba(255,255,255,0.3); font-size: 11px; }
+
+/* ============================================
+   HAMBURGER - gore desno, uvijek vidljiv
+   ============================================ */
+.hamburger {
+  position: fixed;
+  top: 25px;
+  right: 30px;
+  z-index: 300;
+  width: 46px;
+  height: 46px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.hamburger span {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: #fff;
+  border-radius: 2px;
+  transition: background 0.3s, transform 0.3s, opacity 0.3s;
+}
+.hamburger.scrolled {
+  background: #fff;
+  border-color: #e0d6c2;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+.hamburger.scrolled span {
+  background: #111;
+}
+.hamburger:hover {
+  background: #fff;
+  border-color: #fff;
+}
+.hamburger:hover span {
+  background: #111;
+}
+.hamburger.active {
+  background: #fff;
+  border-color: #fff;
+}
+.hamburger.active span {
+  background: #111;
+}
+.hamburger.active span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* ============================================
+   SIDE MENU - klizi s desne
+   ============================================ */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 250;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s, visibility 0.4s;
+  backdrop-filter: blur(4px);
+}
+.menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  max-width: 85vw;
+  height: 100%;
+  background: #fff;
+  z-index: 260;
+  padding: 90px 40px 40px;
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+}
+.side-menu.open {
+  transform: translateX(0);
+}
+.menu-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.menu-links li a {
+  display: block;
+  color: #111;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+  transition: padding-left 0.3s, color 0.3s;
+}
+.menu-links li a:hover {
+  padding-left: 8px;
+  color: #888;
+}
+.menu-footer {
+  padding-top: 30px;
+  border-top: 1px solid #f0f0f0;
+  margin-top: 30px;
+}
+.menu-footer-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #999;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+.menu-socials {
+  display: flex;
+  gap: 15px;
+}
+.menu-socials a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f2ede4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5a4a35;
+  transition: background 0.3s, transform 0.3s;
+}
+.menu-socials a:hover {
+  background: #111;
+  color: #fff;
+  transform: translateY(-2px);
+}
+.menu-socials svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
 
 .floating-icon {
   position: fixed; width: 45px; height: 45px; border-radius: 50%;
@@ -122,46 +306,6 @@ h1, h2, h3, .hero-title { font-family: Georgia, 'Times New Roman', serif; }
   50% { transform: translateX(-50%) translateY(10px); opacity: 1; }
 }
 
-nav {
-  text-align: center; padding: 22px 0;
-  border-bottom: 1px solid #eee; background: #fff;
-  position: sticky; top: 0; z-index: 100;
-  transition: box-shadow 0.3s, padding 0.3s;
-}
-nav.sticky { box-shadow: 0 2px 25px rgba(0,0,0,0.06); padding: 16px 0; }
-nav ul {
-  list-style: none; display: inline-flex; gap: 26px;
-  align-items: center; flex-wrap: wrap; justify-content: center; padding: 0 20px;
-}
-nav a, nav .nav-item {
-  color: #111; text-decoration: none; font-size: 11px;
-  letter-spacing: 3px; text-transform: uppercase;
-  cursor: pointer; padding: 8px 0; transition: opacity 0.3s;
-}
-nav a:hover, nav .nav-item:hover { opacity: 0.5; }
-
-.dropdown { position: relative; padding-bottom: 15px; margin-bottom: -15px; }
-.dropdown-menu {
-  position: absolute; top: 100%; left: 50%;
-  transform: translateX(-50%) translateY(-8px);
-  background: #fff; border: 1px solid #eee;
-  padding: 12px 0; min-width: 220px;
-  display: block; opacity: 0; visibility: hidden; pointer-events: none;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.08); z-index: 50;
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
-}
-.dropdown:hover .dropdown-menu, .dropdown-menu:hover {
-  opacity: 1; visibility: visible; pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
-}
-.dropdown-menu a {
-  display: block; padding: 11px 28px; text-align: left;
-  font-size: 10px; letter-spacing: 2px; color: #666;
-  transition: background 0.3s, color 0.3s;
-}
-.dropdown-menu a:hover { background: #fafafa; color: #111; opacity: 1; }
-
 section { padding: 100px 20px; }
 .section-title {
   text-align: center; font-size: 28px; font-weight: 400;
@@ -180,12 +324,13 @@ section { padding: 100px 20px; }
 .about-text p + p { margin-top: 22px; }
 .about-text strong { color: #111; font-weight: 500; }
 
-.portfolio-section { padding: 80px 0 100px; background: #fff; }
+/* PORTFOLIO - sekcija i okvir slika iste boje */
+.portfolio-section { padding: 80px 0 100px; background: #fbfbfb; }
 .portfolio-header { padding: 0 20px 40px; text-align: center; }
 .portfolio-tabs {
   position: sticky; 
-  top: 62px; 
-  background: #fff; 
+  top: 0; 
+  background: #fbfbfb; 
   z-index: 80;
   padding: 18px 20px; 
   border-top: 1px solid #f0f0f0;
@@ -213,7 +358,6 @@ section { padding: 100px 20px; }
 .tab-panel-header { text-align: center; max-width: 800px; margin: 0 auto 40px; }
 .tab-panel h3 { font-size: 26px; font-weight: 400; letter-spacing: 6px; text-transform: uppercase; }
 
-/* GALERIJA - cijele slike, simetrična */
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -225,7 +369,7 @@ section { padding: 100px 20px; }
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: contain;
-  background: #f5f0e8;
+  background: #fbfbfb;
   display: block;
   transition: transform 0.5s, opacity 0.3s;
   cursor: pointer;
@@ -399,18 +543,17 @@ footer p a:hover { opacity: 0.5; }
   .hero-btn { padding: 14px 35px; font-size: 10px; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
   .about-text { text-align: center; }
-  .lang-switch { top: 15px; right: 15px; padding: 4px 8px; }
+  
+  .lang-switch { top: 15px; left: 15px; padding: 4px 8px; }
+  .hamburger { top: 15px; right: 15px; width: 42px; height: 42px; }
+  .hamburger span { width: 18px; }
+  .side-menu { width: 280px; padding: 80px 30px 30px; }
+  .menu-links li a { font-size: 12px; padding: 14px 0; letter-spacing: 2px; }
+  
   .floating-instagram { bottom: 40px; left: 20px; }
   .floating-whatsapp { bottom: 90px; left: 20px; }
   
-  nav { padding: 10px 0; }
-  nav.sticky { padding: 8px 0; }
-  nav ul { gap: 5px; padding: 0 6px; }
-  nav a, nav .nav-item { font-size: 7px; letter-spacing: 1px; padding: 4px 0; }
-  .dropdown-menu { min-width: 140px; }
-  
   .portfolio-tabs { 
-    top: 38px; 
     padding: 10px 6px; 
     gap: 2px;
   }
@@ -454,17 +597,18 @@ footer p a:hover { opacity: 0.5; }
   .about-grid { gap: 30px; }
   .steps-grid { grid-template-columns: 1fr; gap: 8px; }
   .step-number { font-size: 32px; }
-  .portfolio-tabs { top: 36px; }
   
   .contact { padding: 50px 12px; }
   .contact-form { padding: 30px 20px; }
+  
+  .side-menu { width: 100%; max-width: 100%; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- LANG SWITCH -->
+<!-- HR/EN - GORE LIJEVO (nestaje na scroll) -->
 <div class="lang-switch" id="lang-switch">
   <button id="btn-hr" class="active" onclick="setLang('hr')">
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
@@ -494,6 +638,45 @@ footer p a:hover { opacity: 0.5; }
   </button>
 </div>
 
+<!-- HAMBURGER - GORE DESNO -->
+<button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<!-- MENU OVERLAY -->
+<div class="menu-overlay" id="menu-overlay" onclick="closeMenu()"></div>
+
+<!-- SIDE MENU -->
+<aside class="side-menu" id="side-menu">
+  <ul class="menu-links">
+    <li><a href="#about" onclick="closeMenu()" data-en="Meet Me" data-hr="Upoznaj me">Upoznaj me</a></li>
+    <li><a href="#portfolio" onclick="closeMenu()" data-en="Portfolio" data-hr="Portfolio">Portfolio</a></li>
+    <li><a href="#what-receive" onclick="closeMenu()" data-en="What You Receive" data-hr="Što dobivaš">Što dobivaš</a></li>
+    <li><a href="#how-it-works" onclick="closeMenu()" data-en="How It Works" data-hr="Kako funkcionira">Kako funkcionira</a></li>
+    <li><a href="#ponuda" onclick="closeMenu()" data-en="Offer" data-hr="Ponuda">Ponuda</a></li>
+    <li><a href="gift-vouchers.html" data-en="Extras" data-hr="Extras">Extras</a></li>
+    <li><a href="#contact" onclick="closeMenu()" data-en="Contact" data-hr="Kontakt">Kontakt</a></li>
+  </ul>
+  
+  <div class="menu-footer">
+    <div class="menu-footer-label" data-en="Follow along" data-hr="Prati me">Prati me</div>
+    <div class="menu-socials">
+      <a href="https://www.instagram.com/ivone.photo/" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      </a>
+      <a href="https://wa.me/38763110767" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</aside>
+
 <!-- FLOATING IKONE -->
 <a href="https://wa.me/38763110767" target="_blank" class="floating-icon floating-whatsapp" id="float-whatsapp" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -522,24 +705,6 @@ footer p a:hover { opacity: 0.5; }
     </svg>
   </a>
 </section>
-
-<!-- NAVIGACIJA -->
-<nav id="main-nav">
-  <ul>
-    <li><a href="#about" data-en="Meet Me" data-hr="Upoznaj me">Upoznaj me</a></li>
-    <li><a href="#portfolio" data-en="Portfolio" data-hr="Portfolio">Portfolio</a></li>
-    <li><a href="#what-receive" data-en="What You Receive" data-hr="Što dobivaš">Što dobivaš</a></li>
-    <li><a href="#how-it-works" data-en="How It Works" data-hr="Kako funkcionira">Kako funkcionira</a></li>
-    <li class="dropdown">
-      <span class="nav-item" data-en="Extras" data-hr="Extras">Extras</span>
-      <div class="dropdown-menu">
-        <a href="gift-vouchers.html" data-en="Gift Vouchers" data-hr="Poklon bonovi">Poklon bonovi</a>
-      </div>
-    </li>
-    <li><a href="#ponuda" data-en="Offer" data-hr="Ponuda">Ponuda</a></li>
-    <li><a href="#contact" data-en="Contact" data-hr="Kontakt">Kontakt</a></li>
-  </ul>
-</nav>
 
 <!-- ABOUT / UPOZNAJ ME -->
 <section class="about reveal" id="about">
@@ -586,7 +751,6 @@ footer p a:hover { opacity: 0.5; }
 
   <div class="tab-panels">
 
-    <!-- VJERSKI OBREDI -->
     <div class="tab-panel active" id="religious">
       <div class="tab-panel-header">
         <h3 data-en="Religious Ceremonies" data-hr="Vjerski obredi">Vjerski obredi</h3>
@@ -607,7 +771,6 @@ footer p a:hover { opacity: 0.5; }
       </div>
     </div>
 
-    <!-- SUDBENA VJENČANJA -->
     <div class="tab-panel" id="civil">
       <div class="tab-panel-header">
         <h3 data-en="Civil Weddings" data-hr="Sudbena vjenčanja">Sudbena vjenčanja</h3>
@@ -624,7 +787,6 @@ footer p a:hover { opacity: 0.5; }
       </div>
     </div>
 
-    <!-- VJENČANJA -->
     <div class="tab-panel" id="weddings">
       <div class="tab-panel-header">
         <h3 data-en="Weddings" data-hr="Vjenčanja">Vjenčanja</h3>
@@ -637,7 +799,6 @@ footer p a:hover { opacity: 0.5; }
       </div>
     </div>
 
-    <!-- TRUDNOĆA I NOVOROĐENČAD -->
     <div class="tab-panel" id="maternity">
       <div class="tab-panel-header">
         <h3 data-en="Maternity & Newborn" data-hr="Trudnoća i novorođenčad">Trudnoća i novorođenčad</h3>
@@ -655,7 +816,6 @@ footer p a:hover { opacity: 0.5; }
       </div>
     </div>
 
-    <!-- PAROVI -->
     <div class="tab-panel" id="couples">
       <div class="tab-panel-header">
         <h3 data-en="Couples" data-hr="Parovi">Parovi</h3>
@@ -668,7 +828,6 @@ footer p a:hover { opacity: 0.5; }
       </div>
     </div>
 
-    <!-- PRODUKT I POSLOVNA FOTOGRAFIJA -->
     <div class="tab-panel" id="product">
       <div class="tab-panel-header">
         <h3 data-en="Product & Business" data-hr="Produkt i poslovna fotografija">Produkt i poslovna fotografija</h3>
@@ -685,7 +844,6 @@ footer p a:hover { opacity: 0.5; }
       </div>
     </div>
 
-    <!-- FOTOKNJIGE -->
     <div class="tab-panel" id="photobooks">
       <div class="tab-panel-header">
         <h3 data-en="Photobooks" data-hr="Fotoknjige">Fotoknjige</h3>
@@ -734,7 +892,7 @@ footer p a:hover { opacity: 0.5; }
     <div class="step-card">
       <div class="step-number">03</div>
       <div class="step-title" data-en="The Shoot" data-hr="Fotografiranje">Fotografiranje</div>
-      <p class="step-desc" data-en="Natural photography without forced poses or stiff moments." data-hr="Prirodno fotografiranje bez forsiranih poza i ukočenih trenutaka.">Prirodno fotografiranje bez forsiranih poza i ukočenih trenutaka.</p>
+      <p class="step-desc" data-en="Photography in your rhythm - with lots of laughter and warm moments." data-hr="Fotografiranje u vašem ritmu - s puno smijeha i toplih trenutaka.">Fotografiranje u vašem ritmu - s puno smijeha i toplih trenutaka.</p>
     </div>
     <div class="step-card">
       <div class="step-number">04</div>
@@ -750,9 +908,9 @@ footer p a:hover { opacity: 0.5; }
   <p class="section-subtitle" data-en="A personalized offer for your story" data-hr="Personalizirana ponuda za vašu priču">Personalizirana ponuda za vašu priču</p>
 
   <p class="ponuda-simple"
-     data-en="Every story is unique - so let's create a personal offer just for you. Send me a message with your ideas and wishes, and I will prepare a personalized offer with all the details."
-     data-hr="Svaka priča je jedinstvena - zato stvaram ponudu baš za vas. Javite mi se s vašim idejama i željama, a ja ću vam pripremiti personaliziranu ponudu sa svim detaljima.">
-    Svaka priča je jedinstvena - zato stvaram ponudu baš za vas. Javite mi se s vašim idejama i željama, a ja ću vam pripremiti personaliziranu ponudu sa svim detaljima.
+     data-en="Every story deserves its own offer. Get in touch and I will send you an offer tailored to your wishes."
+     data-hr="Svaka priča zaslužuje svoju ponudu. Javi mi se i poslat ću ti ponudu prilagođenu tvojim željama.">
+    Svaka priča zaslužuje svoju ponudu. Javi mi se i poslat ću ti ponudu prilagođenu tvojim željama.
   </p>
 
   <button class="ponuda-btn" onclick="scrollToContact()">
@@ -920,6 +1078,33 @@ footer p a:hover { opacity: 0.5; }
     refreshLightboxImages();
   }
 
+  // ===== HAMBURGER MENU =====
+  function toggleMenu() {
+    const menu = document.getElementById('side-menu');
+    const overlay = document.getElementById('menu-overlay');
+    const hamburger = document.getElementById('hamburger');
+    const isOpen = menu.classList.contains('open');
+    
+    if (isOpen) {
+      closeMenu();
+    } else {
+      menu.classList.add('open');
+      overlay.classList.add('open');
+      hamburger.classList.add('active');
+      document.body.classList.add('menu-open');
+    }
+  }
+
+  function closeMenu() {
+    const menu = document.getElementById('side-menu');
+    const overlay = document.getElementById('menu-overlay');
+    const hamburger = document.getElementById('hamburger');
+    menu.classList.remove('open');
+    overlay.classList.remove('open');
+    hamburger.classList.remove('active');
+    document.body.classList.remove('menu-open');
+  }
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -928,17 +1113,16 @@ footer p a:hover { opacity: 0.5; }
 
   document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
 
-  const nav = document.getElementById('main-nav');
   const langSwitch = document.getElementById('lang-switch');
+  const hamburger = document.getElementById('hamburger');
   
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) nav.classList.add('sticky');
-    else nav.classList.remove('sticky');
-    
     if (window.scrollY > 100) {
       langSwitch.classList.add('hidden');
+      hamburger.classList.add('scrolled');
     } else {
       langSwitch.classList.remove('hidden');
+      hamburger.classList.remove('scrolled');
     }
   });
 
@@ -1020,6 +1204,7 @@ footer p a:hover { opacity: 0.5; }
     if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowLeft') changeImage(-1);
     if (e.key === 'ArrowRight') changeImage(1);
+    if (e.key === 'Escape' && document.getElementById('side-menu').classList.contains('open')) closeMenu();
   });
 </script>
 
