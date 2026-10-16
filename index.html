@@ -1,6 +1,6 @@
 <!-- ============================================
      IVONE PHOTO - Photography Portfolio
-     Verzija: 30.0 (vidljiva bež pozadina portfolija)
+     Verzija: 31.0 (bolji mobile hero)
      ============================================ -->
 <!DOCTYPE html>
 <html lang="hr">
@@ -257,39 +257,82 @@ h1, h2, h3, .hero-title { font-family: Georgia, 'Times New Roman', serif; }
 .floating-whatsapp { bottom: 100px; left: 30px; }
 .floating-icon svg { width: 20px; height: 20px; fill: #5a4a35; }
 
+/* HERO - poboljšano za mobitel */
 .hero-section {
-  position: relative; height: 100vh; min-height: 600px;
-  display: flex; align-items: center; justify-content: center;
-  text-align: center; overflow: hidden; background: #111;
+  position: relative; 
+  height: 100vh; 
+  min-height: 600px;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  text-align: center; 
+  overflow: hidden; 
+  background: #111;
 }
 .hero-bg { 
-  position: absolute; top: 0; left: 0; 
-  width: 100%; height: 100%; 
+  position: absolute; 
+  top: 0; left: 0; 
+  width: 100%; 
+  height: 100%; 
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center center;
   z-index: 1; 
 }
 .hero-overlay { 
-  position: absolute; top: 0; left: 0; 
-  width: 100%; height: 100%; 
-  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.6) 100%);
+  position: absolute; 
+  top: 0; left: 0; 
+  width: 100%; 
+  height: 100%; 
+  background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.65) 100%);
   z-index: 2; 
 }
-.hero-content { position: relative; z-index: 3; color: #fff; padding: 0 30px; max-width: 900px; }
-.hero-brand { font-size: 13px; letter-spacing: 10px; text-transform: uppercase; color: rgba(255,255,255,0.95); margin-bottom: 30px; }
-.hero-title { font-size: 52px; font-weight: 400; letter-spacing: 2px; line-height: 1.25; font-style: italic; margin-bottom: 45px; text-shadow: 0 2px 20px rgba(0,0,0,0.4); }
+.hero-content { 
+  position: relative; 
+  z-index: 3; 
+  color: #fff; 
+  padding: 0 30px; 
+  max-width: 900px; 
+  width: 100%;
+}
+.hero-brand { 
+  font-size: 13px; 
+  letter-spacing: 10px; 
+  text-transform: uppercase; 
+  color: rgba(255,255,255,0.95); 
+  margin-bottom: 30px; 
+}
+.hero-title { 
+  font-size: 52px; 
+  font-weight: 400; 
+  letter-spacing: 2px; 
+  line-height: 1.25; 
+  font-style: italic; 
+  margin-bottom: 45px; 
+  text-shadow: 0 2px 20px rgba(0,0,0,0.5); 
+}
 .hero-btn {
-  display: inline-block; padding: 18px 55px;
-  background: transparent; color: #fff;
+  display: inline-block; 
+  padding: 18px 55px;
+  background: rgba(255,255,255,0.1); 
+  color: #fff;
   border: 1px solid rgba(255,255,255,0.85);
-  font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
-  text-decoration: none; cursor: pointer;
+  backdrop-filter: blur(10px);
+  font-size: 12px; 
+  letter-spacing: 4px; 
+  text-transform: uppercase;
+  text-decoration: none; 
+  cursor: pointer;
   transition: background 0.4s, color 0.4s, border-color 0.4s;
 }
 .hero-btn:hover { background: #fff; color: #111; border-color: #fff; }
 .hero-scroll {
-  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
-  z-index: 3; color: #fff; animation: scrollBounce 2s ease-in-out infinite;
+  position: absolute; 
+  bottom: 30px; 
+  left: 50%; 
+  transform: translateX(-50%);
+  z-index: 3; 
+  color: #fff; 
+  animation: scrollBounce 2s ease-in-out infinite;
 }
 .hero-scroll svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.5; fill: none; }
 @keyframes scrollBounce {
@@ -315,7 +358,6 @@ section { padding: 100px 20px; }
 .about-text p + p { margin-top: 22px; }
 .about-text strong { color: #111; font-weight: 500; }
 
-/* PORTFOLIO - sve ista vidljiva bež boja */
 .portfolio-section { padding: 80px 0 100px; background: #ebe6dd; }
 .portfolio-header { padding: 0 20px 40px; text-align: center; }
 .portfolio-tabs {
@@ -349,7 +391,6 @@ section { padding: 100px 20px; }
 .tab-panel-header { text-align: center; max-width: 800px; margin: 0 auto 40px; }
 .tab-panel h3 { font-size: 26px; font-weight: 400; letter-spacing: 6px; text-transform: uppercase; }
 
-/* GALERIJA - cijele slike, ista bež pozadina */
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -531,9 +572,44 @@ footer p a:hover { opacity: 0.5; }
 }
 
 @media (max-width: 768px) {
-  .hero-title { font-size: 30px; }
-  .hero-brand { font-size: 11px; letter-spacing: 6px; }
-  .hero-btn { padding: 14px 35px; font-size: 10px; }
+  /* HERO za mobitel - poboljšano */
+  .hero-section {
+    height: 85vh;
+    min-height: 500px;
+  }
+  .hero-bg {
+    object-position: center 25%;
+  }
+  .hero-overlay {
+    background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.7) 100%);
+  }
+  .hero-content {
+    padding: 0 25px;
+  }
+  .hero-brand { 
+    font-size: 10px; 
+    letter-spacing: 6px; 
+    margin-bottom: 22px;
+  }
+  .hero-title { 
+    font-size: 28px; 
+    letter-spacing: 1px;
+    line-height: 1.3;
+    margin-bottom: 35px; 
+  }
+  .hero-btn { 
+    padding: 16px 42px; 
+    font-size: 11px; 
+    letter-spacing: 3px;
+  }
+  .hero-scroll {
+    bottom: 20px;
+  }
+  .hero-scroll svg {
+    width: 20px;
+    height: 20px;
+  }
+  
   .about-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
   .about-text { text-align: center; }
   
@@ -582,8 +658,28 @@ footer p a:hover { opacity: 0.5; }
   section { padding: 60px 15px; }
   .section-title { font-size: 20px; letter-spacing: 4px; }
   .section-subtitle { font-size: 10px; }
-  .hero-title { font-size: 24px; }
-  .hero-brand { letter-spacing: 4px; }
+  
+  /* HERO za male mobitele */
+  .hero-section {
+    height: 90vh;
+    min-height: 480px;
+  }
+  .hero-bg {
+    object-position: center 30%;
+  }
+  .hero-title { 
+    font-size: 22px; 
+    letter-spacing: 0.5px;
+  }
+  .hero-brand { 
+    letter-spacing: 5px;
+    font-size: 9px;
+  }
+  .hero-btn {
+    padding: 14px 36px;
+    font-size: 10px;
+  }
+  
   .about-grid { gap: 30px; }
   .steps-grid { grid-template-columns: 1fr; gap: 8px; }
   .step-number { font-size: 32px; }
