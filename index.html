@@ -1,6 +1,6 @@
 <!-- ============================================
      IVONE PHOTO - Photography Portfolio
-     Verzija: 28.0 (swipe, fix menu)
+     Verzija: 29.0 (fix pozadine, bez brojača)
      ============================================ -->
 <!DOCTYPE html>
 <html lang="hr">
@@ -349,7 +349,7 @@ section { padding: 100px 20px; }
 .tab-panel-header { text-align: center; max-width: 800px; margin: 0 auto 40px; }
 .tab-panel h3 { font-size: 26px; font-weight: 400; letter-spacing: 6px; text-transform: uppercase; }
 
-/* GALERIJA - sve u tonu sekcije */
+/* GALERIJA - cijele slike, aspect 4/3 */
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -360,14 +360,16 @@ section { padding: 100px 20px; }
 }
 .gallery img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   object-fit: contain;
   background: #fbfbfb;
   display: block;
   transition: transform 0.5s, opacity 0.3s;
   cursor: pointer;
   padding: 0;
+  border: none;
 }
+.gallery img:hover { transform: scale(1.02); opacity: 0.92; }
 
 .what-receive { background: #faf7f2; }
 .receive-list { max-width: 700px; margin: 0 auto; list-style: none; }
@@ -521,11 +523,6 @@ footer p a:hover { opacity: 0.5; }
 .lightbox-prev { left: 20px; }
 .lightbox-next { right: 20px; }
 .lightbox-prev:hover, .lightbox-next:hover { opacity: 0.6; }
-.lightbox-counter {
-  position: absolute; bottom: 30px; left: 50%;
-  transform: translateX(-50%); color: #fff;
-  font-size: 12px; letter-spacing: 3px; opacity: 0.7;
-}
 
 @media (max-width: 900px) {
   .steps-grid { grid-template-columns: repeat(2, 1fr); }
@@ -997,7 +994,6 @@ footer p a:hover { opacity: 0.5; }
   <button class="lightbox-prev" onclick="changeImage(-1)">&#8249;</button>
   <img class="lightbox-img" id="lightbox-img" src="" alt="">
   <button class="lightbox-next" onclick="changeImage(1)">&#8250;</button>
-  <div class="lightbox-counter" id="lightbox-counter"></div>
 </div>
 
 <script>
@@ -1146,7 +1142,6 @@ footer p a:hover { opacity: 0.5; }
     document.getElementById('lightbox-img').src = src;
     document.getElementById('lightbox').classList.add('open');
     document.body.style.overflow = 'hidden';
-    updateCounter();
   }
 
   function closeLightbox() {
@@ -1159,19 +1154,13 @@ footer p a:hover { opacity: 0.5; }
     if (currentIndex < 0) currentIndex = lightboxImages.length - 1;
     if (currentIndex >= lightboxImages.length) currentIndex = 0;
     document.getElementById('lightbox-img').src = lightboxImages[currentIndex];
-    updateCounter();
-  }
-
-  function updateCounter() {
-    document.getElementById('lightbox-counter').textContent =
-      (currentIndex + 1) + ' / ' + lightboxImages.length;
   }
 
   document.getElementById('lightbox').addEventListener('click', (e) => {
     if (e.target.id === 'lightbox') closeLightbox();
   });
 
-  // ===== SWIPE U LIGHTBOXU =====
+  // SWIPE
   let touchStartX = 0;
   let touchEndX = 0;
   let touchStartY = 0;
@@ -1195,15 +1184,9 @@ footer p a:hover { opacity: 0.5; }
     const diffY = touchEndY - touchStartY;
     const minSwipe = 50;
     
-    // Samo horizontalni swipe (ignoriši vertikalne)
     if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > minSwipe) {
-      if (diffX > 0) {
-        // Swipe desno → prethodna
-        changeImage(-1);
-      } else {
-        // Swipe lijevo → sljedeća
-        changeImage(1);
-      }
+      if (diffX > 0) changeImage(-1);
+      else changeImage(1);
     }
   }
 
