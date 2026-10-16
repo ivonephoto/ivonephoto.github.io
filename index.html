@@ -1,6 +1,6 @@
 <!-- ============================================
      IVONE PHOTO - Photography Portfolio
-     Verzija: 25.0 (ispravljene putanje, cijele slike)
+     Verzija: 26.0 (ispravljene putanje u images/)
      ============================================ -->
 <!DOCTYPE html>
 <html lang="hr">
@@ -11,7 +11,7 @@
 <title>Ivone Photo</title>
 <meta name="description" content="Ivona Šarić - vjerski obredi, vjenčanja, sudbena vjenčanja, parovi, trudnoća i novorođenčad, produkt i poslovna fotografija.">
 
-<link rel="icon" type="image/jpeg" href="favicon.jpg">
+<link rel="icon" type="image/jpeg" href="images/favicon.jpg">
 
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -180,7 +180,6 @@ section { padding: 100px 20px; }
 .about-text p + p { margin-top: 22px; }
 .about-text strong { color: #111; font-weight: 500; }
 
-/* PORTFOLIO - sticky tabs */
 .portfolio-section { padding: 80px 0 100px; background: #fff; }
 .portfolio-header { padding: 0 20px 40px; text-align: center; }
 .portfolio-tabs {
@@ -218,7 +217,7 @@ section { padding: 100px 20px; }
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+  gap: 10px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -255,7 +254,6 @@ section { padding: 100px 20px; }
 .step-title { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #111; margin-bottom: 12px; font-weight: 600; }
 .step-desc { font-size: 13px; color: #777; line-height: 1.6; }
 
-/* PONUDA - pojednostavljena */
 .ponuda { background: #f2ede4; text-align: center; }
 .ponuda-simple {
   max-width: 650px;
@@ -411,12 +409,10 @@ footer p a:hover { opacity: 0.5; }
   nav a, nav .nav-item { font-size: 7px; letter-spacing: 1px; padding: 4px 0; }
   .dropdown-menu { min-width: 140px; }
   
-  /* Portfolio tabs - fiksirano na mobilnom, ostaju vidljive */
   .portfolio-tabs { 
     top: 38px; 
     padding: 10px 6px; 
     gap: 2px;
-    position: sticky;
   }
   .tab-button { 
     font-size: 8px; 
@@ -427,10 +423,9 @@ footer p a:hover { opacity: 0.5; }
   .tab-panel-header { margin-bottom: 25px; }
   .tab-panels { padding: 30px 10px 0; }
   
-  /* Galerija - 2 kolone na mobilnom */
   .gallery {
     grid-template-columns: repeat(2, 1fr);
-    gap: 5px;
+    gap: 6px;
   }
   .gallery img {
     padding: 2px;
@@ -514,7 +509,7 @@ footer p a:hover { opacity: 0.5; }
 
 <!-- HERO -->
 <section class="hero-section">
-  <img src="hero.jpg" alt="Ivone Photo" class="hero-bg">
+  <img src="images/hero.jpg" alt="Ivone Photo" class="hero-bg">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-brand">Ivone Photo</div>
@@ -553,7 +548,7 @@ footer p a:hover { opacity: 0.5; }
 
   <div class="about-grid">
     <div class="about-photo">
-      <img src="about.jpg" alt="Ivona Šarić">
+      <img src="images/about.jpg" alt="Ivona Šarić">
     </div>
 
     <div class="about-text">
@@ -597,18 +592,18 @@ footer p a:hover { opacity: 0.5; }
         <h3 data-en="Religious Ceremonies" data-hr="Vjerski obredi">Vjerski obredi</h3>
       </div>
       <div class="gallery">
-        <img src="religious-1.jpg" alt="Vjerski obred 1" class="lightbox-img">
-        <img src="religious-2.jpg" alt="Vjerski obred 2" class="lightbox-img">
-        <img src="religious-3.jpg" alt="Vjerski obred 3" class="lightbox-img">
-        <img src="religious-4.jpg" alt="Vjerski obred 4" class="lightbox-img">
-        <img src="religious-5.jpg" alt="Vjerski obred 5" class="lightbox-img">
-        <img src="religious-6.jpg" alt="Vjerski obred 6" class="lightbox-img">
-        <img src="religious-7.jpg" alt="Vjerski obred 7" class="lightbox-img">
-        <img src="religious-8.jpg" alt="Vjerski obred 8" class="lightbox-img">
-        <img src="religious-9.jpg" alt="Vjerski obred 9" class="lightbox-img">
-        <img src="religious-10.jpg" alt="Vjerski obred 10" class="lightbox-img">
-        <img src="religious-11.jpg" alt="Vjerski obred 11" class="lightbox-img">
-        <img src="religious-12.jpg" alt="Vjerski obred 12" class="lightbox-img">
+        <img src="images/religious-1.jpg" alt="Vjerski obred 1" class="lightbox-img">
+        <img src="images/religious-2.jpg" alt="Vjerski obred 2" class="lightbox-img">
+        <img src="images/religious-3.jpg" alt="Vjerski obred 3" class="lightbox-img">
+        <img src="images/religious-4.jpg" alt="Vjerski obred 4" class="lightbox-img">
+        <img src="images/religious-5.jpg" alt="Vjerski obred 5" class="lightbox-img">
+        <img src="images/religious-6.jpg" alt="Vjerski obred 6" class="lightbox-img">
+        <img src="images/religious-7.jpg" alt="Vjerski obred 7" class="lightbox-img">
+        <img src="images/religious-8.jpg" alt="Vjerski obred 8" class="lightbox-img">
+        <img src="images/religious-9.jpg" alt="Vjerski obred 9" class="lightbox-img">
+        <img src="images/religious-10.jpg" alt="Vjerski obred 10" class="lightbox-img">
+        <img src="images/religious-11.jpg" alt="Vjerski obred 11" class="lightbox-img">
+        <img src="images/religious-12.jpg" alt="Vjerski obred 12" class="lightbox-img">
       </div>
     </div>
 
@@ -618,14 +613,14 @@ footer p a:hover { opacity: 0.5; }
         <h3 data-en="Civil Weddings" data-hr="Sudbena vjenčanja">Sudbena vjenčanja</h3>
       </div>
       <div class="gallery">
-        <img src="civil-1.jpg" alt="Sudbeno vjenčanje 1" class="lightbox-img">
-        <img src="civil-2.jpg" alt="Sudbeno vjenčanje 2" class="lightbox-img">
-        <img src="civil-3.jpg" alt="Sudbeno vjenčanje 3" class="lightbox-img">
-        <img src="civil-4.jpg" alt="Sudbeno vjenčanje 4" class="lightbox-img">
-        <img src="civil-5.jpg" alt="Sudbeno vjenčanje 5" class="lightbox-img">
-        <img src="civil-6.jpg" alt="Sudbeno vjenčanje 6" class="lightbox-img">
-        <img src="civil-7.jpg" alt="Sudbeno vjenčanje 7" class="lightbox-img">
-        <img src="civil-8.jpg" alt="Sudbeno vjenčanje 8" class="lightbox-img">
+        <img src="images/civil-1.jpg" alt="Sudbeno vjenčanje 1" class="lightbox-img">
+        <img src="images/civil-2.jpg" alt="Sudbeno vjenčanje 2" class="lightbox-img">
+        <img src="images/civil-3.jpg" alt="Sudbeno vjenčanje 3" class="lightbox-img">
+        <img src="images/civil-4.jpg" alt="Sudbeno vjenčanje 4" class="lightbox-img">
+        <img src="images/civil-5.jpg" alt="Sudbeno vjenčanje 5" class="lightbox-img">
+        <img src="images/civil-6.jpg" alt="Sudbeno vjenčanje 6" class="lightbox-img">
+        <img src="images/civil-7.jpg" alt="Sudbeno vjenčanje 7" class="lightbox-img">
+        <img src="images/civil-8.jpg" alt="Sudbeno vjenčanje 8" class="lightbox-img">
       </div>
     </div>
 
@@ -635,10 +630,10 @@ footer p a:hover { opacity: 0.5; }
         <h3 data-en="Weddings" data-hr="Vjenčanja">Vjenčanja</h3>
       </div>
       <div class="gallery">
-        <img src="wedding-1.jpg" alt="Vjenčanje 1" class="lightbox-img">
-        <img src="wedding-2.jpg" alt="Vjenčanje 2" class="lightbox-img">
-        <img src="wedding-3.jpg" alt="Vjenčanje 3" class="lightbox-img">
-        <img src="wedding-4.jpg" alt="Vjenčanje 4" class="lightbox-img">
+        <img src="images/wedding-1.jpg" alt="Vjenčanje 1" class="lightbox-img">
+        <img src="images/wedding-2.jpg" alt="Vjenčanje 2" class="lightbox-img">
+        <img src="images/wedding-3.jpg" alt="Vjenčanje 3" class="lightbox-img">
+        <img src="images/wedding-4.jpg" alt="Vjenčanje 4" class="lightbox-img">
       </div>
     </div>
 
@@ -648,15 +643,15 @@ footer p a:hover { opacity: 0.5; }
         <h3 data-en="Maternity & Newborn" data-hr="Trudnoća i novorođenčad">Trudnoća i novorođenčad</h3>
       </div>
       <div class="gallery">
-        <img src="maternity-1.jpg" alt="Trudnoća 1" class="lightbox-img">
-        <img src="maternity-2.jpg" alt="Trudnoća 2" class="lightbox-img">
-        <img src="maternity-3.jpg" alt="Trudnoća 3" class="lightbox-img">
-        <img src="maternity-4.jpg" alt="Trudnoća 4" class="lightbox-img">
-        <img src="maternity-5.jpg" alt="Trudnoća 5" class="lightbox-img">
-        <img src="newborn-1.jpg" alt="Novorođenčad 1" class="lightbox-img">
-        <img src="newborn-2.jpg" alt="Novorođenčad 2" class="lightbox-img">
-        <img src="newborn-3.jpg" alt="Novorođenčad 3" class="lightbox-img">
-        <img src="newborn-4.jpg" alt="Novorođenčad 4" class="lightbox-img">
+        <img src="images/maternity-1.jpg" alt="Trudnoća 1" class="lightbox-img">
+        <img src="images/maternity-2.jpg" alt="Trudnoća 2" class="lightbox-img">
+        <img src="images/maternity-3.jpg" alt="Trudnoća 3" class="lightbox-img">
+        <img src="images/maternity-4.jpg" alt="Trudnoća 4" class="lightbox-img">
+        <img src="images/maternity-5.jpg" alt="Trudnoća 5" class="lightbox-img">
+        <img src="images/newborn-1.jpg" alt="Novorođenčad 1" class="lightbox-img">
+        <img src="images/newborn-2.jpg" alt="Novorođenčad 2" class="lightbox-img">
+        <img src="images/newborn-3.jpg" alt="Novorođenčad 3" class="lightbox-img">
+        <img src="images/newborn-4.jpg" alt="Novorođenčad 4" class="lightbox-img">
       </div>
     </div>
 
@@ -666,10 +661,10 @@ footer p a:hover { opacity: 0.5; }
         <h3 data-en="Couples" data-hr="Parovi">Parovi</h3>
       </div>
       <div class="gallery">
-        <img src="couples-1.jpg" alt="Parovi 1" class="lightbox-img">
-        <img src="couples-2.jpg" alt="Parovi 2" class="lightbox-img">
-        <img src="couples-3.jpg" alt="Parovi 3" class="lightbox-img">
-        <img src="couples-4.jpg" alt="Parovi 4" class="lightbox-img">
+        <img src="images/couples-1.jpg" alt="Parovi 1" class="lightbox-img">
+        <img src="images/couples-2.jpg" alt="Parovi 2" class="lightbox-img">
+        <img src="images/couples-3.jpg" alt="Parovi 3" class="lightbox-img">
+        <img src="images/couples-4.jpg" alt="Parovi 4" class="lightbox-img">
       </div>
     </div>
 
@@ -679,14 +674,14 @@ footer p a:hover { opacity: 0.5; }
         <h3 data-en="Product & Business" data-hr="Produkt i poslovna fotografija">Produkt i poslovna fotografija</h3>
       </div>
       <div class="gallery">
-        <img src="product-1.jpg" alt="Produkt 1" class="lightbox-img">
-        <img src="product-2.jpg" alt="Produkt 2" class="lightbox-img">
-        <img src="product-3.jpg" alt="Produkt 3" class="lightbox-img">
-        <img src="product-4.jpg" alt="Produkt 4" class="lightbox-img">
-        <img src="product-5.jpg" alt="Produkt 5" class="lightbox-img">
-        <img src="product-6.jpg" alt="Produkt 6" class="lightbox-img">
-        <img src="product-7.jpg" alt="Produkt 7" class="lightbox-img">
-        <img src="product-8.jpg" alt="Produkt 8" class="lightbox-img">
+        <img src="images/product-1.jpg" alt="Produkt 1" class="lightbox-img">
+        <img src="images/product-2.jpg" alt="Produkt 2" class="lightbox-img">
+        <img src="images/product-3.jpg" alt="Produkt 3" class="lightbox-img">
+        <img src="images/product-4.jpg" alt="Produkt 4" class="lightbox-img">
+        <img src="images/product-5.jpg" alt="Produkt 5" class="lightbox-img">
+        <img src="images/product-6.jpg" alt="Produkt 6" class="lightbox-img">
+        <img src="images/product-7.jpg" alt="Produkt 7" class="lightbox-img">
+        <img src="images/product-8.jpg" alt="Produkt 8" class="lightbox-img">
       </div>
     </div>
 
@@ -696,10 +691,10 @@ footer p a:hover { opacity: 0.5; }
         <h3 data-en="Photobooks" data-hr="Fotoknjige">Fotoknjige</h3>
       </div>
       <div class="gallery">
-        <img src="photobook-1.jpg" alt="Fotoknjiga 1" class="lightbox-img">
-        <img src="photobook-2.jpg" alt="Fotoknjiga 2" class="lightbox-img">
-        <img src="photobook-3.jpg" alt="Fotoknjiga 3" class="lightbox-img">
-        <img src="photobook-4.jpg" alt="Fotoknjiga 4" class="lightbox-img">
+        <img src="images/photobook-1.jpg" alt="Fotoknjiga 1" class="lightbox-img">
+        <img src="images/photobook-2.jpg" alt="Fotoknjiga 2" class="lightbox-img">
+        <img src="images/photobook-3.jpg" alt="Fotoknjiga 3" class="lightbox-img">
+        <img src="images/photobook-4.jpg" alt="Fotoknjiga 4" class="lightbox-img">
       </div>
     </div>
 
@@ -749,7 +744,7 @@ footer p a:hover { opacity: 0.5; }
   </div>
 </section>
 
-<!-- PONUDA - pojednostavljena -->
+<!-- PONUDA -->
 <section class="ponuda reveal" id="ponuda">
   <h2 class="section-title" data-en="Offer" data-hr="Ponuda">Ponuda</h2>
   <p class="section-subtitle" data-en="A personalized offer for your story" data-hr="Personalizirana ponuda za vašu priču">Personalizirana ponuda za vašu priču</p>
