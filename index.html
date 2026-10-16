@@ -1,6 +1,6 @@
 <!-- ============================================
      IVONE PHOTO - Photography Portfolio
-     Verzija: 29.0 (fix pozadine, bez brojača)
+     Verzija: 30.0 (vidljiva bež pozadina portfolija)
      ============================================ -->
 <!DOCTYPE html>
 <html lang="hr">
@@ -315,17 +315,17 @@ section { padding: 100px 20px; }
 .about-text p + p { margin-top: 22px; }
 .about-text strong { color: #111; font-weight: 500; }
 
-/* PORTFOLIO - sve ista boja */
-.portfolio-section { padding: 80px 0 100px; background: #fbfbfb; }
+/* PORTFOLIO - sve ista vidljiva bež boja */
+.portfolio-section { padding: 80px 0 100px; background: #ebe6dd; }
 .portfolio-header { padding: 0 20px 40px; text-align: center; }
 .portfolio-tabs {
   position: sticky; 
   top: 0; 
-  background: #fbfbfb; 
+  background: #ebe6dd; 
   z-index: 80;
   padding: 18px 20px; 
-  border-top: 1px solid #f0f0f0;
-  border-bottom: 1px solid #f0f0f0;
+  border-top: 1px solid #ddd6ca;
+  border-bottom: 1px solid #ddd6ca;
   display: flex; 
   justify-content: center; 
   gap: 8px; 
@@ -342,27 +342,27 @@ section { padding: 100px 20px; }
 }
 .tab-button:hover { color: #111; }
 .tab-button.active { color: #111; border-bottom-color: #111; }
-.tab-panels { padding: 60px 20px 0; max-width: 1200px; margin: 0 auto; background: #fbfbfb; }
+.tab-panels { padding: 60px 20px 0; max-width: 1200px; margin: 0 auto; background: #ebe6dd; }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; animation: fadeIn 0.6s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 .tab-panel-header { text-align: center; max-width: 800px; margin: 0 auto 40px; }
 .tab-panel h3 { font-size: 26px; font-weight: 400; letter-spacing: 6px; text-transform: uppercase; }
 
-/* GALERIJA - cijele slike, aspect 4/3 */
+/* GALERIJA - cijele slike, ista bež pozadina */
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   max-width: 1200px;
   margin: 0 auto;
-  background: #fbfbfb;
+  background: #ebe6dd;
 }
 .gallery img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: contain;
-  background: #fbfbfb;
+  background: #ebe6dd;
   display: block;
   transition: transform 0.5s, opacity 0.3s;
   cursor: pointer;
@@ -1160,7 +1160,6 @@ footer p a:hover { opacity: 0.5; }
     if (e.target.id === 'lightbox') closeLightbox();
   });
 
-  // SWIPE
   let touchStartX = 0;
   let touchEndX = 0;
   let touchStartY = 0;
