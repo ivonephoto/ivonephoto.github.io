@@ -1,6 +1,6 @@
 <!-- ============================================
      IVONE PHOTO - Photography Portfolio
-     Verzija: 33.0 (elegantan grid raspored, ispravci)
+     Verzija: 34.0 (ikone u novoj boji, hero bez cropanja)
      ============================================ -->
 <!DOCTYPE html>
 <html lang="hr">
@@ -243,20 +243,28 @@ h1, h2, h3, .hero-title { font-family: Georgia, 'Times New Roman', serif; }
   fill: currentColor;
 }
 
+/* FLOATING IKONE - nova boja */
 .floating-icon {
   position: fixed; width: 45px; height: 45px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  z-index: 90; background: #f2ede4; border: 1px solid #e0d6c2;
-  box-shadow: 0 4px 15px rgba(140,120,90,0.15);
+  z-index: 90; 
+  background: #dbe4e0; 
+  border: 1px solid #c5d0cb;
+  box-shadow: 0 4px 15px rgba(70,90,80,0.15);
   transition: transform 0.3s, box-shadow 0.3s, opacity 0.4s, visibility 0.4s, background 0.3s;
   text-decoration: none;
 }
-.floating-icon:hover { transform: translateY(-3px) scale(1.08); box-shadow: 0 8px 22px rgba(140,120,90,0.25); background: #fff; }
+.floating-icon:hover { 
+  transform: translateY(-3px) scale(1.08); 
+  box-shadow: 0 8px 22px rgba(70,90,80,0.25); 
+  background: #fff; 
+}
 .floating-icon.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 .floating-instagram { bottom: 45px; left: 30px; }
 .floating-whatsapp { bottom: 100px; left: 30px; }
-.floating-icon svg { width: 20px; height: 20px; fill: #5a4a35; }
+.floating-icon svg { width: 20px; height: 20px; fill: #3a4a44; }
 
+/* HERO - blur pozadina za desktop */
 .hero-section {
   position: relative; 
   height: 100vh; 
@@ -268,12 +276,22 @@ h1, h2, h3, .hero-title { font-family: Georgia, 'Times New Roman', serif; }
   overflow: hidden; 
   background: #111;
 }
+.hero-bg-blur {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(40px) brightness(0.5);
+  transform: scale(1.15);
+  z-index: 0;
+}
 .hero-bg { 
   position: absolute; 
   top: 0; left: 0; 
   width: 100%; 
   height: 100%; 
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
   z-index: 1; 
 }
@@ -282,7 +300,7 @@ h1, h2, h3, .hero-title { font-family: Georgia, 'Times New Roman', serif; }
   top: 0; left: 0; 
   width: 100%; 
   height: 100%; 
-  background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.65) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.5) 100%);
   z-index: 2; 
 }
 .hero-content { 
@@ -576,12 +594,17 @@ footer p a:hover { opacity: 0.5; }
 }
 
 @media (max-width: 768px) {
+  /* HERO za mobitel - cover, bez blura */
   .hero-section {
     height: 85vh;
     min-height: 500px;
   }
   .hero-bg {
+    object-fit: cover;
     object-position: center 25%;
+  }
+  .hero-bg-blur {
+    display: none;
   }
   .hero-overlay {
     background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.7) 100%);
@@ -667,6 +690,7 @@ footer p a:hover { opacity: 0.5; }
     min-height: 480px;
   }
   .hero-bg {
+    object-fit: cover;
     object-position: center 30%;
   }
   .hero-title { 
@@ -769,6 +793,7 @@ footer p a:hover { opacity: 0.5; }
 </a>
 
 <section class="hero-section">
+  <img src="images/hero.jpg" alt="" class="hero-bg-blur" aria-hidden="true">
   <img src="images/hero.jpg" alt="Ivone Photo" class="hero-bg">
   <div class="hero-overlay"></div>
   <div class="hero-content">
