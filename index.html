@@ -1,6 +1,6 @@
 <!-- ============================================
      IVONE PHOTO - Photography Portfolio
-     Verzija: 32.0 (masonry galerija, nova boja, ispravci)
+     Verzija: 33.0 (elegantan grid raspored, ispravci)
      ============================================ -->
 <!DOCTYPE html>
 <html lang="hr">
@@ -357,7 +357,7 @@ section { padding: 100px 20px; }
 .about-text p + p { margin-top: 22px; }
 .about-text strong { color: #111; font-weight: 500; }
 
-/* PORTFOLIO - nova boja i masonry */
+/* PORTFOLIO - elegantan grid raspored */
 .portfolio-section { padding: 80px 0 100px; background: #dbe4e0; }
 .portfolio-header { padding: 0 20px 40px; text-align: center; }
 .portfolio-tabs {
@@ -391,19 +391,20 @@ section { padding: 100px 20px; }
 .tab-panel-header { text-align: center; max-width: 800px; margin: 0 auto 40px; }
 .tab-panel h3 { font-size: 26px; font-weight: 400; letter-spacing: 6px; text-transform: uppercase; }
 
-/* MASONRY GALERIJA - bez okvira i ispuna */
+/* GALERIJA - fiksni grid za savršenu simetriju */
 .gallery {
-  column-count: 3;
-  column-gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
   max-width: 1200px;
   margin: 0 auto;
 }
 .gallery img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
   display: block;
-  margin-bottom: 10px;
-  break-inside: avoid;
   transition: transform 0.5s, opacity 0.3s;
   cursor: pointer;
 }
@@ -565,7 +566,6 @@ footer p a:hover { opacity: 0.5; }
 @media (max-width: 900px) {
   .steps-grid { grid-template-columns: repeat(2, 1fr); }
   .step-card:not(:last-child)::after { display: none; }
-  .gallery { column-count: 2; }
 }
 
 @media (max-width: 768px) {
@@ -632,11 +632,8 @@ footer p a:hover { opacity: 0.5; }
   .tab-panels { padding: 30px 10px 0; }
   
   .gallery {
-    column-count: 2;
-    column-gap: 8px;
-  }
-  .gallery img {
-    margin-bottom: 8px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
   }
   
   .contact { padding: 60px 15px; }
@@ -879,7 +876,6 @@ footer p a:hover { opacity: 0.5; }
         <img src="images/maternity-2.jpg" alt="Trudnoća 2" class="lightbox-img">
         <img src="images/maternity-3.jpg" alt="Trudnoća 3" class="lightbox-img">
         <img src="images/maternity-4.jpg" alt="Trudnoća 4" class="lightbox-img">
-        <img src="images/maternity-5.jpg" alt="Trudnoća 5" class="lightbox-img">
         <img src="images/newborn-1.jpg" alt="Novorođenčad 1" class="lightbox-img">
         <img src="images/newborn-2.jpg" alt="Novorođenčad 2" class="lightbox-img">
         <img src="images/newborn-3.jpg" alt="Novorođenčad 3" class="lightbox-img">
