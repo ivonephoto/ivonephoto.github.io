@@ -14,7 +14,7 @@
 html { scroll-behavior: smooth; }
 body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  background: #f2ede4;
+  background: #dbe4e0;
   color: #111;
   line-height: 1.6;
 }
@@ -40,8 +40,8 @@ h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; }
 .page-header {
   text-align: center;
   padding: 140px 20px 80px;
-  background: #fff;
-  border-bottom: 1px solid #eee;
+  background: #faf7f2;
+  border-bottom: 1px solid #c5d0cb;
 }
 .page-title {
   font-size: 42px;
@@ -53,7 +53,7 @@ h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; }
 .page-subtitle {
   font-size: 12px;
   letter-spacing: 4px;
-  color: #999;
+  color: #7a8a84;
   text-transform: uppercase;
 }
 
@@ -64,7 +64,7 @@ section { padding: 100px 20px; }
   margin: 0 auto 60px;
   text-align: center;
   font-size: 16px;
-  color: #444;
+  color: #3a4a44;
   line-height: 2;
 }
 .content-block p + p { margin-top: 22px; }
@@ -73,18 +73,21 @@ section { padding: 100px 20px; }
   font-family: Georgia, serif;
   font-style: italic;
   font-size: 15px;
-  color: #666;
+  color: #5a6b64;
 }
 
+/* GALERIJA - 3 slike, elegantan grid */
 .gallery {
-  column-count: 3;
-  column-gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
   max-width: 1100px;
   margin: 0 auto;
 }
 .gallery img {
-  width: 100%; height: auto; display: block; margin-bottom: 12px;
-  break-inside: avoid;
+  width: 100%;
+  height: auto;
+  display: block;
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
   cursor: pointer;
 }
@@ -93,24 +96,25 @@ section { padding: 100px 20px; }
 .cta-section {
   text-align: center;
   padding: 100px 20px;
-  background: #fff;
+  background: #5a6b64;
+  color: #fff;
 }
 .cta-text {
   max-width: 600px;
   margin: 0 auto 40px;
   font-size: 16px;
-  color: #444;
+  color: rgba(255,255,255,0.85);
   line-height: 1.9;
 }
 .cta-btn {
   display: inline-flex; align-items: center; gap: 12px;
   padding: 18px 50px;
-  background: #111; color: #fff;
+  background: #faf7f2; color: #2a3a34;
   font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
   text-decoration: none;
   transition: background 0.3s, transform 0.3s;
 }
-.cta-btn:hover { background: #333; transform: translateY(-2px); }
+.cta-btn:hover { background: #fff; transform: translateY(-2px); }
 .cta-btn svg {
   width: 18px; height: 18px;
   fill: none; stroke: currentColor;
@@ -146,25 +150,20 @@ section { padding: 100px 20px; }
 .lightbox-prev { left: 20px; }
 .lightbox-next { right: 20px; }
 .lightbox-prev:hover, .lightbox-next:hover { opacity: 0.6; }
-.lightbox-counter {
-  position: absolute; bottom: 30px; left: 50%;
-  transform: translateX(-50%); color: #fff;
-  font-size: 12px; letter-spacing: 3px; opacity: 0.7;
-}
 
 @media (max-width: 900px) {
-  .gallery { column-count: 2; }
+  .gallery { grid-template-columns: repeat(3, 1fr); gap: 10px; }
 }
 @media (max-width: 768px) {
   .page-title { font-size: 28px; letter-spacing: 5px; }
   .back-home { top: 15px; left: 15px; font-size: 10px; }
+  .gallery { grid-template-columns: 1fr; gap: 12px; max-width: 500px; }
 }
 @media (max-width: 480px) {
   section { padding: 60px 15px; }
   .page-header { padding: 100px 20px 50px; }
   .page-title { font-size: 22px; letter-spacing: 4px; }
-  .gallery { column-count: 2; column-gap: 8px; }
-  .gallery img { margin-bottom: 8px; }
+  .content-block { font-size: 15px; }
 }
 </style>
 </head>
@@ -213,7 +212,6 @@ section { padding: 100px 20px; }
   <button class="lightbox-prev" onclick="changeImage(-1)">&#8249;</button>
   <img class="lightbox-img" id="lightbox-img" src="" alt="">
   <button class="lightbox-next" onclick="changeImage(1)">&#8250;</button>
-  <div class="lightbox-counter" id="lightbox-counter"></div>
 </div>
 
 <script>
@@ -237,7 +235,6 @@ section { padding: 100px 20px; }
     document.getElementById('lightbox-img').src = src;
     document.getElementById('lightbox').classList.add('open');
     document.body.style.overflow = 'hidden';
-    updateCounter();
   }
 
   function closeLightbox() {
@@ -250,12 +247,6 @@ section { padding: 100px 20px; }
     if (currentIndex < 0) currentIndex = lightboxImages.length - 1;
     if (currentIndex >= lightboxImages.length) currentIndex = 0;
     document.getElementById('lightbox-img').src = lightboxImages[currentIndex];
-    updateCounter();
-  }
-
-  function updateCounter() {
-    document.getElementById('lightbox-counter').textContent =
-      (currentIndex + 1) + ' / ' + lightboxImages.length;
   }
 
   document.getElementById('lightbox').addEventListener('click', (e) => {
